@@ -1,0 +1,7 @@
+- var items = ["Главная", "Обо мне", "Навыки", "Работы", "Отзывы", "Связаться"]
+
+.nav
+  ul.nav__list
+    each item in items
+      li.nav__item
+        a(href="#").nav__link #{item}

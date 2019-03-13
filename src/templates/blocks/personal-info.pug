@@ -1,0 +1,17 @@
+- var tableRows = { "Проживаю:": "Москва", "Возраст:": "24 года", "Родился:": "16 октября 1994" }
+
+section.personal-info
+  .container
+    .personal-info__content-wrapper
+      .personal-info__content
+        .personal-info__col
+          .personal-info__image-block
+            .personal-info__image-wrapper
+              +image("content/user.jpg", "personal-info__image")
+          .personal-info__table-info
+            table.personal-info__table
+              each value, key in tableRows
+                tr.personal-info__row
+                  td.personal-info__col.personal-info__col--title #{key}
+                  td.personal-info__col.personal-info__col--content #{value}
+        .personal-info__col

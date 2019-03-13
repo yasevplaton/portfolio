@@ -1,0 +1,7 @@
+- var items = ['inst', 'vk', 'gh']
+
+.socials
+  ul.socials__list
+    each item in items
+      li(class=`socials__item socials__item--${item}`)
+        a(href="#").socials__link

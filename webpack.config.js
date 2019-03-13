@@ -9,7 +9,7 @@ const TerserPlugin = require("terser-webpack-plugin");
 
 module.exports = (env, argv) => {
   const isProductionBuild = argv.mode === "production";
-  const publicPath = './';
+  const publicPath = '/';
 
   const pcss = {
     test: /\.(p|post|)css$/,
@@ -114,7 +114,7 @@ module.exports = (env, argv) => {
     },
     plugins: [
       new HtmlWebpackPlugin({
-        template: "src/index.pug",
+        template: "src/templates/index.pug",
         chunks: ["main"]
       }),
       new HtmlWebpackPlugin({
