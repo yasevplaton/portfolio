@@ -4,7 +4,7 @@ section.personal-info
   .container
     .personal-info__content-wrapper
       .personal-info__content
-        .personal-info__col
+        .personal-info__image-table
           .personal-info__image-block
             .personal-info__image-wrapper
               +image("content/user.jpg", "personal-info__image")
@@ -14,4 +14,10 @@ section.personal-info
                 tr.personal-info__row
                   td.personal-info__col.personal-info__col--title #{key}
                   td.personal-info__col.personal-info__col--content #{value}
-        .personal-info__col
+        .personal-info__text-block
+          .personal-info__greeting-block
+            p.personal-info__greeting-title
+            p.personal-info__name
+          p.personal-info__info-text
+          p.personal-info__info-text--italic
+          
