@@ -36,7 +36,7 @@ module.exports = (env, argv) => {
   };
 
   const files = {
-    test: /\.(png|jpe?g|gif|woff2?)$/i,
+    test: /\.(png|jpe?g|gif|ico|woff2?)$/i,
     loader: "file-loader",
     options: {
       name: "[hash].[ext]"
@@ -114,7 +114,7 @@ module.exports = (env, argv) => {
     },
     plugins: [
       new HtmlWebpackPlugin({
-        template: "src/templates/index.pug",
+        template: "src/index.pug",
         chunks: ["main"]
       }),
       new HtmlWebpackPlugin({
