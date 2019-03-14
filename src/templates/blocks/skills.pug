@@ -1,0 +1,31 @@
+- var frontSkills = ['HTML5', 'CSS3', 'JavaScript', 'jQuery и Vue.js']
+- var workflowSkills = ['GIT', 'Terminal', 'Gulp', 'Webpack']
+
+section.skills.fullscreen-section
+  .container.skills__container
+    .skills__content-wrapper
+      h2.title.title--skills Чем я могу быть полезен вам
+      .skills__content
+        .skills__image-block
+          +image("bg/bag.png", "skills__img")
+        .skills__content-charts
+          p.skills__desc Этот сайт я сделал в рамках обучения в Школе онлайн образования LoftSchool. Чуть позже я освежу в нём свой контент. А пока посмотрите, как тут всё классно и красиво!
+          ul.skills__charts-block
+            li.skills__charts-row.skills__charts-row--frontend
+              h3.skills__charts-row-title Front-end
+              ul.skills__list
+                each skill in frontSkills
+                  li(class=`skills__item skills__item--${skill}`)
+                    svg.skills__chart(viewBox="0 0 100 100" preserveAspectRatio="none")
+                      circle.skills__circle.skills__circle--under(cx="50" cy="50" r="40")
+                      circle.skills__circle.skills__circle--above(cx="50" cy="50" r="40")
+                    span.skills__title #{skill}
+            li.skills__charts-row.skills__charts-row--workflow
+              h3.skills__charts-row-title Workflow
+              ul.skills__list
+                each skill in workflowSkills
+                  li(class=`skills__item skills__item--${skill}`)
+                    svg.skills__chart(viewBox="0 0 100 100" preserveAspectRatio="none")
+                      circle.skills__circle.skills__circle--under(cx="50" cy="50" r="40")
+                      circle.skills__circle.skills__circle--above(cx="50" cy="50" r="40")
+                    span.skills__title #{skill}

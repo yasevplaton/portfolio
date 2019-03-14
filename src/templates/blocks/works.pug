@@ -1,0 +1,44 @@
+- var workItems = [1, 2, 3, 4, 5]
+- 
+  var previewsPath = [
+  'content/work-previews/1.jpg',
+  'content/work-previews/2.jpg',
+  'content/work-previews/3.jpg',
+  'content/work-previews/4.jpg',
+  'content/work-previews/5.jpg',
+  ]
+
+- var techList = ['HTML', 'CSS', 'JavaScript']
+
+section.works.fullscreen-section
+  .container.works__container
+    .works__content-wrapper
+      h2.title.title--works Мои работы
+      .works__content
+        .works__slider
+          ul.works__slider-list
+            li.works__slider-item
+              .works__preview-block
+                .works__preview-img-wrapper
+                  +image(previewsPath[0], "works__preview-img")
+                  ul.works__preview-list
+                    each item, index in workItems
+                      - var activeClass = index === 0 ? 'works__preview-item--active': ''
+                      li(class=`works__preview-item works__preview-item-${item} ${activeClass}`)
+                        button(type="button").works__preview-item-btn
+                          +image(previewsPath[index], "works__preview-item-img")
+                .works__slider-arrows
+                  button(type="button").works__slider-arrow-wrapper
+                    +icon('arrow-down', 'works__slider-arrow works__slider-arrow--up')
+                  button(type="button").works__slider-arrow-wrapper
+                    +icon('arrow-down', 'works__slider-arrow works__slider-arrow--down')
+              .works__desc-block
+                ul.works__tech-list
+                  each item in techList
+                    span.works__tech-item #{item}
+                .works__desc
+                  .works__desc-title Сайт школы образования
+                  .works__desc-text Этот парень проходил обучение веб-разработке не где-то, а в LoftSchool! 2 месяца только самых тяжелых испытаний и бессонных ночей!
+                a(href="#").works__link Посмотреть сайт
+
+                

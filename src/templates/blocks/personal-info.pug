@@ -1,14 +1,14 @@
 - var tableRows = { "Проживаю:": "Москва", "Возраст:": "24 года", "Родился:": "16 октября 1994" }
 
 section.personal-info
-  .container
+  .container.personal-info__container
     .personal-info__content-wrapper
       .personal-info__content
-        .personal-info__image-table
+        .personal-info__image-table-block
           .personal-info__image-block
             .personal-info__image-wrapper
               +image("content/avatar.jpg", "personal-info__image")
-          .personal-info__table-info
+          .personal-info__table-block
             table.personal-info__table
               each value, key in tableRows
                 tr.personal-info__row
@@ -16,8 +16,8 @@ section.personal-info
                   td.personal-info__col.personal-info__col--content #{value}
         .personal-info__text-block
           .personal-info__greeting-block
-            p.personal-info__greeting-title
-            p.personal-info__name
-          p.personal-info__info-text
-          p.personal-info__info-text--italic
+            p.personal-info__greeting-title Привет, меня зовут
+            p.title.title--personal-info Платон Ясев
+          p.personal-info__info-text Я занимаюсь разработкой современных сайтов и приложений. Мне нравится делать интересные и современные проекты.
+          p.personal-info__info-text--italic Этот сайт я сделал в рамках обучения в Школе онлайн образования LoftSchool. Чуть позже я освежу в нём свой контент. А пока посмотрите, как тут всё классно и красиво!
           
