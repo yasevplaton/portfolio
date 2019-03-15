@@ -28,10 +28,10 @@ section.works.fullscreen-section
                         button(type="button").works__preview-item-btn
                           +image(previewsPath[index], "works__preview-item-img")
                 .works__slider-arrows
-                  button(type="button").works__slider-arrow-wrapper
-                    +icon('arrow-down', 'works__slider-arrow works__slider-arrow--up')
-                  button(type="button").works__slider-arrow-wrapper
-                    +icon('arrow-down', 'works__slider-arrow works__slider-arrow--down')
+                  button(type="button").works__slider-btn.works__slider-btn--up
+                    +icon('arrow-down', 'arrow arrow--up')
+                  button(type="button").works__slider-btn.works__slider-btn--down
+                    +icon('arrow-down', 'arrow arrow--down')
               .works__desc-block
                 ul.works__tech-list
                   each item in techList
