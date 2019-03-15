@@ -1,0 +1,30 @@
+footer.footer
+  .container.footer__container
+    .footer__copyright
+      .copyright
+        .copyright__year &copy; 2019
+        .copyright__person-info
+          .copyright__name Платон Ясев
+          .copyright__desc Личный сайт веб-разработчика
+    .footer__content
+      .footer__nav
+        - var navItems = ["Главная", "Обо мне", "Навыки", "Работы", "Отзывы", "Связаться"]
+        nav.nav
+          ul.nav__list
+            each item in navItems
+              li.nav__item
+                a(href="#").nav__link #{item}
+      .footer__content-data
+        article.footer__text Этот сайт я сделал в рамках обучения в Школе онлайн образования Loftschool
+        .footer__socials
+          - var socialItems = ['insta', 'vk', 'github']
+          .socials
+            ul.socials__list
+              each item in socialItems
+                li(class=`socials__item socials__item--${item}`)
+                  a(href="#").socials__link
+                    +icon(item, `socials__icon socials__icon--${item}`)
+        article.quote
+          .quote__text
+            p Всегда пишите код так, будто сопровождать его будет склонный к насилию психопат, который знает где вы живете
+          .quote__author Martin Golding  

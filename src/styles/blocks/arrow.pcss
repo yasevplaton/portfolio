@@ -4,13 +4,24 @@
   left: 50%;
   width: 20%;
   height: 20%;
-  fill: white;
 
   &--up {
-    transform: translate(-50%, -50%) rotate(-90deg)
+    transform: translate(-50%, -50%) rotate(-90deg);
+    fill: white;
   }
 
   &--down {
-    transform: translate(-50%, -50%) rotate(90deg)
+    transform: translate(-50%, -50%) rotate(90deg);
+    fill: white;
   }
+
+  &--left {
+    transform: translate(-50%, -50%) rotate(180deg);
+  }
+
+  &--right {
+    transform: translate(-50%, -50%);
+  }
+
+  
 }

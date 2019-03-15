@@ -9,19 +9,20 @@
     {
       "name": "Владимир Сабанцев",
       "position": "Преподаватель",
-      "content": "Этот код выдержит любые испытания. Только пожалуйста, не загружайте сайт на слишком старых браузерах",
+      "content": "Этот код выдержит любые испытания. Только пожалуйста, не загружайте сайт на слишком старых браузерах.",
       "photoPath": "content/avatar.jpg"
     }
   ]
 
 section.reviews
   .reviews__content.reviews__slider
-    h2.title.title--reviews Что обо мне говорят
-    .reviews__arrows
-      button(type="button").reviews__btn.reviews__btn--left
-        +icon('arrow-down', 'arrow arrow--left')
-      button(type="button").reviews__btn.reviews__btn--left
-        +icon('arrow-down', 'arrow arrow--right')
+    .reviews__heading-row
+      h2.title.title--reviews Что обо мне говорят
+      .reviews__arrows
+        button(type="button").reviews__btn.reviews__btn--left
+          +icon('arrow-down', 'arrow arrow--left')
+        button(type="button").reviews__btn.reviews__btn--left
+          +icon('arrow-down', 'arrow arrow--right')
     ul.reviews__list
       each item in reviewsItems
         li.reviews__item
