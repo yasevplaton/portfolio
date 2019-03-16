@@ -1,6 +1,6 @@
 - var tableRows = { "Проживаю:": "Москва", "Возраст:": "24 года", "Родился:": "16 октября 1994" }
 
-section.personal-info
+section.personal-info#personal-info
   .container.personal-info__container
     .personal-info__content-wrapper
       .personal-info__content
@@ -16,8 +16,10 @@ section.personal-info
                   td.personal-info__col.personal-info__col--content #{value}
         .personal-info__text-block
           .personal-info__greeting-block
-            p.personal-info__greeting-title Привет, меня зовут
-            p.title.title--personal-info Платон Ясев
-          p.personal-info__info-text Я занимаюсь разработкой современных сайтов и приложений. Мне нравится делать интересные и современные проекты.
-          p.personal-info__info-text--italic Этот сайт я сделал в рамках обучения в Школе онлайн образования LoftSchool. Чуть позже я освежу в нём свой контент. А пока посмотрите, как тут всё классно и красиво!
+            .personal-info__greeting-title Привет, меня зовут
+            h2.title.title--personal-info.personal-info__title Платон Ясев
+          .personal-info__info-text
+            p Я занимаюсь разработкой современных сайтов и приложений. Мне нравится делать интересные и современные проекты.
+          .personal-info__info-text--italic
+            p Этот сайт я сделал в рамках обучения в Школе онлайн образования LoftSchool. Чуть позже я освежу в нём свой контент. А пока посмотрите, как тут всё классно и красиво!
           
