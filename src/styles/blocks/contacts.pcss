@@ -2,6 +2,10 @@
   padding-bottom: 200px;
 }
 
+.contacts__title {
+  margin-bottom: 5%;
+}
+
 .contacts__content {
   width: 50%;
 }
@@ -13,21 +17,60 @@
 .contacts__form-row {
   display: flex;
   flex-wrap: wrap;
+  margin-bottom: 5%;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
 }
 
 .contacts__form-col {
   flex: 1;
   margin-right: 5%;
+
+  &:last-child {
+    margin-right: 0;
+  }
+}
+
+.contacts__form-block {
+  border-bottom: 1px solid $text-color;
+  padding-bottom: 10px;
 }
 
 .contacts__form-label {
   display: block;
+  color: rgba(65, 76, 99, 0.3);
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 5px;
 }
 
 .contacts__form-input {
   width: 100%;
+  border: none;
+  background: transparent;
+  font-size: 18px;
+  font-weight: bold;
 }
 
 .contacts__form-textarea {
   width: 100%;
+  border: none;
+  background: transparent;
+  resize: vertical;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.contacts__form-sumbit-btn {
+  font-size: 18px;
+  font-weight: bold;
+  color: #ffffff;
+  padding: 4% 13%;
+  background-image: linear-gradient(to right, #ad00ed, #5500f2);
+  text-transform: uppercase;
+  border-radius: 5px;
+  border-top-left-radius: 30px;
+  border-bottom-right-radius: 30px;
 }

@@ -1,20 +1,20 @@
 section.contacts#contacts
   .contacts__content
-    h2.title.title--contacts Связаться со мной
+    h2.title.title--contacts.contacts__title Связаться со мной
     form.contacts__form
       .contacts__form-row
         .contacts__form-col
           label.contacts__form-block(for="name")
             span.contacts__form-label Введите ваше имя
-            input.contacts__form-input#name(type="text" name="name" placeholder="Иванов Иван")
+            input.contacts__form-input.contacts__form-input--name#name(type="text" name="name" placeholder="Иванов Иван")
         .contacts__form-col
           label.contacts__form-block(for="email")
             span.contacts__form-label Введите ваш email
-            input.contacts__form-input#email(type="text" name="email" placeholder="ivanov@mail.com")
+            input.contacts__form-input.contacts__form-input--email#email(type="text" name="email" placeholder="ivanov@mail.com")
       .contacts__form-row
         .contacts__form-col
           label.contacts__form-block(for="message")
             span.contacts__form-label Сообщение к письму
-            textarea.contacts__form-textarea#message(name="message" placeholder="Хочу красивый и современный сайт. Плачу много!")
+            textarea.contacts__form-textarea#message(name="message" rows="1" placeholder="Хочу красивый и современный сайт. Плачу много!")
       .contacts__form-row.contacts__form-row--submit
         button(type="submit").contacts__form-sumbit-btn Отправить
