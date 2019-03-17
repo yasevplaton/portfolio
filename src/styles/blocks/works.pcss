@@ -46,9 +46,14 @@
 
 .works__preview-item {
   height: 20%;
+  transition: transform .3s;
 
   &--active {
     border: 2px solid #f29400;
+  }
+
+  &:not(&--active):hover {
+    transform: scale(1.1);
   }
 }
 
@@ -117,5 +122,14 @@
     background: svg-load("link.svg", fill=$links-color, width=100%, height=100%)
       center center no-repeat;
     margin-right: 5%;
+  }
+
+  &:hover {
+    color: red;
+
+    &:before {
+      background: svg-load("link.svg", fill=red, width=100%, height=100%)
+      center center no-repeat;
+    }
   }
 }

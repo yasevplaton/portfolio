@@ -4,6 +4,9 @@
 }
 
 .socials__item {
+
+  cursor: pointer;
+
   &:not(:last-child) {
     margin-right: 40px;
   }
@@ -19,14 +22,27 @@
     &:not(:last-child) {
       margin-right: 5%;
     }
+
+    &:hover {
+      .socials__icon--rounded {
+        transform: scale(1);
+        fill: #fff;
+      }
+    }
   }
 
+  &:hover {
+    .socials__icon {
+      transform: scale(1.2);
+    }
+  }
 }
 
 .socials__icon {
   width: 25px;
   height: 25px;
   fill: $text-color;
+  transition: all 0.3s;
 
   &--rounded {
     position: absolute;

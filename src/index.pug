@@ -81,6 +81,14 @@ html(lang="ru")
                       p Я занимаюсь разработкой современных сайтов и приложений. Мне нравится делать интересные и современные проекты.
                     .personal-info__info-text--italic
                       p Этот сайт я сделал в рамках обучения в Школе онлайн образования LoftSchool. Чуть позже я освежу в нём свой контент. А пока посмотрите, как тут всё классно и красиво!
+        
+        //- triangles
+        .triangles-greeting
+          svg.triangles-greeting__item.triangles-greeting__item--left(viewBox="0 0 1000 100" preserveAspectRatio="none")
+            polygon(points="0,0 0,100 1000,100")
+          svg.triangles-greeting__item.triangles-greeting__item--right(viewBox="0 0 1000 100" preserveAspectRatio="none")
+            polygon(points="0,100 1000,100 1000,0")
+
 
         //- skills section
         - 
@@ -159,6 +167,13 @@ html(lang="ru")
                           .works__desc-text Этот парень проходил обучение веб-разработке не где-то, а в LoftSchool! 2 месяца только самых тяжелых испытаний и бессонных ночей!
                         a(href="#").works__link Посмотреть сайт
         
+
+        //- triangle for reviews-contacts block
+        .triangles-reviews-contacts
+          svg.triangles-reviews-contacts__item(viewBox="0 0 1000 100" preserveAspectRatio="none")
+            polygon(points="0,0 500,100 1000,0")
+
+
         .reviews-contacts-block
           .container
             
