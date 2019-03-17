@@ -25,11 +25,13 @@ section.reviews#reviews
           +icon('arrow-down', 'arrow arrow--right')
     ul.reviews__list
       each item in reviewsItems
-        li.reviews__item
-          p.reviews__content #{item.content}
-          .reviews__person-info
-            .reviews__img-wrapper
-              +image(`${item.photoPath}`, "reviews__img")
-            .reviews__person-desc
-              .reviews__name #{item.name}
-              .reviews__position #{item.position}
+        li.review.reviews__item
+          .review__content-block
+            blockquote.review__content
+              p #{item.content}
+            cite.review__person-info
+              .review__img-wrapper
+                +image(`${item.photoPath}`, "review__img")
+              .review__person-desc
+                .review__name #{item.name}
+                .review__position #{item.position}

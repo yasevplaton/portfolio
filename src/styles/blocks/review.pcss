@@ -1,0 +1,57 @@
+.review {
+  display: flex;
+
+/* quote icon */
+  &:before {
+    content: "";
+    display: block;
+    width: 75px;
+    height: 63px;
+    background: svg-load('quote.svg', fill=rgba($text-color, 0.05), width=100%, height=100%) center center no-repeat;
+    flex-shrink: 0;
+    margin-right: 2%;
+  }
+}
+
+.review__content-block {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.review__content {
+  margin: 0;
+  margin-bottom: 20px;
+  color: rgba(65, 76, 99, 0.5);
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.88;
+}
+
+.review__person-info {
+  display: flex;
+  align-items: center;
+  font-style: normal;
+}
+
+.review__img-wrapper {
+  width: 100px;
+  height: 100px;
+  margin-right: 20px;
+}
+
+.review__img {
+  border-radius: 50%;
+}
+
+.review__name {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 5%;
+}
+
+.review__position {
+  font-size: 16px;
+  font-weight: 600;
+  color: rgba(65, 76, 99, 0.3);
+}
