@@ -11,10 +11,10 @@ section.contacts#contacts
           label.contacts__form-block(for="email")
             span.contacts__form-label Введите ваш email
             input.contacts__form-input.contacts__form-input--email#email(type="text" name="email" placeholder="ivanov@mail.com")
-      .contacts__form-row
+      .contacts__form-row.contacts__form-row--last
         .contacts__form-col
           label.contacts__form-block(for="message")
-            span.contacts__form-label Сообщение к письму
+            span.contacts__form-label.contacts__form-label--textarea Сообщение к письму
             textarea.contacts__form-textarea#message(name="message" rows="1" placeholder="Хочу красивый и современный сайт. Плачу много!")
       .contacts__form-row.contacts__form-row--submit
         button(type="submit").contacts__form-sumbit-btn Отправить
