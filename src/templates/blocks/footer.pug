@@ -5,7 +5,8 @@ footer.footer
         .copyright__year &copy; 2019
         .copyright__person-info
           .copyright__name Платон Ясев
-          .copyright__desc Личный сайт веб-разработчика
+          .copyright__desc Личный сайт
+          .copyright__desc веб-разработчика
     .footer__content
       .footer__nav
         - var navItems = ["Главная", "Обо мне", "Навыки", "Работы", "Отзывы", "Связаться"]
@@ -23,11 +24,11 @@ footer.footer
             .socials
               ul.socials__list
                 each item in socialItems
-                  li(class=`socials__item socials__item--${item}`)
+                  li(class=`socials__item socials__item--rounded socials__item--${item}`)
                     a(href="#").socials__link
-                      +icon(item, `socials__icon socials__icon--${item}`)
+                      +icon(item, `socials__icon socials__icon--rounded socials__icon--${item}`)
         .footer__quote
           article.quote
-            .quote__text
+            blockquote.quote__text
               p Всегда пишите код так, будто сопровождать его будет склонный к насилию психопат, который знает, где вы живете
-            .quote__author Martin Golding  
+            cite.quote__author Martin Golding  
