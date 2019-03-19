@@ -1,15 +1,15 @@
 {
-  "name": "ls-advanced-boilerplate",
+  "name": "platon-yasev-portfolio",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "main.js",
   "scripts": {
     "dev": "webpack-dev-server --mode=development",
     "build": "rm -rf dist && webpack --mode=production --progress",
     "reg": "node reg-util.js"
   },
   "keywords": [],
-  "author": "",
+  "author": "Platon Yasev",
   "license": "ISC",
   "devDependencies": {
     "@babel/core": "^7.3.3",

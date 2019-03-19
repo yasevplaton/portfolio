@@ -1,11 +1,15 @@
 html {
+
   @include desktop {
     font-size: 15px;
   }
+
+  
   @include tablets {
     font-size: 14px;
   }
 }
+
 body,
 html {
   height: 100%;
@@ -73,14 +77,21 @@ img {
   max-height: 100%;
 }
 
+blockquote {
+  padding: 0;
+  margin: 0;
+}
+
+cite {
+  font-style: normal;
+}
+
 
 /* layout classes */
 .wrapper {
   overflow: hidden;
   min-height: 100%;
   position: relative;
-  /* min-width: 1480px;
-  overflow-x: auto; */
   display: flex;
   flex-direction: column;
 }

@@ -1,5 +1,10 @@
 .works__container {
-  padding: 10% 0;
+  padding: 5% 0;
+  padding-right: 2%;
+}
+
+.works__title {
+  margin-bottom: 5%;
 }
 
 .works__slider-item {
@@ -7,10 +12,23 @@
 }
 
 .works__preview-block {
-  width: 50%;
+  flex: 1;
   display: flex;
   flex-direction: column;
   align-items: flex-end;
+  position: relative;
+
+  &::before {
+    content: "1";
+    display: block;
+    position: absolute;
+    top: -100px;
+    right: -180px;
+    font-size: 400px;
+    font-weight: 800;
+    color: rgba(65, 76, 99, 0.05);
+    z-index: -1;
+  }
 }
 
 .works__preview-img-wrapper {
@@ -23,15 +41,26 @@
   bottom: 0;
   right: 0;
   height: 90%;
+  box-shadow: -30px 0px 50px -10px rgba(0, 0, 0, 0.5);
 }
 
 .works__preview-item {
   height: 20%;
+  transition: transform .3s;
+
+  &--active {
+    border: 2px solid #f29400;
+  }
+
+  &:not(&--active):hover {
+    transform: scale(1.1);
+  }
 }
 
 .works__preview-item-btn {
   width: 100%;
   height: 100%;
+  outline-color: #f29400;
 }
 
 .works__slider-arrows {
@@ -46,5 +75,79 @@
 }
 
 .works__desc-block {
-  width: 50%;
+  width: 40%;
+  padding-left: 10%;
+}
+
+.works__tech-list {
+  margin-bottom: 10%;
+}
+
+.works__tech-item {
+  margin-right: 5px;
+
+  &:last-child {
+    margin-right: 0;
+  }
+}
+
+.works__desc-title {
+  font-size: 30px;
+  font-weight: bold;
+  line-height: 1.6;
+  margin-bottom: 10%;
+}
+
+.works__desc-text {
+  color: rgba(65, 76, 99, 0.7);
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.88;
+  margin-bottom: 10%;
+}
+
+.works__link {
+  font-size: 18px;
+  font-weight: bold;
+  color: $links-color;
+  display: flex;
+  align-items: center;
+
+  &::before {
+    content: "";
+    display: block;
+    width: 15px;
+    height: 15px;
+    background: svg-load("link.svg", fill=$links-color, width=100%, height=100%)
+      center center no-repeat;
+    margin-right: 5%;
+  }
+
+  &:hover {
+    text-decoration: underline;
+  }
+
+  &:focus {
+
+    color: #000;
+
+
+    &:before {
+      background: svg-load("link.svg", fill=#000, width=100%, height=100%)
+      center center no-repeat;
+    }
+
+  }
+
+  &:active {
+
+    color: red;
+
+
+    &:before {
+      background: svg-load("link.svg", fill=red, width=100%, height=100%)
+      center center no-repeat;
+    }
+
+  }
 }

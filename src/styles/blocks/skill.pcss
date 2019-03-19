@@ -1,13 +1,35 @@
+.skill__wrapper {
+  position: relative;
+  width: 150px;
+  height: 150px;
+}
+
+.skill__chart {
+  width: 100%;
+  height: 100%;
+}
+
 .skill__circle {
   fill: transparent;
 
   &--under {
     stroke-width: 5PX;
-    /* stroke: #eaeaea; */
+    stroke: #eaeaea;
   }
 
   &--above {
     stroke-width: 10PX;
-    /* stroke: #ad00ed; */
   }
+}
+
+.skill__title {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: inline-block;
+  text-align: center;
+  font-size: 18px;
+  font-weight: bold;
+  color: rgba(65, 76, 99, 0.5);
 }
