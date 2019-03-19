@@ -23,7 +23,7 @@ html(lang="ru")
 
               header.header
                 .header__col.header__col--left
-                  h3.logo PY
+                  span.logo PY
 
                 .header__col.header__col--center
 
@@ -39,19 +39,20 @@ html(lang="ru")
                 .header__col.header__col--right
 
                   - var socialItems = ['insta', 'vk', 'github'];
+                  - var socialAriaLabels = ['Перейти в Instagram', 'Перейти на ВКонтакте', "Перейти на GitHub"];
 
                   .socials
                     ul.socials__list
-                      each item in socialItems
+                      each item, index in socialItems
                         li(class=`socials__item socials__item--${item}`)
-                          a(href="#").socials__link
+                          a(href="#" aria-label=`${socialAriaLabels[index]}` target="_blank").socials__link
                             +icon(item, `socials__icon socials__icon--${item}`)
 
               .hero__greeting-block-wrapper
-                .hero__greeting-block
+                h1.hero__greeting-block
                   span.hero__greeting-text Личный сайт
                   span.hero__greeting-text веб-разработчика
-                  h1.title.title--hero Платон Ясев
+                  span.title.title--hero Платон Ясев
 
               .hero__btns-block
                 a(href="#personal-info").scroll
@@ -66,7 +67,7 @@ html(lang="ru")
                   .personal-info__image-table-block
                     .personal-info__image-block
                       .personal-info__image-wrapper
-                        +image("content/avatar.jpg", "personal-info__image")
+                        +image("content/avatar.jpg", "personal-info__image", "Фотография разработчика")
                     .personal-info__table-block
                       table.personal-info__table
                         each value, key in personalInfoTableRows
@@ -75,7 +76,7 @@ html(lang="ru")
                             td.personal-info__col.personal-info__col--content #{value}
                   .personal-info__text-block
                     .personal-info__greeting-block
-                      .personal-info__greeting-title Привет, меня зовут
+                      span.personal-info__greeting-title Привет, меня зовут
                       h2.title.title--personal-info.personal-info__title Платон Ясев
                     .personal-info__info-text
                       p Я занимаюсь разработкой современных сайтов и приложений. Мне нравится делать интересные и современные проекты.
@@ -146,13 +147,13 @@ html(lang="ru")
                     li.works__slider-item
                       .works__preview-block
                         .works__preview-img-wrapper
-                          +image(previewsPath[0], "works__preview-img")
+                          +image(previewsPath[0], "works__preview-img", "Превью работы")
                           ul.works__preview-list
                             each item, index in workItems
                               - var activeClass = index === 0 ? 'works__preview-item--active': ''
                               li(class=`works__preview-item works__preview-item-${item} ${activeClass}`)
                                 button(type="button").works__preview-item-btn
-                                  +image(previewsPath[index], "works__preview-item-img")
+                                  +image(previewsPath[index], "works__preview-item-img", "Миниатюрное превью работы")
                         .works__slider-arrows
                           button(type="button").works__slider-btn.works__slider-btn--up
                             +icon('arrow-down', 'arrow arrow--up')
@@ -161,11 +162,11 @@ html(lang="ru")
                       .works__desc-block
                         ul.works__tech-list
                           each item in techList
-                            span.tech.works__tech-item #{item}
+                            li.tech.works__tech-item #{item}
                         .works__desc
                           .works__desc-title Сайт школы образования
                           .works__desc-text Этот парень проходил обучение веб-разработке не где-то, а в LoftSchool! 2 месяца только самых тяжелых испытаний и бессонных ночей!
-                        a(href="#").works__link Посмотреть сайт
+                        a(href="#" target="_blank").works__link Посмотреть сайт
         
 
         //- triangle for reviews-contacts block
@@ -206,15 +207,15 @@ html(lang="ru")
                   ul.reviews__list
                     each item in reviewsItems
                       li.review.reviews__item
-                        .review__content-block
-                          blockquote.review__content
+                        blockquote.review__content-block
+                          .review__content
                             p #{item.content}
-                          cite.review__person-info
+                          footer.review__person-info
                             .review__img-wrapper
-                              +image(`${item.photoPath}`, "review__img")
+                              +image(`${item.photoPath}`, "review__img", "Фотография человека, оставившего отзыв")
                             .review__person-desc
-                              .review__name #{item.name}
-                              .review__position #{item.position}
+                              cite.review__name #{item.name}
+                              span.review__position #{item.position}
             
             //- contacts section
             section.contacts#contacts
@@ -261,12 +262,12 @@ html(lang="ru")
                 .footer__socials
                   .socials
                     ul.socials__list
-                      each item in socialItems
+                      each item, index in socialItems
                         li(class=`socials__item socials__item--rounded socials__item--${item}`)
-                          a(href="#").socials__link
+                          a(href="#" aria-label=`${socialAriaLabels[index]}` target="_blank").socials__link
                             +icon(item, `socials__icon socials__icon--rounded socials__icon--${item}`)
               .footer__quote
-                article.quote
-                  blockquote.quote__text
+                blockquote.quote
+                  .quote__text
                     p Всегда пишите код так, будто сопровождать его будет склонный к насилию психопат, который знает, где вы живете
                   cite.quote__author Martin Golding  
