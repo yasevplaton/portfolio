@@ -25,6 +25,34 @@
   &:not(:last-child) {
     margin-right: 20%;
   }
+
+  &--left {
+    &:hover {
+      .arrow--left {
+        transform: translate(-50%, -50%) rotate(180deg) scale(1.2);
+      }
+    }
+
+    &:active {
+      .arrow--left {
+        fill: #000;
+      }
+    }
+  }
+
+  &--right {
+    &:hover {
+      .arrow--right {
+        transform: translate(-50%, -50%) scale(1.2);
+      }
+    }
+
+    &:active {
+      .arrow--right {
+        fill: #000;
+      }
+    }
+  }
 }
 
 .reviews__list {

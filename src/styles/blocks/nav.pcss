@@ -9,10 +9,19 @@
   &:not(:last-child) {
     margin-right: 60px;
   }
+}
+
+.nav__link {
 
   &:hover {
-    .nav__link {
-      text-decoration: underline;
-    }
+    text-decoration: underline;
+  }
+
+  &:focus {
+    color: red;
+  }
+
+  &:active {
+    color: #000;
   }
 }
