@@ -91,6 +91,9 @@ html(lang="ru")
             polygon(points="0,100 1000,100 1000,0")
 
 
+
+
+
         //- skills section
         - 
           var stackItems = [
@@ -124,6 +127,8 @@ html(lang="ru")
                                     circle.skill__circle.skill__circle--above(cx="50" cy="50" r="40" stroke="url(#circle-gradient)")
                                   span.skill__title #{skill}
         
+
+
         //- works section
         - var workItems = [1, 2, 3, 4, 5]
         - 
@@ -164,10 +169,13 @@ html(lang="ru")
                           each item in techList
                             li.tech.works__tech-item #{item}
                         .works__desc
-                          .works__desc-title Сайт школы образования
-                          .works__desc-text Этот парень проходил обучение веб-разработке не где-то, а в LoftSchool! 2 месяца только самых тяжелых испытаний и бессонных ночей!
+                          h3.works__desc-title Сайт школы образования
+                          .works__desc-text 
+                            p Этот парень проходил обучение веб-разработке не где-то, а в LoftSchool! 2 месяца только самых тяжелых испытаний и бессонных ночей!
                         a(href="#" target="_blank").works__link Посмотреть сайт
         
+
+
 
         //- triangle for reviews-contacts block
         .triangles-reviews-contacts
@@ -175,9 +183,11 @@ html(lang="ru")
             polygon(points="0,0 500,100 1000,0")
 
 
+
+
         .reviews-contacts-block
           .container
-            
+
             //- reviews section
             - 
               var reviewsItems = [
@@ -246,9 +256,9 @@ html(lang="ru")
             .copyright
               .copyright__year &copy; 2019
               .copyright__person-info
-                .copyright__name Платон Ясев
-                .copyright__desc Личный сайт
-                .copyright__desc веб-разработчика
+                span.copyright__name Платон Ясев
+                span.copyright__desc Личный сайт
+                span.copyright__desc веб-разработчика
           .footer__content
             .footer__nav
               nav.nav
