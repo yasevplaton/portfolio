@@ -1,16 +1,19 @@
 .stack-row__list {
   display: flex;
-  flex-wrap: wrap;
 }
 
 .stack-row__title {
   font-size: 24px;
   font-weight: bold;
   margin-bottom: 2%;
+
+  @include tablets {
+    text-align: center;
+  }
 }
 
 .stack-row__item {
-  margin-right: 2%;
+  flex: 1 0 25%;
 
   &:last-child {
     margin-right: 0;

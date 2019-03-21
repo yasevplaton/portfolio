@@ -2,6 +2,10 @@
   font-size: 36px;
   font-weight: bold;
 
+  @include tablets {
+    font-size: 30px;
+  }
+
   &--hero {
     font-size: 72px;
     font-weight: 800;
@@ -9,6 +13,11 @@
 
     @include desktop {
       display: block;
+    }
+
+    @include tablets {
+      font-size: 48px;
+      font-weight: 800;
     }
   }
 
@@ -22,9 +31,21 @@
     text-align: center;
     font-size: 30px;
     font-weight: bold;
+
+    @include tablets {
+      font-size: 25px;
+    }
   }
 
   &--reviews {
     margin-right: 30px;
+  }
+
+  &--contacts {
+
+    @include tablets {
+      text-align: center;
+    }
+
   }
 }

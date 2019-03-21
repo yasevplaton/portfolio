@@ -1,6 +1,10 @@
 .reviews {
   width: 72%;
   padding: 15% 0;
+
+  @include tablets {
+    width: 95%
+  }
 }
 
 .reviews__heading-row {
@@ -65,6 +69,10 @@
   width: 50%;
 
   &:last-child {
+    margin-right: 0;
+  }
+
+  @include tablets {
     margin-right: 0;
   }
 }

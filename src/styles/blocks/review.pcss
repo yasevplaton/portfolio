@@ -26,6 +26,11 @@
   font-size: 16px;
   font-weight: 600;
   line-height: 1.88;
+
+  @include tablets {
+    font-size: 14px;
+    line-height: 1.71;
+  }
 }
 
 .review__person-info {
@@ -38,6 +43,12 @@
   width: 100px;
   height: 100px;
   margin-right: 20px;
+
+  @include tablets {
+    width: 75px;
+    height: 75px;
+    margin-right: 8px;
+  }
 }
 
 .review__img {
@@ -49,6 +60,10 @@
   font-weight: bold;
   margin-bottom: 5%;
   display: block;
+
+  @include tablets {
+    font-size: 16px;
+  }
 }
 
 .review__position {
@@ -56,4 +71,8 @@
   font-weight: 600;
   color: rgba(65, 76, 99, 0.3);
   display: block;
+
+  @include tablets {
+    font-size: 14px;
+  }
 }

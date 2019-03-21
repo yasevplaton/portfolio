@@ -8,6 +8,10 @@
 
 .contacts__content {
   width: 50%;
+
+  @include tablets {
+    width: 100%;
+  }
 }
 
 .contacts__form {
@@ -25,6 +29,14 @@
 
   &--last {
     margin-bottom: 12%;
+  }
+
+  &--submit {
+
+    @include tablets {
+      justify-content: center;
+    }
+
   }
 }
 

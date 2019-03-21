@@ -9,6 +9,10 @@
 
 .works__slider-item {
   display: flex;
+
+  @include tablets {
+    flex-direction: column;
+  }
 }
 
 .works__preview-block {
@@ -33,6 +37,12 @@
     @include desktop {
       right: -23%;
     }
+
+  }
+
+  @include tablets {
+    width: 90%;
+    margin-bottom: 10%;
   }
 }
 
@@ -82,10 +92,17 @@
 .works__desc-block {
   width: 40%;
   padding-left: 10%;
+
+  @include tablets {
+    width: 75%;
+    align-self: center;
+    text-align: center;
+    padding: 0;
+  }
 }
 
 .works__tech-list {
-  margin-bottom: 10%;
+  margin-bottom: 5%;
 }
 
 .works__tech-item {
@@ -100,7 +117,11 @@
   font-size: 30px;
   font-weight: bold;
   line-height: 1.6;
-  margin-bottom: 10%;
+  margin-bottom: 5%;
+
+  @include tablets {
+    font-size: 25px;
+  }
 }
 
 .works__desc-text {
@@ -108,7 +129,7 @@
   font-size: 16px;
   font-weight: 600;
   line-height: 1.88;
-  margin-bottom: 10%;
+  margin-bottom: 5%;
 }
 
 .works__link {
@@ -126,6 +147,10 @@
     background: svg-load("link.svg", fill=$links-color, width=100%, height=100%)
       center center no-repeat;
     margin-right: 5%;
+  }
+
+  @include tablets {
+    justify-content: center;
   }
 
   &:hover {

@@ -5,6 +5,11 @@
     margin: 0;
     width: 100%;
   }
+
+  @include tablets {
+    margin: 0 auto;
+    width: 90%;
+  }
 }
 
 .skills__title {
@@ -20,6 +25,22 @@
     background-position-x: -200px;
     padding-left: 27%;
   }
+
+  @include tablets {
+    background-position: 56% 100%;
+    padding-bottom: 345px;
+    background-size: auto 35%;
+    padding-left: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+.skills__content-charts {
+  @include tablets {
+    width: 100%;
+  }
 }
 
 .skills__bg-image-wrapper {
@@ -33,15 +54,23 @@
   font-weight: 600;
   display: block;
   line-height: 1.88;
+
+  @include tablets {
+    text-align: center;
+  }
 }
 
 .skills__stack-list {
   padding-left: 15%;
   padding-top: 5%;
+  width: 90%;
 
-  @include desktop {
-    padding-left: 17%;
-    padding-top: 8%;
+  @include tablets {
+    padding-left: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
   }
 }
 
