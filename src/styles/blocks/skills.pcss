@@ -1,5 +1,10 @@
 .skills__container {
   padding: 5% 0;
+
+  @include desktop {
+    margin: 0;
+    width: 100%;
+  }
 }
 
 .skills__title {
@@ -10,6 +15,11 @@
   padding-left: 33%;
   background: url("../images/bg/bag.png") 0 0 no-repeat;
   background-size: contain;
+
+  @include desktop {
+    background-position-x: -200px;
+    padding-left: 27%;
+  }
 }
 
 .skills__bg-image-wrapper {
@@ -22,11 +32,17 @@
   color: rgba(65, 76, 99, 0.5);
   font-weight: 600;
   display: block;
+  line-height: 1.88;
 }
 
 .skills__stack-list {
   padding-left: 15%;
   padding-top: 5%;
+
+  @include desktop {
+    padding-left: 17%;
+    padding-top: 8%;
+  }
 }
 
 .skills__stack-item {

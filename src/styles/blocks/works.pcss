@@ -22,12 +22,17 @@
     content: "1";
     display: block;
     position: absolute;
-    top: -100px;
-    right: -180px;
+    top: 0;
+    right: -22%;
     font-size: 400px;
     font-weight: 800;
     color: rgba(65, 76, 99, 0.05);
     z-index: -1;
+    line-height: 1;
+
+    @include desktop {
+      right: -23%;
+    }
   }
 }
 

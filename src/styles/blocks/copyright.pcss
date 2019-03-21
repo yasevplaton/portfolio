@@ -1,5 +1,9 @@
 .copyright {
   display: flex;
+
+  @include desktop {
+    flex-direction: column;
+  }
 }
 
 .copyright__year {
@@ -9,6 +13,11 @@
   font-weight: 600;
   color: rgba(255, 255, 255, 0.1);
   line-height: 1;
+
+  @include desktop {
+    margin-right: 0;
+    margin-bottom: 10%;
+  }
 }
 
 .copyright__name {
@@ -16,6 +25,7 @@
   font-weight: bold;
   line-height: 1.67;
   margin-bottom: 10%;
+  text-transform: uppercase;
 }
 
 .copyright__desc {

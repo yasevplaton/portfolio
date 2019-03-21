@@ -11,6 +11,10 @@
 
 .personal-info__content-wrapper {
   width: 70%;
+
+  @include desktop {
+    width: 100%;
+  }
 }
 
 .personal-info__content {
@@ -23,6 +27,11 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+
+  @include desktop {
+    width: 40%;
+    margin-right: 2%;
+  }
 }
 
 .personal-info__image-wrapper {

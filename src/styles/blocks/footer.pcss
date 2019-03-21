@@ -8,11 +8,19 @@
   display: flex;
   justify-content: space-between;
   padding-right: 100px;
+
+  @include desktop {
+    padding-right: 0;
+  }
 }
 
 .footer__copyright {
   margin-right: 5%;
   width: 30%;
+
+  @include desktop {
+    margin-right: 0;
+  }
 }
 
 .footer__content {
@@ -21,6 +29,10 @@
 
 .footer__nav {
   margin-bottom: 3%;
+  
+  @include desktop {
+    margin-bottom: 7%;
+  }
 }
 
 .footer__content-data {
