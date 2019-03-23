@@ -6,6 +6,10 @@
     font-size: 30px;
   }
 
+  @include mini-phones {
+    font-size: 24px;
+  }
+
   &--hero {
     font-size: 72px;
     font-weight: 800;
@@ -35,10 +39,29 @@
     @include tablets {
       font-size: 25px;
     }
+
+    @include mini-phones {
+      text-align: left;
+    }
+  }
+
+  &--works {
+    
+
+    @include mini-phones {
+      text-align: center;
+    }
   }
 
   &--reviews {
     margin-right: 30px;
+
+    @include mini-phones {
+      margin-right: 0;
+      margin-bottom: 10%;
+      text-align: center;
+      width: 100%;
+    }
   }
 
   &--contacts {

@@ -18,6 +18,10 @@
     margin-right: 0;
     margin-bottom: 10%;
   }
+
+  @include mini-phones {
+    margin-bottom: 5%;
+  }
 }
 
 .copyright__name {
@@ -26,10 +30,19 @@
   line-height: 1.67;
   margin-bottom: 10%;
   text-transform: uppercase;
+  display: block;
+
+  @include mini-phones {
+    margin-bottom: 0;
+  }
 }
 
 .copyright__desc {
   color: rgba(255, 255, 255, 0.15);
   line-height: 1.88;
   display: block;
+
+  @include mini-phones {
+    display: inline;
+  }
 }

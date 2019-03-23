@@ -1,5 +1,9 @@
 .stack-row__list {
   display: flex;
+
+  @include mini-phones {
+    flex-wrap: wrap;
+  }
 }
 
 .stack-row__title {
@@ -17,5 +21,9 @@
 
   &:last-child {
     margin-right: 0;
+  }
+
+  @include mini-phones {
+    flex: 1 0 50%;
   }
 }

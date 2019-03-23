@@ -10,6 +10,14 @@
     margin: 0 auto;
     width: 90%;
   }
+
+  @include phones {
+    width: 85%;
+  }
+
+  @include mini-phones {
+    padding: 20% 0;
+  }
 }
 
 .skills__title {
@@ -35,6 +43,11 @@
     flex-direction: column;
     align-items: center;
   }
+
+  @include mini-phones {
+    background-position: 33% 100%;
+    background-size: auto 26%;
+  }
 }
 
 .skills__content-charts {
@@ -48,6 +61,16 @@
   height: 100%;
 }
 
+.skills__desc-block {
+
+  @include tablets {
+    text-align: center;
+  }
+
+  @include mini-phones {
+    text-align: left;
+  }
+}
 
 .skills__desc {
   color: rgba(65, 76, 99, 0.5);
@@ -55,8 +78,9 @@
   display: block;
   line-height: 1.88;
 
-  @include tablets {
-    text-align: center;
+
+  @include mini-phones {
+    display: inline;
   }
 }
 
@@ -71,6 +95,10 @@
     flex-direction: column;
     align-items: center;
     width: 100%;
+  }
+
+  @include mini-phones {
+    padding-top: 15%;
   }
 }
 

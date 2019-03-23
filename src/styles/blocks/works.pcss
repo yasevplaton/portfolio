@@ -1,6 +1,16 @@
 .works__container {
   padding: 5% 0;
   padding-right: 2%;
+
+  @include tablets {
+    padding-right: 0;
+  }
+
+  @include mini-phones {
+    margin: 0;
+    width: 100%;
+    padding-bottom: 15%;
+  }
 }
 
 .works__title {
@@ -38,12 +48,21 @@
       right: -23%;
     }
 
+    @include mini-phones {
+      display: none;
+    }
+
   }
 
   @include tablets {
     width: 90%;
     margin-bottom: 10%;
   }
+
+  @include mini-phones {
+    width: 100%;
+  }
+
 }
 
 .works__preview-img-wrapper {
@@ -57,6 +76,10 @@
   right: 0;
   height: 90%;
   box-shadow: -30px 0px 50px -10px rgba(0, 0, 0, 0.5);
+
+  @include mini-phones {
+    display: none;
+  }
 }
 
 .works__preview-item {
@@ -99,6 +122,11 @@
     text-align: center;
     padding: 0;
   }
+
+  @include mini-phones {
+    width: 85%;
+    text-align: left;
+  }
 }
 
 .works__tech-list {
@@ -121,6 +149,10 @@
 
   @include tablets {
     font-size: 25px;
+  }
+
+  @include mini-phones {
+    font-size: 22px;
   }
 }
 
@@ -151,6 +183,10 @@
 
   @include tablets {
     justify-content: center;
+  }
+
+  @include mini-phones {
+    justify-content: flex-start;
   }
 
   &:hover {

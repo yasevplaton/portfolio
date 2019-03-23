@@ -12,6 +12,10 @@
   @include desktop {
     padding-right: 0;
   }
+
+  @include mini-phones {
+    flex-direction: column;
+  }
 }
 
 .footer__copyright {
@@ -19,7 +23,12 @@
   width: 30%;
 
   @include desktop {
-    margin-right: 0;
+    margin-right: 10px;
+  }
+
+  @include mini-phones {
+    width: 100%;
+    margin-bottom: 15%;
   }
 }
 
@@ -36,6 +45,10 @@
 
   @include tablets {
     margin-bottom: 2%;
+  }
+
+  @include mini-phones {
+    margin-bottom: 8%;
   }
 }
 
@@ -56,6 +69,10 @@
   @include tablets {
     width: 100%;
   }
+
+  @include mini-phones {
+    width: 95%;
+  }
 }
 
 .footer__text {
@@ -63,6 +80,10 @@
 
   @include tablets {
     margin-bottom: 2%;
+  }
+
+  @include mini-phones {
+    margin-bottom: 5%;
   }
 }
 

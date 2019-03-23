@@ -1,5 +1,9 @@
 .personal-info {
   padding: 15% 0;
+
+  @include mini-phones {
+    padding: 25% 0;
+  }
 }
 
 .personal-info__container {
@@ -20,6 +24,10 @@
 .personal-info__content {
   display: flex;
   align-items: center;
+
+  @include mini-phones {
+    flex-direction: column;
+  }
 }
 
 .personal-info__image-table-block {
@@ -35,6 +43,12 @@
 
   @include tablets {
     margin-right: 4%;
+  }
+
+  @include mini-phones {
+    width: 100%;
+    margin-right: 0;
+    margin-bottom: 15%;
   }
 }
 
@@ -71,6 +85,10 @@
 
   @include tablets {
     width: 60%;
+  }
+
+  @include mini-phones {
+    width: 100%;
   }
 }
 
