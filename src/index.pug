@@ -17,82 +17,101 @@ html(lang="ru")
       main.maincontent
         .greeting
 
-          //- hero section
-          section.hero.fullscreen-section#hero
-            .container.hero__container
+          //- parallax for greeting sections
+          .greeting-parallax
+            .greeting-parallax__layer(data-speed="0.01")
+              +image("parallax/mountain-baloon/layer-0.jpg", "greeting-parallax__image", "Слой для параллакса")
+            .greeting-parallax__layer(data-speed="0.12")
+              +image("parallax/mountain-baloon/layer-1.png", "greeting-parallax__image", "Слой для параллакса")
+            .greeting-parallax__layer(data-speed="0.18")
+              +image("parallax/mountain-baloon/layer-2.png", "greeting-parallax__image", "Слой для параллакса")
+            .greeting-parallax__layer(data-speed="0.22")
+              +image("parallax/mountain-baloon/layer-3.png", "greeting-parallax__image", "Слой для параллакса")
+            .greeting-parallax__layer(data-speed="0.26")
+              +image("parallax/mountain-baloon/layer-4.png", "greeting-parallax__image", "Слой для параллакса")
+            .greeting-parallax__layer(data-speed="0.3")
+              +image("parallax/mountain-baloon/layer-5.png", "greeting-parallax__image", "Слой для параллакса")
+            .greeting-parallax__layer(data-speed="0.8")
+              +image("parallax/mountain-baloon/layer-6.png", "greeting-parallax__image", "Слой для параллакса")
+            .greeting-parallax__bg
+            
+            .greeting-parallax__content
+              //- hero section
+              section.hero.fullscreen-section#hero
+                .container.hero__container
 
-              header.header
-                .header__col.header__col--left
-                  span.logo PY
+                  header.header
+                    .header__col.header__col--left
+                      span.logo PY
 
-                .header__col.header__col--center
+                    .header__col.header__col--center
 
-                  - var navItems = ["Главная", "Обо мне", "Навыки", "Работы", "Отзывы", "Связаться"];
-                  - var navAnchors = ["#hero", "#personal-info", "#skills", "#works", "#reviews", "#contacts"];
+                      - var navItems = ["Главная", "Обо мне", "Навыки", "Работы", "Отзывы", "Связаться"];
+                      - var navAnchors = ["#hero", "#personal-info", "#skills", "#works", "#reviews", "#contacts"];
 
-                  nav.nav
-                    ul.nav__list
-                      each item, index in navItems
-                        li.nav__item.nav__item--header
-                          a(href=`${navAnchors[index]}`).nav__link #{item}
-                .header__col.header__col--last
+                      nav.nav
+                        ul.nav__list
+                          each item, index in navItems
+                            li.nav__item.nav__item--header
+                              a(href=`${navAnchors[index]}`).nav__link #{item}
+                    .header__col.header__col--last
 
-                  .header__col.header__col--right
+                      .header__col.header__col--right
 
-                    - var socialItems = ['insta', 'vk', 'github'];
-                    - var socialAriaLabels = ['Перейти в Instagram', 'Перейти на ВКонтакте', "Перейти на GitHub"];
-                    - var socialLinks = ['https://www.instagram.com/yasevplaton/', 'https://vk.com/yasevplaton', "https://github.com/yasevplaton"];
+                        - var socialItems = ['insta', 'vk', 'github'];
+                        - var socialAriaLabels = ['Перейти в Instagram', 'Перейти на ВКонтакте', "Перейти на GitHub"];
+                        - var socialLinks = ['https://www.instagram.com/yasevplaton/', 'https://vk.com/yasevplaton', "https://github.com/yasevplaton"];
 
-                    .socials
-                      ul.socials__list
-                        each item, index in socialItems
-                          li(class=`socials__item socials__item--${item}`)
-                            a(href="#" aria-label=`${socialAriaLabels[index]}` target="_blank").socials__link
-                              +icon(item, `socials__icon socials__icon--${item}`)
+                        .socials
+                          ul.socials__list
+                            each item, index in socialItems
+                              li(class=`socials__item socials__item--${item}`)
+                                a(href="#" aria-label=`${socialAriaLabels[index]}` target="_blank").socials__link
+                                  +icon(item, `socials__icon socials__icon--${item}`)
 
-                  .header__col.header__col--hamburger
-                    .hamburger-menu
-                      .hamburger-menu__bar1
-                      .hamburger-menu__bar2
-                      .hamburger-menu__bar3
+                      .header__col.header__col--hamburger
+                        .hamburger-menu
+                          .hamburger-menu__bar1
+                          .hamburger-menu__bar2
+                          .hamburger-menu__bar3
 
-              .hero__greeting-block-wrapper
-                h1.hero__greeting-block
-                  .hero__greeting-desc
-                    span.hero__greeting-text Личный сайт
-                    span.hero__greeting-text веб-разработчика
-                  .hero__greeting-name
-                    span.title.title--hero.title--hero-name Платон 
-                    span.title.title--hero.title--hero-surname Ясев
+                  .hero__greeting-block-wrapper
+                    h1.hero__greeting-block
+                      .hero__greeting-desc
+                        span.hero__greeting-text Личный сайт
+                        span.hero__greeting-text веб-разработчика
+                      .hero__greeting-name
+                        span.title.title--hero.title--hero-name Платон 
+                        span.title.title--hero.title--hero-surname Ясев
 
-              .hero__btns-block
-                a(href="#personal-info").scroll
-                  span.scroll__text Скролл
+                  .hero__btns-block
+                    a(href="#personal-info").scroll
+                      span.scroll__text Скролл
 
-          //- personal-info section
-          - var personalInfoTableRows = { "Проживаю:": "Москва", "Возраст:": "24 года", "Родился:": "16 октября 1994" }
-          section.personal-info#personal-info
-            .container.personal-info__container
-              .personal-info__content-wrapper
-                .personal-info__content
-                  .personal-info__image-table-block
-                    .personal-info__image-block
-                      .personal-info__image-wrapper
-                        +image("content/avatar.jpg", "personal-info__image", "Фотография разработчика")
-                    .personal-info__table-block
-                      table.personal-info__table
-                        each value, key in personalInfoTableRows
-                          tr.personal-info__row
-                            td.personal-info__col.personal-info__col--title #{key}
-                            td.personal-info__col.personal-info__col--content #{value}
-                  .personal-info__text-block
-                    .personal-info__greeting-block
-                      span.personal-info__greeting-title Привет, меня зовут
-                      h2.title.title--personal-info.personal-info__title Платон Ясев
-                    .personal-info__info-text
-                      p Я занимаюсь разработкой современных сайтов и приложений. Мне нравится делать интересные и современные проекты.
-                    .personal-info__info-text--italic
-                      p Этот сайт я сделал в рамках обучения в Школе онлайн образования LoftSchool. Чуть позже я освежу в нём свой контент. А пока посмотрите, как тут всё классно и красиво!
+              //- personal-info section
+              - var personalInfoTableRows = { "Проживаю:": "Москва", "Возраст:": "24 года", "Родился:": "16 октября 1994" }
+              section.personal-info#personal-info
+                .container.personal-info__container
+                  .personal-info__content-wrapper
+                    .personal-info__content
+                      .personal-info__image-table-block
+                        .personal-info__image-block
+                          .personal-info__image-wrapper
+                            +image("content/avatar.jpg", "personal-info__image", "Фотография разработчика")
+                        .personal-info__table-block
+                          table.personal-info__table
+                            each value, key in personalInfoTableRows
+                              tr.personal-info__row
+                                td.personal-info__col.personal-info__col--title #{key}
+                                td.personal-info__col.personal-info__col--content #{value}
+                      .personal-info__text-block
+                        .personal-info__greeting-block
+                          span.personal-info__greeting-title Привет, меня зовут
+                          h2.title.title--personal-info.personal-info__title Платон Ясев
+                        .personal-info__info-text
+                          p Я занимаюсь разработкой современных сайтов и приложений. Мне нравится делать интересные и современные проекты.
+                        .personal-info__info-text--italic
+                          p Этот сайт я сделал в рамках обучения в Школе онлайн образования LoftSchool. Чуть позже я освежу в нём свой контент. А пока посмотрите, как тут всё классно и красиво!
         
         //- triangles
         .triangles-greeting

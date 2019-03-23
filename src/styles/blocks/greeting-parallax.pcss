@@ -1,0 +1,91 @@
+.greeting-parallax {
+  position: relative;
+  overflow: hidden;
+  height: 170vh;
+}
+
+.greeting-parallax__layer {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+
+  /* sky background */
+  &:nth-child(1) {
+    .greeting-parallax__image {
+      object-fit: cover;
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  /* mountain */
+  &:nth-child(2) {
+    .greeting-parallax__image {
+      width: 100%;
+      top: 10%;
+    }
+  }
+
+  /* baloon */
+  &:nth-child(3) {
+    .greeting-parallax__image {
+      top: 50%;
+      left: 50%;
+      margin-left: 4%;
+      margin-top: -15%;
+    }
+  }
+
+  /* clouds */
+  &:nth-child(4) {
+    .greeting-parallax__image {
+      top: 35%;
+    }
+  }
+
+  /* man */
+  &:nth-child(5) {
+    .greeting-parallax__image {
+      top: 30%;
+      left: 0;
+    }
+  }
+
+  /* closest mountain */
+  &:nth-child(6) {
+    .greeting-parallax__image {
+      bottom: 0;
+      right: 0;
+    }
+  }
+
+  /* closest clouds */
+  &:nth-child(7) {
+    .greeting-parallax__image {
+      left: 0;
+      bottom: 0;
+    }
+  }
+}
+
+.greeting-parallax__image {
+  position: absolute;
+}
+
+/* .greeting-parallax__bg {
+  position: absolute;
+  top: 50%;
+  width: 100%;
+  background: white;
+  height: 1000px;
+} */
+
+.greeting-parallax__content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
