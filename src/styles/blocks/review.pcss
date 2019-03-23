@@ -11,7 +11,12 @@
     flex-shrink: 0;
     margin-right: 2%;
 
-    @include mini-phones {
+    @include mini-tablets {
+      width: 50px;
+      height: 45px;
+    }
+
+    @include phones {
       display: none;
     }
   }
@@ -34,6 +39,10 @@
   @include tablets {
     font-size: 14px;
     line-height: 1.71;
+  }
+
+  @include phones {
+    font-size: 16px;
   }
 }
 

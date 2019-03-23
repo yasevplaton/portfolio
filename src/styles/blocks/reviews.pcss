@@ -2,19 +2,32 @@
   width: 72%;
   padding: 15% 0;
 
-  @include tablets {
-    width: 95%
+  @include big-desktop {
+    width: 80%;
   }
 
-  @include mini-phones {
+  @include mini-desktop {
+    width: 90%;
+  }
+
+  @include tablets {
+    width: 95%;
+  }
+
+  @include mini-tablets {
     width: 100%;
+  }
+
+  @include phones {
     padding: 30% 0;
   }
 }
 
 .reviews__slider {
-  @include mini-phones {
-    width: 100%;
+
+  width: 100%;
+
+  @include phones {
     display: flex;
     flex-direction: column;
   }
@@ -25,7 +38,7 @@
   align-items: center;
   margin-bottom: 50px;
 
-  @include mini-phones {
+  @include phones {
     flex-direction: column;
     align-items: flex-start;
     margin-bottom: 10%;
@@ -36,7 +49,7 @@
   display: flex;
   align-items: center;
 
-  @include mini-phones {
+  @include phones {
     width: 100%;
     justify-content: center;
   }
@@ -53,7 +66,7 @@
   &:not(:last-child) {
     margin-right: 20%;
 
-    @include mini-phones {
+    @include phones {
       margin-right: 10%;
     }
   }
@@ -90,28 +103,20 @@
 .reviews__list {
   display: flex;
   align-items: stretch;
+  width: 100%;
+  overflow: hidden;
 
-  @include mini-phones {
+  @include phones {
     width: 90%;
-    overflow: hidden;
     align-self: center;
   }
 }
 
 .reviews__item {
-  margin-right: 4%;
   width: 50%;
   flex-shrink: 0;
 
-  &:last-child {
-    margin-right: 0;
-  }
-
-  @include tablets {
-    margin-right: 0;
-  }
-
-  @include mini-phones {
+  @include phones {
     width: 100%;
   }
 }

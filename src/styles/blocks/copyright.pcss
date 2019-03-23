@@ -19,7 +19,16 @@
     margin-bottom: 10%;
   }
 
-  @include mini-phones {
+  @include tablets {
+    font-size: 36px;
+  }
+
+  @include mini-tablets {
+    font-size: 30px;
+  }
+
+  @include phones {
+    font-size: 48px;
     margin-bottom: 5%;
   }
 }
@@ -32,7 +41,7 @@
   text-transform: uppercase;
   display: block;
 
-  @include mini-phones {
+  @include phones {
     margin-bottom: 0;
   }
 }
@@ -42,7 +51,7 @@
   line-height: 1.88;
   display: block;
 
-  @include mini-phones {
+  @include phones {
     display: inline;
   }
 }

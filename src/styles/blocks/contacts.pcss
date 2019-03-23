@@ -5,13 +5,21 @@
 .contacts__title {
   margin-bottom: 5%;
 
-  @include mini-phones {
+  @include phones {
     margin-bottom: 15%;
   }
 }
 
 .contacts__content {
   width: 50%;
+
+  @include mini-desktop {
+    width: 65%;
+  }
+
+  @include big-tablets {
+    width: 80%;
+  }
 
   @include tablets {
     width: 100%;
@@ -34,7 +42,7 @@
   &--last {
     margin-bottom: 12%;
 
-    @include mini-phones {
+    @include phones {
       margin-bottom: 20%;
     }
   }
@@ -54,7 +62,7 @@
     margin-right: 0;
   }
 
-  @include mini-phones {
+  @include phones {
     width: 100%;
     flex: unset;
     margin-right: 0;
@@ -138,7 +146,7 @@
   font-weight: bold;
   padding-left: 30px;
 
-  @include mini-phones {
+  @include phones {
     height: 3.5em;
   }
 }
@@ -159,7 +167,7 @@
     opacity: 0.8;
   }
 
-  @include mini-phones {
+  @include phones {
     padding: 10% 30%;
   }
 }

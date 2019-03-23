@@ -7,13 +7,12 @@
   padding: 100px 0;
   display: flex;
   justify-content: space-between;
-  padding-right: 100px;
 
   @include desktop {
     padding-right: 0;
   }
 
-  @include mini-phones {
+  @include phones {
     flex-direction: column;
   }
 }
@@ -23,10 +22,11 @@
   width: 30%;
 
   @include desktop {
+    width: 22%;
     margin-right: 10px;
   }
 
-  @include mini-phones {
+  @include phones {
     width: 100%;
     margin-bottom: 15%;
   }
@@ -43,11 +43,11 @@
     margin-bottom: 7%;
   }
 
-  @include tablets {
+  @include big-tablets {
     margin-bottom: 2%;
   }
 
-  @include mini-phones {
+  @include phones {
     margin-bottom: 8%;
   }
 }
@@ -64,13 +64,17 @@
 }
 
 .footer__about-me {
-  width: 40%;
+  width: 50%;
+
+  @include big-desktop {
+    width: 70%;
+  }
 
   @include tablets {
     width: 100%;
   }
 
-  @include mini-phones {
+  @include phones {
     width: 95%;
   }
 }
@@ -82,7 +86,7 @@
     margin-bottom: 2%;
   }
 
-  @include mini-phones {
+  @include phones {
     margin-bottom: 5%;
   }
 }

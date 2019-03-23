@@ -12,18 +12,25 @@
     margin-right: 0;
   }
 
-  @include tablets {
-    margin-bottom: 25px;
-    margin-right: 13%;
+  &--header {
+    @include mini-desktop {
+      margin-right: 30px;
+    }
   }
 
-  @include mini-phones {
-    margin-right: 25%;
+  &--footer {
+    @include big-tablets {
+      margin-bottom: 25px;
+      margin-right: 13%;
+    }
+
+    @include mini-phones {
+      margin-right: 25%;
+    }
   }
 }
 
 .nav__link {
-
   &:hover {
     text-decoration: underline;
   }

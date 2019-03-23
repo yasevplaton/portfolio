@@ -12,12 +12,10 @@
   }
 
   @include phones {
+    padding: 20% 0;
     width: 85%;
   }
 
-  @include mini-phones {
-    padding: 20% 0;
-  }
 }
 
 .skills__title {
@@ -28,13 +26,18 @@
   padding-left: 33%;
   background: url("../images/bg/bag.png") 0 0 no-repeat;
   background-size: contain;
+  min-width: 320px;
+
+  @include big-desktop {
+    background-position-x: -10%;
+  }
 
   @include desktop {
     background-position-x: -200px;
     padding-left: 27%;
   }
 
-  @include tablets {
+  @include mini-desktop {
     background-position: 56% 100%;
     padding-bottom: 345px;
     background-size: auto 35%;
@@ -44,9 +47,12 @@
     align-items: center;
   }
 
-  @include mini-phones {
-    background-position: 33% 100%;
+  @include mini-tablets {
     background-size: auto 26%;
+  }
+
+  @include mini-phones {
+    overflow-x: auto;
   }
 }
 
@@ -63,11 +69,11 @@
 
 .skills__desc-block {
 
-  @include tablets {
+  @include mini-desktop {
     text-align: center;
   }
 
-  @include mini-phones {
+  @include phones {
     text-align: left;
   }
 }
@@ -79,7 +85,7 @@
   line-height: 1.88;
 
 
-  @include mini-phones {
+  @include mini-tablets {
     display: inline;
   }
 }
@@ -89,7 +95,7 @@
   padding-top: 5%;
   width: 90%;
 
-  @include tablets {
+  @include mini-desktop {
     padding-left: 0;
     display: flex;
     flex-direction: column;
@@ -97,7 +103,7 @@
     width: 100%;
   }
 
-  @include mini-phones {
+  @include phones {
     padding-top: 15%;
   }
 }

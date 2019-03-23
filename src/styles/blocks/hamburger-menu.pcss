@@ -1,0 +1,35 @@
+.hamburger-menu {
+  display: none;
+  position: relative;
+  cursor: pointer;
+  z-index: 2000;
+
+  @include big-tablets {
+    display: inline-block;
+  }
+}
+
+.hamburger-menu__bar1, .hamburger-menu__bar2, .hamburger-menu__bar3 {
+  width: 24px;
+  height: 4px;
+  background-color: $text-color;
+  margin: 6px 0;
+  transition: .3s;
+  border-radius: 2px;
+}
+
+.close {
+
+  .hamburger-menu__bar1 {
+    transform: rotate(-45deg) translate(-9px, 6px);
+  }
+
+  .hamburger-menu__bar2 {
+    opacity: 0;
+  }
+
+  .hamburger-menu__bar3 {
+    transform: rotate(45deg) translate(-8px, -8px);
+  }
+
+}

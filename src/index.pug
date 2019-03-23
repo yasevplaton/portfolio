@@ -33,21 +33,28 @@ html(lang="ru")
                   nav.nav
                     ul.nav__list
                       each item, index in navItems
-                        li.nav__item
+                        li.nav__item.nav__item--header
                           a(href=`${navAnchors[index]}`).nav__link #{item}
+                .header__col.header__col--last
 
-                .header__col.header__col--right
+                  .header__col.header__col--right
 
-                  - var socialItems = ['insta', 'vk', 'github'];
-                  - var socialAriaLabels = ['Перейти в Instagram', 'Перейти на ВКонтакте', "Перейти на GitHub"];
-                  - var socialLinks = ['https://www.instagram.com/yasevplaton/', 'https://vk.com/yasevplaton', "https://github.com/yasevplaton"];
+                    - var socialItems = ['insta', 'vk', 'github'];
+                    - var socialAriaLabels = ['Перейти в Instagram', 'Перейти на ВКонтакте', "Перейти на GitHub"];
+                    - var socialLinks = ['https://www.instagram.com/yasevplaton/', 'https://vk.com/yasevplaton', "https://github.com/yasevplaton"];
 
-                  .socials
-                    ul.socials__list
-                      each item, index in socialItems
-                        li(class=`socials__item socials__item--${item}`)
-                          a(href="#" aria-label=`${socialAriaLabels[index]}` target="_blank").socials__link
-                            +icon(item, `socials__icon socials__icon--${item}`)
+                    .socials
+                      ul.socials__list
+                        each item, index in socialItems
+                          li(class=`socials__item socials__item--${item}`)
+                            a(href="#" aria-label=`${socialAriaLabels[index]}` target="_blank").socials__link
+                              +icon(item, `socials__icon socials__icon--${item}`)
+
+                  .header__col.header__col--hamburger
+                    .hamburger-menu
+                      .hamburger-menu__bar1
+                      .hamburger-menu__bar2
+                      .hamburger-menu__bar3
 
               .hero__greeting-block-wrapper
                 h1.hero__greeting-block
@@ -269,7 +276,7 @@ html(lang="ru")
               .nav
                 ul.nav__list
                   each item, index in navItems
-                    li.nav__item
+                    li.nav__item.nav__item--footer
                       a(href=`${navAnchors[index]}`).nav__link #{item}
             .footer__content-data
               .footer__about-me

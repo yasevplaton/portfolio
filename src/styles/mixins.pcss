@@ -4,14 +4,38 @@
   }
 }
 
+@mixin big-desktop() {
+  @media screen and (max-width: $bp-big-desktop) {
+    @content;
+  }
+}
+
 @mixin desktop() {
   @media screen and (max-width: $bp-desktop) {
     @content;
   }
 }
 
+@mixin mini-desktop() {
+  @media screen and (max-width: $bp-mini-desktop) {
+    @content;
+  }
+}
+
+@mixin big-tablets() {
+  @media screen and (max-width: $bp-big-tablets) {
+    @content;
+  }
+}
+
 @mixin tablets() {
   @media screen and (max-width: $bp-tablets) {
+    @content;
+  }
+}
+
+@mixin mini-tablets() {
+  @media screen and (max-width: $bp-mini-tablets) {
     @content;
   }
 }

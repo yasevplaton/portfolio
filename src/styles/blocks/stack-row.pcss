@@ -1,7 +1,7 @@
 .stack-row__list {
   display: flex;
 
-  @include mini-phones {
+  @include mini-tablets {
     flex-wrap: wrap;
   }
 }
@@ -11,19 +11,22 @@
   font-weight: bold;
   margin-bottom: 2%;
 
-  @include tablets {
+  @include mini-desktop {
     text-align: center;
   }
 }
 
 .stack-row__item {
   flex: 1 0 25%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
   &:last-child {
     margin-right: 0;
   }
 
-  @include mini-phones {
+  @include phones {
     flex: 1 0 50%;
   }
 }
