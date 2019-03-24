@@ -30,6 +30,7 @@
   @include phones {
     display: flex;
     flex-direction: column;
+    align-items: center;
   }
 }
 
@@ -101,20 +102,20 @@
 }
 
 .reviews__list {
-  display: flex;
-  align-items: stretch;
+  /* display: flex;
+  align-items: stretch; */
   width: 100%;
-  overflow: hidden;
+  height: auto;
+  /* overflow: hidden; */
 
   @include phones {
     width: 90%;
-    align-self: center;
+    /* align-self: center; */
   }
 }
 
 .reviews__item {
   width: 50%;
-  flex-shrink: 0;
 
   @include phones {
     width: 100%;

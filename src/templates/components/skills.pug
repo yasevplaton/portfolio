@@ -1,19 +1,19 @@
 script(type="text/x-template")#skills-template
-
-  .container.skills__container
-    .skills__content-wrapper
-      h2.title.title--skills.skills__title Чем я могу быть полезен вам
-      .skills__content
-        .skills__content-charts
-          .skills__desc-block
-            span.skills__desc Этот сайт я сделал в рамках обучения в Школе онлайн образования 
-            span.skills__desc LoftSchool. Чуть позже я освежу в нём свой контент. 
-            span.skills__desc А пока посмотрите, как тут всё классно и красиво!
-          ul.skills__stack-list
-            li.skills__stack-item(v-for="skill in skills" :key="skill.skillsGroup")
-              stackRow(
-                :skill="skill"
-              )
+  section.skills
+    .container.skills__container
+      .skills__content-wrapper
+        h2.title.title--skills.skills__title Чем я могу быть полезен вам
+        .skills__content
+          .skills__content-charts
+            .skills__desc-block
+              span.skills__desc Этот сайт я сделал в рамках обучения в Школе онлайн образования 
+              span.skills__desc LoftSchool. Чуть позже я освежу в нём свой контент. 
+              span.skills__desc А пока посмотрите, как тут всё классно и красиво!
+            ul.skills__stack-list
+              li.skills__stack-item(v-for="skill in skills" :key="skill.skillsGroup")
+                stackRow(
+                  :skill="skill"
+                )
 
 script(type="text/x-template")#stack-row-template
   .stack-row

@@ -125,7 +125,7 @@ html(lang="ru")
 
 
         //- skills section
-        section.skills#skills
+        #skills
 
         //- works section
         - var workItems = [1, 2, 3, 4, 5]
@@ -186,44 +186,8 @@ html(lang="ru")
         .reviews-contacts-block
           .container
 
-            //- reviews section
-            - 
-              var reviewsItems = [
-                {
-                  "name": "Ковальчук Дмитрий",
-                  "position": "Основатель Loftschool",
-                  "content": "Этот парень проходил обучение веб-разработке не где-то, а в LoftSchool! 4,5 месяца только самых тяжелых испытаний и бессонных ночей!",
-                  "photoPath": "content/avatar.jpg"
-                },
-                {
-                  "name": "Владимир Сабанцев",
-                  "position": "Преподаватель",
-                  "content": "Этот код выдержит любые испытания. Только пожалуйста, не загружайте сайт на слишком старых браузерах.",
-                  "photoPath": "content/avatar.jpg"
-                }
-              ]
-
-            section.reviews#reviews
-                .reviews__slider
-                  .reviews__heading-row
-                    h2.title.title--reviews Что обо мне говорят
-                    .reviews__arrows
-                      button(type="button").reviews__btn.reviews__btn--left
-                        +icon('arrow-down', 'arrow arrow--left')
-                      button(type="button").reviews__btn.reviews__btn--right
-                        +icon('arrow-down', 'arrow arrow--right')
-                  ul.reviews__list
-                    each item in reviewsItems
-                      li.review.reviews__item
-                        blockquote.review__content-block
-                          .review__content
-                            p #{item.content}
-                          footer.review__person-info
-                            .review__img-wrapper
-                              +image(`${item.photoPath}`, "review__img", "Фотография человека, оставившего отзыв")
-                            .review__person-desc
-                              cite.review__name #{item.name}
-                              span.review__position #{item.position}
+            //- reviews-section
+            #reviews
             
             //- contacts section
             section.contacts#contacts
