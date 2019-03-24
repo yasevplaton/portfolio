@@ -1,8 +1,6 @@
 // GREETING PARALLAX
 
 const greetParallax = document.querySelector(".greeting-parallax");
-const greetParallaxHeight = getComputedStyle(greetParallax).height;
-console.log(greetParallaxHeight);
 const layers = greetParallax.children;
 
 function moveLayers(wScroll) {
