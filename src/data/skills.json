@@ -5,7 +5,7 @@
       "HTML5": 50,
       "CSS3": 50,
       "JavaScript": 30,
-      "jQuery & Vue.js": 20
+      "jQuery & Vue.js": 10
     }
   },
   {
@@ -14,7 +14,7 @@
       "GIT": 30,
       "Terminal": 30,
       "Gulp": 20,
-      "Webpack": 20
+      "Webpack": 10
     }
   }
 ]

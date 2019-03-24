@@ -16,7 +16,9 @@ function moveLayers(wScroll) {
 
 }
 
-window.addEventListener('scroll', e => {
-  const wScroll = window.pageYOffset;
-  moveLayers(wScroll);
-});
+if (window.innerWidth >= 768) {
+  window.addEventListener('scroll', e => {
+    const wScroll = window.pageYOffset;
+    moveLayers(wScroll);
+  });
+}
