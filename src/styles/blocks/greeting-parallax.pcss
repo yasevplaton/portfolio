@@ -1,7 +1,7 @@
 .greeting-parallax {
   position: relative;
   overflow: hidden;
-  height: 170vh;
+  height: 135vh;
 }
 
 .greeting-parallax__layer {
@@ -34,7 +34,7 @@
       top: 50%;
       left: 50%;
       margin-left: 4%;
-      margin-top: -15%;
+      margin-top: -25%;
     }
   }
 
@@ -48,8 +48,9 @@
   /* man */
   &:nth-child(5) {
     .greeting-parallax__image {
-      top: 30%;
+      /* top: 30%; */
       left: 0;
+      bottom: 10%;
     }
   }
 
@@ -65,7 +66,7 @@
   &:nth-child(7) {
     .greeting-parallax__image {
       left: 0;
-      bottom: 0;
+      bottom: -200px;
     }
   }
 }
@@ -74,13 +75,13 @@
   position: absolute;
 }
 
-/* .greeting-parallax__bg {
+.greeting-parallax__bg {
   position: absolute;
-  top: 50%;
+  bottom: -300px;
   width: 100%;
   background: white;
-  height: 1000px;
-} */
+  height: 400px;
+}
 
 .greeting-parallax__content {
   position: absolute;
