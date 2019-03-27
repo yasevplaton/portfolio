@@ -8,7 +8,7 @@ function moveLayers(wScroll) {
   Array.from(layers).forEach(layer => {
 
     const speedCoeff = layer.dataset.speed;
-    const layerOffset = wScroll * speedCoeff;
+    const layerOffset = wScroll * speedCoeff / 30;
 
 
     layer.style.transform = `translateY(-${layerOffset}%)`;
