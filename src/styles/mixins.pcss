@@ -34,6 +34,12 @@
   }
 }
 
+@mixin less-than-tablets() {
+  @media screen and (max-width: $bp-less-than-tablets) {
+    @content;
+  }
+}
+
 @mixin mini-tablets() {
   @media screen and (max-width: $bp-mini-tablets) {
     @content;
