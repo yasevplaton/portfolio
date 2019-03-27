@@ -32,17 +32,29 @@
   /* mountain */
   &:nth-child(2) {
     .rev-cont-parallax__image {
-      bottom: 0;
+      bottom: -30%;
       width: 100%;
+
+      @include desktop {
+        bottom: -20%;
+      }
     }
   }
 
   /* budda */
   &:nth-child(3) {
     .rev-cont-parallax__image {
-      top: 50%;
+      bottom: -20%;
       right: 10%;
-      width: 30%;
+      width: 20%;
+
+      @include desktop {
+        bottom: -10%;
+      }
+
+      @include big-tablets {
+        bottom: -18%;
+      }
     }
   }
 
@@ -51,24 +63,46 @@
     .rev-cont-parallax__image {
       bottom: -60%;
       width: 100%;
+
+      @include desktop {
+        bottom: -40%;
+      }
+
+      @include big-tablets {
+        bottom: -50%;
+      }
     }
   }
 
   /* clouds-1 */
   &:nth-child(5) {
     .rev-cont-parallax__image {
-      bottom: -50%;
+      bottom: -60%;
+
+      @include desktop {
+        bottom: -40%;
+      }
+
+      @include big-tablets {
+        bottom: -50%;
+      }
     }
   }
 
   /* clouds-2 */
   &:nth-child(6) {
     .rev-cont-parallax__image {
-      bottom: -50%;
+      bottom: -60%;
+
+      @include desktop {
+        bottom: -40%;
+      }
+
+      @include big-tablets {
+        bottom: -50%;
+      }
     }
   }
-
-
 }
 
 .rev-cont-parallax__image {
