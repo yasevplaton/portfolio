@@ -26,8 +26,6 @@ window.addEventListener("scroll", e => {
 
     const wScroll = window.pageYOffset;
     moveLayers(wScroll, greetLayers);
-    
-    console.log(wScroll, delta);
 
     if (wScroll > delta) {
       const newScroll = wScroll - delta;

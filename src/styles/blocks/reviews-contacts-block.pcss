@@ -1,7 +1,10 @@
 .reviews-contacts-block {
-  /* background: url('../images/bg/budda.jpg'); */
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
   position: relative;
+
+  @include less-than-tablets {
+    background-image: url('../images/bg/budda.jpg');
+  }
 }
