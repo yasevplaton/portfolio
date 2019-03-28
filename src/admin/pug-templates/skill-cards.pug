@@ -1,0 +1,35 @@
+.skill-cards
+  ul.skill-cards__list
+    li.skill-cards__item
+
+      .skill-card
+        .skill-card__heading-row
+          input(type="text" placeholder="Название новой группы").skill__input.skill-card__title
+          .skill-card__heading-btns
+            .skill-card__edit-mode-btns
+              button(type='button').btn.btn--save-skill-card
+              button(type='button').btn.btn--remove-skill-card
+            .skill-card__read-mode-btns
+              button(type='button').btn.btn--edit-skill-card
+        .skill-card__table
+          table.skill-table
+            tr.skill__row
+              td.skill__col.skill__col--title
+                input(type="text" placeholder="HTML5" value="HTML5").skill__input.skill__input--table.skill__input--title
+              td.skill__col.skill__col--percent
+                input(type="text" placeholder="100").skill__input.skill__input--table.skill__input--percent
+              td.skill__col.skill__col--btns
+                button(type='button').btn.btn--edit-skill
+                button(type='button').btn.btn--remove-skill
+        footer.skill-card__footer
+          .skill-card__footer-content
+            input(type="text" placeholder="Новый навык").skill__input.skill__new-title
+            input(type="text" placeholder="100").skill__input.skill__new-percent
+            button(type="button").btn.btn--add-skill
+
+
+
+    li.skill-cards__item
+      .skill-card
+    li.skill-cards__item
+      .skill-card
