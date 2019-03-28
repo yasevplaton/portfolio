@@ -17,6 +17,23 @@ html(lang="ru")
       main.maincontent
         .greeting
 
+          //- parallax for greeting sections
+          .greeting-parallax
+            .greeting-parallax__layer(data-speed="0.1")
+              +image("parallax/mountain-baloon/layer-0.jpg", "greeting-parallax__image", "Слой для параллакса")
+            .greeting-parallax__layer(data-speed="0.2")
+              +image("parallax/mountain-baloon/layer-1.png", "greeting-parallax__image", "Слой для параллакса")
+            .greeting-parallax__layer(data-speed="0.3")
+              +image("parallax/mountain-baloon/layer-2.png", "greeting-parallax__image", "Слой для параллакса")
+            .greeting-parallax__layer(data-speed="0.4")
+              +image("parallax/mountain-baloon/layer-3.png", "greeting-parallax__image", "Слой для параллакса")
+            .greeting-parallax__layer(data-speed="0.5")
+              +image("parallax/mountain-baloon/layer-4.png", "greeting-parallax__image", "Слой для параллакса")
+            .greeting-parallax__layer(data-speed="0.6")
+              +image("parallax/mountain-baloon/layer-5.png", "greeting-parallax__image", "Слой для параллакса")
+            .greeting-parallax__layer(data-speed="0.7")
+              +image("parallax/mountain-baloon/layer-6.png", "greeting-parallax__image", "Слой для параллакса")
+
           //- hero section
           section.hero.fullscreen-section#hero
             .container.hero__container
@@ -33,26 +50,37 @@ html(lang="ru")
                   nav.nav
                     ul.nav__list
                       each item, index in navItems
-                        li.nav__item
+                        li.nav__item.nav__item--header
                           a(href=`${navAnchors[index]}`).nav__link #{item}
+                .header__col.header__col--last
 
-                .header__col.header__col--right
+                  .header__col.header__col--right
 
-                  - var socialItems = ['insta', 'vk', 'github'];
-                  - var socialAriaLabels = ['Перейти в Instagram', 'Перейти на ВКонтакте', "Перейти на GitHub"];
+                    - var socialItems = ['insta', 'vk', 'github'];
+                    - var socialAriaLabels = ['Перейти в Instagram', 'Перейти на ВКонтакте', "Перейти на GitHub"];
+                    - var socialLinks = ['https://www.instagram.com/yasevplaton/', 'https://vk.com/yasevplaton', "https://github.com/yasevplaton"];
 
-                  .socials
-                    ul.socials__list
-                      each item, index in socialItems
-                        li(class=`socials__item socials__item--${item}`)
-                          a(href="#" aria-label=`${socialAriaLabels[index]}` target="_blank").socials__link
-                            +icon(item, `socials__icon socials__icon--${item}`)
+                    .socials
+                      ul.socials__list
+                        each item, index in socialItems
+                          li(class=`socials__item socials__item--${item}`)
+                            a(href=`${socialLinks[index]}` aria-label=`${socialAriaLabels[index]}` target="_blank").socials__link
+                              +icon(item, `socials__icon socials__icon--${item}`)
+
+                  .header__col.header__col--hamburger
+                    .hamburger-menu
+                      .hamburger-menu__bar1
+                      .hamburger-menu__bar2
+                      .hamburger-menu__bar3
 
               .hero__greeting-block-wrapper
                 h1.hero__greeting-block
-                  span.hero__greeting-text Личный сайт
-                  span.hero__greeting-text веб-разработчика
-                  span.title.title--hero Платон Ясев
+                  .hero__greeting-desc
+                    span.hero__greeting-text Личный сайт
+                    span.hero__greeting-text веб-разработчика
+                  .hero__greeting-name
+                    span.title.title--hero.title--hero-name Платон 
+                    span.title.title--hero.title--hero-surname Ясев
 
               .hero__btns-block
                 a(href="#personal-info").scroll
@@ -61,27 +89,27 @@ html(lang="ru")
           //- personal-info section
           - var personalInfoTableRows = { "Проживаю:": "Москва", "Возраст:": "24 года", "Родился:": "16 октября 1994" }
           section.personal-info#personal-info
-            .container.personal-info__container
-              .personal-info__content-wrapper
-                .personal-info__content
-                  .personal-info__image-table-block
-                    .personal-info__image-block
-                      .personal-info__image-wrapper
-                        +image("content/avatar.jpg", "personal-info__image", "Фотография разработчика")
-                    .personal-info__table-block
-                      table.personal-info__table
-                        each value, key in personalInfoTableRows
-                          tr.personal-info__row
-                            td.personal-info__col.personal-info__col--title #{key}
-                            td.personal-info__col.personal-info__col--content #{value}
-                  .personal-info__text-block
-                    .personal-info__greeting-block
-                      span.personal-info__greeting-title Привет, меня зовут
-                      h2.title.title--personal-info.personal-info__title Платон Ясев
-                    .personal-info__info-text
-                      p Я занимаюсь разработкой современных сайтов и приложений. Мне нравится делать интересные и современные проекты.
-                    .personal-info__info-text--italic
-                      p Этот сайт я сделал в рамках обучения в Школе онлайн образования LoftSchool. Чуть позже я освежу в нём свой контент. А пока посмотрите, как тут всё классно и красиво!
+                .container.personal-info__container
+                  .personal-info__content-wrapper
+                    .personal-info__content
+                      .personal-info__image-table-block
+                        .personal-info__image-block
+                          .personal-info__image-wrapper
+                            +image("content/avatar.jpg", "personal-info__image", "Фотография разработчика")
+                        .personal-info__table-block
+                          table.personal-info__table
+                            each value, key in personalInfoTableRows
+                              tr.personal-info__row
+                                td.personal-info__col.personal-info__col--title #{key}
+                                td.personal-info__col.personal-info__col--content #{value}
+                      .personal-info__text-block
+                        .personal-info__greeting-block
+                          span.personal-info__greeting-title Привет, меня зовут
+                          h2.title.title--personal-info.personal-info__title Платон Ясев
+                        .personal-info__info-text
+                          p Я занимаюсь разработкой современных сайтов и приложений. Мне нравится делать интересные и современные проекты.
+                        .personal-info__info-text--italic
+                          p Этот сайт я сделал в рамках обучения в Школе онлайн образования LoftSchool. Чуть позже я освежу в нём свой контент. А пока посмотрите, как тут всё классно и красиво!
         
         //- triangles
         .triangles-greeting
@@ -92,140 +120,40 @@ html(lang="ru")
 
 
 
-
-
         //- skills section
-        - 
-          var stackItems = [
-            ['Front-end', ['HTML5', 'CSS3', 'JavaScript', 'jQuery и Vue.js']],
-            ['Workflow', ['GIT', 'Terminal', 'Gulp', 'Webpack']]
-          ]
-
-        section.skills#skills
-            .container.skills__container
-              .skills__content-wrapper
-                h2.title.title--skills.skills__title Чем я могу быть полезен вам
-                .skills__content
-                  .skills__content-charts
-                    span.skills__desc Этот сайт я сделал в рамках обучения в Школе онлайн образования
-                    span.skills__desc LoftSchool. Чуть позже я освежу в нём свой контент.
-                    span.skills__desc А пока посмотрите, как тут всё классно и красиво!
-                    ul.skills__stack-list
-                      each stackRow in stackItems
-                        li.stack.skills__stack-item
-                          h3.stack-row__title #{stackRow[0]}
-                          ul.stack-row__list
-                            each skill in stackRow[1]
-                              li.skill.stack-row__item
-                                .skill__wrapper
-                                  svg.skill__chart(viewBox="0 0 100 100" preserveAspectRatio="none")
-                                    defs
-                                      linearGradient#circle-gradient(x1="0%" y1="0%" x2="0%" y2="100%")
-                                        stop(offset="0%" stop-color="#ad00ed")
-                                        stop(offset="100%" stop-color="#5500f2")
-                                    circle.skill__circle.skill__circle--under(cx="50" cy="50" r="40")
-                                    circle.skill__circle.skill__circle--above(cx="50" cy="50" r="40" stroke="url(#circle-gradient)")
-                                  span.skill__title #{skill}
-        
-
+        #skills
 
         //- works section
-        - var workItems = [1, 2, 3, 4, 5]
-        - 
-          var previewsPath = [
-          'content/work-previews/1.jpg',
-          'content/work-previews/2.jpg',
-          'content/work-previews/3.jpg',
-          'content/work-previews/4.jpg',
-          'content/work-previews/5.jpg',
-          ]
 
-        - var techList = ['HTML', 'CSS', 'JavaScript']
-
-        section.works#works
-          .container.works__container
-            .works__content-wrapper
-              h2.title.title--works.works__title Мои работы
-              .works__content
-                .works__slider
-                  ul.works__slider-list
-                    li.works__slider-item
-                      .works__preview-block
-                        .works__preview-img-wrapper
-                          +image(previewsPath[0], "works__preview-img", "Превью работы")
-                          ul.works__preview-list
-                            each item, index in workItems
-                              - var activeClass = index === 0 ? 'works__preview-item--active': ''
-                              li(class=`works__preview-item works__preview-item-${item} ${activeClass}`)
-                                button(type="button").works__preview-item-btn
-                                  +image(previewsPath[index], "works__preview-item-img", "Миниатюрное превью работы")
-                        .works__slider-arrows
-                          button(type="button").works__slider-btn.works__slider-btn--up
-                            +icon('arrow-down', 'arrow arrow--up')
-                          button(type="button").works__slider-btn.works__slider-btn--down
-                            +icon('arrow-down', 'arrow arrow--down')
-                      .works__desc-block
-                        ul.works__tech-list
-                          each item in techList
-                            li.tech.works__tech-item #{item}
-                        .works__desc
-                          h3.works__desc-title Сайт школы образования
-                          .works__desc-text 
-                            p Этот парень проходил обучение веб-разработке не где-то, а в LoftSchool! 2 месяца только самых тяжелых испытаний и бессонных ночей!
-                        a(href="#" target="_blank").works__link Посмотреть сайт
+        #works
         
-
-
-
         //- triangle for reviews-contacts block
         .triangles-reviews-contacts
           svg.triangles-reviews-contacts__item(viewBox="0 0 1000 100" preserveAspectRatio="none")
             polygon(points="0,0 500,100 1000,0")
 
 
-
-
         .reviews-contacts-block
+
+          .rev-cont-parallax
+            .rev-cont-parallax__layer(data-speed="0.1")
+              +image("parallax/budda/layer-1.jpg", "rev-cont-parallax__image", "Слой для параллакса")
+            .rev-cont-parallax__layer(data-speed="0.3")
+              +image("parallax/budda/layer-2.png", "rev-cont-parallax__image", "Слой для параллакса")
+            .rev-cont-parallax__layer(data-speed="0.4")
+              +image("parallax/budda/layer-3.png", "rev-cont-parallax__image", "Слой для параллакса")
+            .rev-cont-parallax__layer(data-speed="0.7")
+              +image("parallax/budda/layer-4.png", "rev-cont-parallax__image", "Слой для параллакса")
+            .rev-cont-parallax__layer(data-speed="0.7")
+              +image("parallax/budda/layer-5.png", "rev-cont-parallax__image", "Слой для параллакса")
+            .rev-cont-parallax__layer(data-speed="0.7")
+              +image("parallax/budda/layer-6.png", "rev-cont-parallax__image", "Слой для параллакса")
+
+            
           .container
 
-            //- reviews section
-            - 
-              var reviewsItems = [
-                {
-                  "name": "Ковальчук Дмитрий",
-                  "position": "Основатель Loftschool",
-                  "content": "Этот парень проходил обучение веб-разработке не где-то, а в LoftSchool! 4,5 месяца только самых тяжелых испытаний и бессонных ночей!",
-                  "photoPath": "content/avatar.jpg"
-                },
-                {
-                  "name": "Владимир Сабанцев",
-                  "position": "Преподаватель",
-                  "content": "Этот код выдержит любые испытания. Только пожалуйста, не загружайте сайт на слишком старых браузерах.",
-                  "photoPath": "content/avatar.jpg"
-                }
-              ]
-
-            section.reviews#reviews
-                .reviews__slider
-                  .reviews__heading-row
-                    h2.title.title--reviews Что обо мне говорят
-                    .reviews__arrows
-                      button(type="button").reviews__btn.reviews__btn--left
-                        +icon('arrow-down', 'arrow arrow--left')
-                      button(type="button").reviews__btn.reviews__btn--right
-                        +icon('arrow-down', 'arrow arrow--right')
-                  ul.reviews__list
-                    each item in reviewsItems
-                      li.review.reviews__item
-                        blockquote.review__content-block
-                          .review__content
-                            p #{item.content}
-                          footer.review__person-info
-                            .review__img-wrapper
-                              +image(`${item.photoPath}`, "review__img", "Фотография человека, оставившего отзыв")
-                            .review__person-desc
-                              cite.review__name #{item.name}
-                              span.review__position #{item.position}
+            //- reviews-section
+            #reviews
             
             //- contacts section
             section.contacts#contacts
@@ -257,14 +185,14 @@ html(lang="ru")
               .copyright__year &copy; 2019
               .copyright__person-info
                 span.copyright__name Платон Ясев
-                span.copyright__desc Личный сайт
+                span.copyright__desc Личный сайт 
                 span.copyright__desc веб-разработчика
           .footer__content
             .footer__nav
-              nav.nav
+              .nav
                 ul.nav__list
                   each item, index in navItems
-                    li.nav__item
+                    li.nav__item.nav__item--footer
                       a(href=`${navAnchors[index]}`).nav__link #{item}
             .footer__content-data
               .footer__about-me
@@ -274,10 +202,12 @@ html(lang="ru")
                     ul.socials__list
                       each item, index in socialItems
                         li(class=`socials__item socials__item--rounded socials__item--${item}`)
-                          a(href="#" aria-label=`${socialAriaLabels[index]}` target="_blank").socials__link
+                          a(href=`${socialLinks[index]}` aria-label=`${socialAriaLabels[index]}` target="_blank").socials__link
                             +icon(item, `socials__icon socials__icon--rounded socials__icon--${item}`)
               .footer__quote
                 blockquote.quote
                   .quote__text
                     p Всегда пишите код так, будто сопровождать его будет склонный к насилию психопат, который знает, где вы живете
                   cite.quote__author Martin Golding  
+
+    include ./templates/entry.pug

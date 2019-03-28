@@ -1,5 +1,21 @@
 .skills__container {
   padding: 5% 0;
+
+  @include desktop {
+    margin: 0;
+    width: 100%;
+  }
+
+  @include tablets {
+    margin: 0 auto;
+    width: 90%;
+  }
+
+  @include phones {
+    padding: 20% 0;
+    width: 85%;
+  }
+
 }
 
 .skills__title {
@@ -10,6 +26,40 @@
   padding-left: 33%;
   background: url("../images/bg/bag.png") 0 0 no-repeat;
   background-size: contain;
+  min-width: 320px;
+
+  @include big-desktop {
+    background-position-x: -10%;
+  }
+
+  @include desktop {
+    background-position-x: -200px;
+    padding-left: 27%;
+  }
+
+  @include mini-desktop {
+    background-position: 56% 100%;
+    padding-bottom: 345px;
+    background-size: auto 35%;
+    padding-left: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  @include mini-tablets {
+    background-size: auto 26%;
+  }
+
+  @include mini-phones {
+    overflow-x: auto;
+  }
+}
+
+.skills__content-charts {
+  @include tablets {
+    width: 100%;
+  }
 }
 
 .skills__bg-image-wrapper {
@@ -17,16 +67,45 @@
   height: 100%;
 }
 
+.skills__desc-block {
+
+  @include mini-desktop {
+    text-align: center;
+  }
+
+  @include phones {
+    text-align: left;
+  }
+}
 
 .skills__desc {
   color: rgba(65, 76, 99, 0.5);
   font-weight: 600;
   display: block;
+  line-height: 1.88;
+
+
+  @include mini-tablets {
+    display: inline;
+  }
 }
 
 .skills__stack-list {
   padding-left: 15%;
   padding-top: 5%;
+  width: 90%;
+
+  @include mini-desktop {
+    padding-left: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
+
+  @include phones {
+    padding-top: 15%;
+  }
 }
 
 .skills__stack-item {

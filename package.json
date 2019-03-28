@@ -40,9 +40,9 @@
     "terser-webpack-plugin": "^1.2.3",
     "vue-loader": "^15.6.4",
     "vue-template-compiler": "^2.6.7",
-    "webpack": "^4.29.5",
+    "webpack": "^4.29.6",
     "webpack-cli": "^3.2.3",
-    "webpack-dev-server": "^3.2.0"
+    "webpack-dev-server": "^3.2.1"
   },
   "browserslist": [
     "last 2 versions"
@@ -54,6 +54,7 @@
     "request": "^2.88.0",
     "signale": "^1.4.0",
     "vue": "^2.6.7",
+    "vue-flickity": "^1.1.2",
     "vue-router": "^3.0.2"
   }
 }

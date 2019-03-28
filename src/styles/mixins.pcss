@@ -4,8 +4,26 @@
   }
 }
 
+@mixin big-desktop() {
+  @media screen and (max-width: $bp-big-desktop) {
+    @content;
+  }
+}
+
 @mixin desktop() {
   @media screen and (max-width: $bp-desktop) {
+    @content;
+  }
+}
+
+@mixin mini-desktop() {
+  @media screen and (max-width: $bp-mini-desktop) {
+    @content;
+  }
+}
+
+@mixin big-tablets() {
+  @media screen and (max-width: $bp-big-tablets) {
     @content;
   }
 }
@@ -16,8 +34,26 @@
   }
 }
 
+@mixin less-than-tablets() {
+  @media screen and (max-width: $bp-less-than-tablets) {
+    @content;
+  }
+}
+
+@mixin mini-tablets() {
+  @media screen and (max-width: $bp-mini-tablets) {
+    @content;
+  }
+}
+
 @mixin phones() {
   @media screen and (max-width: $bp-phones) {
+    @content;
+  }
+}
+
+@mixin mini-phones() {
+  @media screen and (max-width: $bp-mini-phones) {
     @content;
   }
 }

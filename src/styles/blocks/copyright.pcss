@@ -1,5 +1,9 @@
 .copyright {
   display: flex;
+
+  @include desktop {
+    flex-direction: column;
+  }
 }
 
 .copyright__year {
@@ -9,6 +13,24 @@
   font-weight: 600;
   color: rgba(255, 255, 255, 0.1);
   line-height: 1;
+
+  @include desktop {
+    margin-right: 0;
+    margin-bottom: 10%;
+  }
+
+  @include tablets {
+    font-size: 36px;
+  }
+
+  @include mini-tablets {
+    font-size: 30px;
+  }
+
+  @include phones {
+    font-size: 48px;
+    margin-bottom: 5%;
+  }
 }
 
 .copyright__name {
@@ -16,10 +38,20 @@
   font-weight: bold;
   line-height: 1.67;
   margin-bottom: 10%;
+  text-transform: uppercase;
+  display: block;
+
+  @include phones {
+    margin-bottom: 0;
+  }
 }
 
 .copyright__desc {
   color: rgba(255, 255, 255, 0.15);
   line-height: 1.88;
   display: block;
+
+  @include phones {
+    display: inline;
+  }
 }

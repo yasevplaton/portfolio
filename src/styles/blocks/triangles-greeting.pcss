@@ -2,6 +2,11 @@
   position: relative;
   height: 80px;
   margin-top: -80px;
+
+  @include phones {
+    height: 50px;
+    margin-top: -50px;
+  }
 }
 
 .triangles-greeting__item {

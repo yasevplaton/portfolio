@@ -1,0 +1,119 @@
+.greeting-parallax {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: -10;
+
+  @include less-than-tablets {
+    display: none;
+  }
+}
+
+.greeting-parallax__layer {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  will-change: transform;
+
+  /* sky background */
+  &:nth-child(1) {
+    .greeting-parallax__image {
+      object-fit: cover;
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  /* mountain */
+  &:nth-child(2) {
+    .greeting-parallax__image {
+      width: 100%;
+      top: 40%;
+
+      @include big-tablets {
+        top: 60%;
+      }
+    }
+  }
+
+  /* baloon */
+  &:nth-child(3) {
+    .greeting-parallax__image {
+      top: 518PX;
+      left: 50%;
+      margin-left: 12%;
+    }
+  }
+
+  /* clouds */
+  &:nth-child(4) {
+    .greeting-parallax__image {
+      top: 610PX;
+      left: 0;
+    }
+  }
+
+  /* man */
+  &:nth-child(5) {
+    .greeting-parallax__image {
+      left: 0;
+      top: 60%;
+
+      @include big-tablets {
+        top: 70%;
+      }
+    }
+  }
+
+  /* closest mountain */
+  &:nth-child(6) {
+    .greeting-parallax__image {
+      bottom: -600PX;
+      right: 0;
+    }
+  }
+
+  /* closest clouds */
+  &:nth-child(7) {
+    .greeting-parallax__image {
+      left: 0;
+      bottom: -50%;
+      height: 70%;
+      width: 100%;
+
+      @include mini-desktop {
+        bottom: -40%;
+        height: 60%;
+      }
+
+      @include big-tablets {
+        height: 55%;
+      }
+    }
+  }
+}
+
+.greeting-parallax__image {
+  position: absolute;
+}
+
+.greeting-parallax__bg {
+  position: absolute;
+  bottom: -300px;
+  width: 100%;
+  background: white;
+  height: 400px;
+}
+
+.greeting-parallax__content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}

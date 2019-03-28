@@ -7,12 +7,29 @@
   padding: 100px 0;
   display: flex;
   justify-content: space-between;
-  padding-right: 100px;
+
+  @include desktop {
+    padding-right: 0;
+  }
+
+  @include phones {
+    flex-direction: column;
+  }
 }
 
 .footer__copyright {
   margin-right: 5%;
   width: 30%;
+
+  @include desktop {
+    width: 22%;
+    margin-right: 10px;
+  }
+
+  @include phones {
+    width: 100%;
+    margin-bottom: 15%;
+  }
 }
 
 .footer__content {
@@ -21,6 +38,18 @@
 
 .footer__nav {
   margin-bottom: 3%;
+  
+  @include desktop {
+    margin-bottom: 7%;
+  }
+
+  @include big-tablets {
+    margin-bottom: 2%;
+  }
+
+  @include phones {
+    margin-bottom: 8%;
+  }
 }
 
 .footer__content-data {
@@ -28,16 +57,52 @@
   justify-content: space-between;
   color: rgba(255, 255, 255, 0.3);
   line-height: 1.88;
+
+  @include tablets {
+    flex-direction: column;
+  }
 }
 
 .footer__about-me {
-  width: 40%;
+  width: 50%;
+
+  @include big-desktop {
+    width: 70%;
+  }
+
+  @include tablets {
+    width: 100%;
+  }
+
+  @include phones {
+    width: 95%;
+  }
 }
 
 .footer__text {
   margin-bottom: 5%;
+
+  @include tablets {
+    margin-bottom: 2%;
+  }
+
+  @include phones {
+    margin-bottom: 5%;
+  }
+}
+
+.footer__socials {
+
+  @include tablets {
+    margin-bottom: 10%;
+  }
+
 }
 
 .footer__quote {
-  width: 50%;
+
+  @include tablets {
+    width: 100%;
+  }
+
 }

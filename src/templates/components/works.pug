@@ -1,0 +1,45 @@
+script(type="text/x-template")#works-component
+
+  - var workItems = [1, 2, 3, 4, 5]
+  - 
+    var previewsPath = [
+    'content/work-previews/1.jpg',
+    'content/work-previews/2.jpg',
+    'content/work-previews/3.jpg',
+    'content/work-previews/4.jpg',
+    'content/work-previews/5.jpg',
+    ]
+
+  - var techList = ['HTML', 'CSS', 'JavaScript']
+  
+  section.works
+    .container.works__container
+      .works__content-wrapper
+        h2.title.title--works.works__title Мои работы
+        .works__content
+          .works__slider
+            ul.works__slider-list
+              li.works__slider-item
+                .works__preview-block
+                  .works__preview-img-wrapper
+                    +image(previewsPath[0], "works__preview-img", "Превью работы")
+                    ul.works__preview-list
+                      each item, index in workItems
+                        - var activeClass = index === 0 ? 'works__preview-item--active': ''
+                        li(class=`works__preview-item works__preview-item-${item} ${activeClass}`)
+                          button(type="button").works__preview-item-btn
+                            +image(previewsPath[index], "works__preview-item-img", "Миниатюрное превью работы")
+                  .works__slider-arrows
+                    button(type="button").works__slider-btn.works__slider-btn--up
+                      +icon('arrow-down', 'arrow arrow--up')
+                    button(type="button").works__slider-btn.works__slider-btn--down
+                      +icon('arrow-down', 'arrow arrow--down')
+                .works__desc-block
+                  ul.works__tech-list
+                    each item in techList
+                      li.tech.works__tech-item #{item}
+                  .works__desc
+                    h3.works__desc-title Сайт школы образования
+                    .works__desc-text 
+                      p Этот парень проходил обучение веб-разработке не где-то, а в LoftSchool! 2 месяца только самых тяжелых испытаний и бессонных ночей!
+                  a(href="#" target="_blank").works__link Посмотреть сайт

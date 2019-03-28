@@ -1,18 +1,32 @@
 .stack-row__list {
   display: flex;
-  flex-wrap: wrap;
+
+  @include mini-tablets {
+    flex-wrap: wrap;
+  }
 }
 
 .stack-row__title {
   font-size: 24px;
   font-weight: bold;
   margin-bottom: 2%;
+
+  @include mini-desktop {
+    text-align: center;
+  }
 }
 
 .stack-row__item {
-  margin-right: 2%;
+  flex: 1 0 25%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
   &:last-child {
     margin-right: 0;
+  }
+
+  @include phones {
+    flex: 1 0 50%;
   }
 }

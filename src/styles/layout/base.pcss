@@ -4,7 +4,6 @@ html {
     font-size: 15px;
   }
 
-  
   @include tablets {
     font-size: 14px;
   }
@@ -14,10 +13,10 @@ body,
 html {
   height: 100%;
 }
-
+/* 
 ::-webkit-scrollbar { 
     display: none; 
-}
+} */
 
 body {
   font-family: 'Open Sans', Helvetica, sans-serif;
@@ -94,12 +93,17 @@ cite {
   position: relative;
   display: flex;
   flex-direction: column;
+  min-width: 320px;
+  
+  @include mini-phones {
+    overflow-x: auto;
+  }
 }
 
 .container {
   margin: 0 auto;
   max-width: 1480PX;
-  width: 95%;
+  width: 90%;
 
   @include phones {
     width: 85%;
