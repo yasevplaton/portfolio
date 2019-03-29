@@ -49,4 +49,57 @@
       center center no-repeat;
     margin-right: 20px !important;
   }
+
+  &--edit-skill {
+    display: inline-block;
+    width: 14px;
+    height: 14px;
+    background: svg-load(
+        "pencil.svg",
+        fill=rgba($text-color, 0.5),
+        width=100%,
+        height=100%
+      )
+      center center no-repeat;
+    margin-right: 20px !important;
+  }
+
+  &--trash-skill {
+    display: inline-block;
+    width: 12px;
+    height: 15px;
+    background: svg-load(
+        "trash.svg",
+        fill=rgba($text-color, 0.5),
+        width=100%,
+        height=100%
+      )
+      center center no-repeat;
+  }
+
+  &--save-skill {
+    display: inline-block;
+    width: 15px;
+    height: 12px;
+    background: svg-load("tick.svg", fill=#00d70a, width=100%, height=100%)
+      center center no-repeat;
+    margin-right: 20px !important;
+  }
+
+  &--remove-skill {
+    display: inline-block;
+    width: 14px;
+    height: 12px;
+    background: svg-load("remove.svg", fill=#bf2929, width=100%, height=100%)
+      center center no-repeat;
+  }
+
+  &--add-skill {
+    padding: 7px 15px !important;
+    background-image: linear-gradient(to right, #006aed, #3f35cb);
+    border-radius: 50%;
+    font-size: 30px;
+    font-weight: 600;
+    color: #fff;
+  }
 }
