@@ -224,9 +224,52 @@
         .container.works__container
           .heading-row.works__heading-row
             h1.title.works__title Блок "Работы"
-          .work-form
-            .work-form__heading-row
-              
+          
+          .work-form-block
+            .work-form-block__heading-row Редактирование работы
+
+            form.work-form.work-form-block__content
+
+              .work-form__photo
+                .work-form__upload-container
+                  .work-form__upload-content
+                    span.work-form__upload-desc Перетащите или загрузите для загрузки изображения
+                    button(type="button").btn.btn--upload-work-photo Загрузить
+
+              .work-form__text
+                  .work-form__row
+                    .work-form__col
+                      label.work-form__text-block(for="title")
+                        span.work-form__label Название
+                        input.work-form__input.work-form__input--title#title(type="text" name="title" placeholder="Введите название работы")
+                  .work-form__row
+                    .work-form__col
+                      label.work-form__text-block(for="link")
+                        span.work-form__label Ссылка
+                        input.work-form__input.work-form__input--link#link(type="text" name="link" placeholder="Вставьте ссылку")
+                  .work-form__row
+                    .work-form__col
+                      label.work-form__text-block(for="description")
+                        span.work-form__label Описание
+                        textarea.work-form__textarea#description(name="description" rows="4" placeholder="Введите описание работы")
+                  .work-form__row
+                    .work-form__col
+                      label.work-form__text-block(for="tags")
+                        span.work-form__label Добавление тега
+                        input.work-form__input.work-form__input--tags#tags(type="text" name="tags" placeholder="Если хотите, введите теги")
+                  .work-form__row
+                    .work-form__col
+                      ul.work-form__tags
+                        li.work-form__tag HTML
+                        li.work-form__tag CSS
+                        li.work-form__tag JavaScript
+
+                  .work-form__row.work-form__row--btns
+                    .work-form__col
+                      .work-form__btns
+                        button(type="button").btn.btn--cancel-edit-work Отмена
+                        button(type="button").btn.btn--save-edit-work Сохранить
+
           .work-cards
             ul.work-cards__list
               li.work-cards__item.work-cards__item--new-works
@@ -234,7 +277,7 @@
                   span.btn__new-work-icon
                   span.btn__new-work-title Добавить работу
               li.work-cards__item
-                .work-card
+                .work-card.work-card--edit
                   .work-card__header
                     img(src="../images/content/work-previews/1.jpg" alt="Превью работы").work-card__img
                     .work-card__tags
@@ -249,8 +292,8 @@
                       p Этот парень проходил обучение веб-разработке не где-то, а в LoftSchool! 4,5 месяца только самых тяжелых испытаний и бессонных ночей!
                     a(href="//google.com").work-card__link //google.com
                     .work-card__btns
-                      button(type="button").btn.btn--work-edit Править
-                      button(type="button").btn.btn--work-remove Удалить
+                      button(type="button").btn.btn--work-card-edit Править
+                      button(type="button").btn.btn--work-card-remove Удалить
               li.work-cards__item
                 .work-card
               li.work-cards__item
