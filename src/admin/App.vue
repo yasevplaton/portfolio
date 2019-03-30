@@ -302,10 +302,6 @@
                       button(type="button").btn.btn--work-card-remove Удалить
               li.work-cards__item
                 .work-card
-              li.work-cards__item
-                .work-card
-              li.work-cards__item
-                .work-card
       
 </template>
 
