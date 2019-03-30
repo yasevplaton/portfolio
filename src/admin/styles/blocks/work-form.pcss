@@ -35,7 +35,19 @@
 
 .work-form__row {
   width: 100%;
-  margin-bottom: 30px;
+  margin-bottom: 40px;
+
+  &--textarea {
+    margin-bottom: 20px;
+  }
+
+  &--tags {
+    margin-bottom: 30px;
+  }
+
+  &--btns {
+    margin-bottom: 0;
+  }
 }
 
 .work-form__col {
@@ -45,6 +57,11 @@
 .work-form__text-block {
   width: 100%;
   border-bottom: 1px solid $text-color;
+  padding-bottom: 15px;
+
+  &--textarea {
+    border: none;
+  }
 }
 
 .work-form__label {
@@ -56,6 +73,47 @@
 }
 
 .work-form__input {
-  background: none !important;
+  background: none;
   border: none;
+  width: 100%;
+  font-size: 16px;
+  font-weight: 600;
 }
+
+.work-form__textarea {
+  resize: vertical;
+  width: 100%;
+  font-size: 16px;
+  font-weight: 600;
+  border: solid 1px rgba(#414c63, .3);
+}
+
+.work-form__tags-list {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.work-form__tags-item {
+  font-size: 13px;
+  font-weight: 600;
+  color: rgba(40, 51, 64, 0.7);
+  border-radius: 14.9px;
+  background-color: #f4f4f4;
+  padding: 8px 12px;
+  display: flex;
+  align-items: center;
+  margin-right: 9px;
+}
+
+.work-form__tags-name {
+  margin-right: 10px;
+}
+
+.work-form__btns {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+

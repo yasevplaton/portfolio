@@ -247,22 +247,28 @@
                       label.work-form__text-block(for="link")
                         span.work-form__label Ссылка
                         input.work-form__input.work-form__input--link#link(type="text" name="link" placeholder="Вставьте ссылку")
-                  .work-form__row
+                  .work-form__row.work-form__row--textarea
                     .work-form__col
-                      label.work-form__text-block(for="description")
+                      label.work-form__text-block.work-form__text-block--textarea(for="description")
                         span.work-form__label Описание
                         textarea.work-form__textarea#description(name="description" rows="4" placeholder="Введите описание работы")
-                  .work-form__row
+                  .work-form__row.work-form__row--tags
                     .work-form__col
                       label.work-form__text-block(for="tags")
                         span.work-form__label Добавление тега
-                        input.work-form__input.work-form__input--tags#tags(type="text" name="tags" placeholder="Если хотите, введите теги")
+                        input.work-form__input.work-form__input--tags#tags(type="text" name="tags" placeholder="Если хотите, добавьте теги")
                   .work-form__row
                     .work-form__col
-                      ul.work-form__tags
-                        li.work-form__tag HTML
-                        li.work-form__tag CSS
-                        li.work-form__tag JavaScript
+                      ul.work-form__tags-list
+                        li.work-form__tags-item
+                          span.work-form__tags-name HTML
+                          button(type="button").btn.btn--remove-work-tag
+                        li.work-form__tags-item
+                          span.work-form__tags-name CSS
+                          button(type="button").btn.btn--remove-work-tag
+                        li.work-form__tags-item
+                          span.work-form__tags-name JavaScript
+                          button(type="button").btn.btn--remove-work-tag
 
                   .work-form__row.work-form__row--btns
                     .work-form__col
