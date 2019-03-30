@@ -22,7 +22,7 @@ module.exports = (env, argv) => {
 
   const vue = {
     test: /\.vue$/,
-    loader: "vue-loader"
+    loader: ["cache-loader", "vue-loader"]
   };
 
   const js = {

@@ -1,9 +1,0 @@
-.nav__wrapper
-  .container.nav__container
-    nav.nav
-      ul.nav__list
-        - var navItems = ["Обо мне", "Работы", "Отзывы"];
-        each item in navItems
-          - var activeClass = item === "Обо мне" ? "nav__item--active" : "";
-          li(class=`nav__item ${activeClass}`)
-            a(href="#").nav__link #{item}
