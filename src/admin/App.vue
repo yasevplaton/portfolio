@@ -278,12 +278,12 @@
 
           .work-cards
             ul.work-cards__list
-              li.work-cards__item.work-cards__item--new-works
-                button(type="button").btn.btn--add-new-work
-                  span.btn__new-work-icon
-                  span.btn__new-work-title Добавить работу
+              li.work-cards__item.work-cards__item--new-card
+                button(type="button").btn.btn--add-new-card
+                  span.btn__new-card-icon
+                  span.btn__new-card-title Добавить работу
               li.work-cards__item
-                .work-card.work-card--edit
+                .work-card
                   .work-card__header
                     img(src="../images/content/work-previews/1.jpg" alt="Превью работы").work-card__img
                     .work-card__tags
@@ -298,10 +298,42 @@
                       p Этот парень проходил обучение веб-разработке не где-то, а в LoftSchool! 4,5 месяца только самых тяжелых испытаний и бессонных ночей!
                     a(href="//google.com").work-card__link //google.com
                     .work-card__btns
-                      button(type="button").btn.btn--work-card-edit Править
-                      button(type="button").btn.btn--work-card-remove Удалить
+                      button(type="button").btn.btn--card-edit Править
+                      button(type="button").btn.btn--card-remove Удалить
               li.work-cards__item
                 .work-card
+
+
+      section.section.reviews
+        .container.reviews__container
+          .heading-row.reviews__heading-row
+            h1.title.reviews__title Блок "Отзывы"
+
+          .review-cards
+            ul.review-cards__list
+              li.review-cards__item.review-cards__item--new-card
+                button(type="button").btn.btn--add-new-card
+                  span.btn__new-card-icon
+                  span.btn__new-card-title Добавить отзыв
+
+              li.review-cards__item
+                .review-card
+                  .review-card__header
+                    .review-author
+                      .review-author__photo-block
+                        img(src="../images/content/avatar.jpg" alt="Фотография автора отзыва").review-author__img
+                      .review-author__desc
+                        .review-author__name Владимир Сабанцев
+                        .review-author__position Преподаватель
+                  .review-card__content
+                    .review-card__desc
+                      p Этот парень проходил обучение веб-разработке не где-то, а в LoftSchool! 4,5 месяца только самых тяжелых испытаний и бессонных ночей!
+                    .review-card__btns
+                      button(type="button").btn.btn--card-edit Править
+                      button(type="button").btn.btn--card-remove Удалить
+
+              li.review-cards__item
+                .review-card
       
 </template>
 
