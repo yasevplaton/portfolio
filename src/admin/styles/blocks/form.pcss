@@ -1,19 +1,63 @@
-.work-form__photo {
-  grid-area: photo;
+.form__photo {
+  &--work {
+    grid-area: photo;
+  }
+
+  &--review {
+    grid-area: photo;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
 }
 
-.work-form__text {
-  grid-area: text;
+.form__text {
+  &--work {
+    grid-area: text;
+  }
+  &--review {
+    grid-area: text;
+  }
 }
 
-.work-form__upload-container {
+.form__upload-photo-container {
   border: dashed 1px #a1a1a1;
   background-color: #dee4ed;
   min-height: 50%;
   position: relative;
+
+  &--review {
+    border: none;
+    min-height: initial;
+    background: #dee4ed;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    display: block;
+    position: relative;
+    margin-bottom: 30px;
+
+    &::after {
+      content: "";
+      width: 84px;
+      height: 112px;
+      display: block;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: svg-load(
+        "user.svg",
+        fill=#fff,
+        width=100%,
+        height=100%
+      )
+      center center no-repeat;
+    }
+  }
 }
 
-.work-form__upload-content {
+.form__upload-photo-content {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -23,7 +67,7 @@
   align-items: center;
 }
 
-.work-form__upload-desc {
+.form__upload-photo-desc {
   display: inline-block;
   font-size: 16px;
   font-weight: 600;
@@ -33,9 +77,10 @@
   margin-bottom: 30px;
 }
 
-.work-form__row {
+.form__row {
   width: 100%;
   margin-bottom: 40px;
+  display: flex;
 
   &--textarea {
     margin-bottom: 20px;
@@ -50,11 +95,15 @@
   }
 }
 
-.work-form__col {
-  width: 100%;
+.form__col {
+  flex: 1;
+
+  &:not(:last-child) {
+    margin-right: 30px;
+  }
 }
 
-.work-form__text-block {
+.form__text-block {
   width: 100%;
   border-bottom: 1px solid $text-color;
   padding-bottom: 15px;
@@ -64,7 +113,7 @@
   }
 }
 
-.work-form__label {
+.form__label {
   display: block;
   color: rgba(65, 76, 99, 0.5);
   font-size: 16px;
@@ -72,7 +121,7 @@
   margin-bottom: 10px;
 }
 
-.work-form__input {
+.form__input {
   background: none;
   border: none;
   width: 100%;
@@ -80,21 +129,21 @@
   font-weight: 600;
 }
 
-.work-form__textarea {
+.form__textarea {
   resize: vertical;
   width: 100%;
   font-size: 16px;
   font-weight: 600;
-  border: solid 1px rgba(#414c63, .3);
+  border: solid 1px rgba(#414c63, 0.3);
 }
 
-.work-form__tags-list {
+.form__tags-list {
   display: flex;
   align-items: center;
   flex-wrap: wrap;
 }
 
-.work-form__tags-item {
+.form__tags-item {
   font-size: 13px;
   font-weight: 600;
   color: rgba(40, 51, 64, 0.7);
@@ -106,14 +155,12 @@
   margin-right: 9px;
 }
 
-.work-form__tags-name {
+.form__tags-name {
   margin-right: 10px;
 }
 
-.work-form__btns {
+.form__btns {
   display: flex;
   align-items: center;
   justify-content: flex-end;
 }
-
-

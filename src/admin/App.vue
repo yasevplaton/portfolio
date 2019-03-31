@@ -225,56 +225,56 @@
           .heading-row.works__heading-row
             h1.title.works__title Блок "Работы"
           
-          .work-form-block
-            .work-form-block__heading-row Редактирование работы
+          .form-block
+            h2.form-block__title Редактирование работы
 
-            form.work-form.work-form-block__content
+            form.form.work-form.form-block__content.form-block__content--work
 
-              .work-form__photo
-                .work-form__upload-container
-                  .work-form__upload-content
-                    span.work-form__upload-desc Перетащите или загрузите для загрузки изображения
+              .form__photo.form__photo--work
+                .form__upload-photo-container
+                  .form__upload-photo-content
+                    span.form__upload-photo-desc Перетащите или загрузите для загрузки изображения
                     button(type="button").btn.btn--upload-work-photo Загрузить
 
-              .work-form__text
-                  .work-form__row
-                    .work-form__col
-                      label.work-form__text-block(for="title")
-                        span.work-form__label Название
-                        input.work-form__input.work-form__input--title#title(type="text" name="title" placeholder="Введите название работы")
-                  .work-form__row
-                    .work-form__col
-                      label.work-form__text-block(for="link")
-                        span.work-form__label Ссылка
-                        input.work-form__input.work-form__input--link#link(type="text" name="link" placeholder="Вставьте ссылку")
-                  .work-form__row.work-form__row--textarea
-                    .work-form__col
-                      label.work-form__text-block.work-form__text-block--textarea(for="description")
-                        span.work-form__label Описание
-                        textarea.work-form__textarea#description(name="description" rows="4" placeholder="Введите описание работы")
-                  .work-form__row.work-form__row--tags
-                    .work-form__col
-                      label.work-form__text-block(for="tags")
-                        span.work-form__label Добавление тега
-                        input.work-form__input.work-form__input--tags#tags(type="text" name="tags" placeholder="Если хотите, добавьте теги")
-                  .work-form__row
-                    .work-form__col
-                      ul.work-form__tags-list
-                        li.work-form__tags-item
-                          span.work-form__tags-name HTML
-                          button(type="button").btn.btn--remove-work-tag
-                        li.work-form__tags-item
-                          span.work-form__tags-name CSS
-                          button(type="button").btn.btn--remove-work-tag
-                        li.work-form__tags-item
-                          span.work-form__tags-name JavaScript
-                          button(type="button").btn.btn--remove-work-tag
+              .form__text.form__text--work
+                .form__row
+                  .form__col
+                    label.form__text-block(for="title")
+                      span.form__label Название
+                      input.form__input.form__input--title#title(type="text" name="title" placeholder="Введите название работы")
+                .form__row
+                  .form__col
+                    label.form__text-block(for="link")
+                      span.form__label Ссылка
+                      input.form__input.form__input--link#link(type="text" name="link" placeholder="Вставьте ссылку")
+                .form__row.form__row--textarea
+                  .form__col
+                    label.form__text-block.form__text-block--textarea(for="description")
+                      span.form__label Описание
+                      textarea.form__textarea#description(name="description" rows="4" placeholder="Введите описание работы")
+                .form__row.form__row--tags
+                  .form__col
+                    label.form__text-block(for="tags")
+                      span.form__label Добавление тега
+                      input.form__input.form__input--tags#tags(type="text" name="tags" placeholder="Если хотите, добавьте теги")
+                .form__row
+                  .form__col
+                    ul.form__tags-list
+                      li.form__tags-item
+                        span.form__tags-name HTML
+                        button(type="button").btn.btn--remove-tag
+                      li.form__tags-item
+                        span.form__tags-name CSS
+                        button(type="button").btn.btn--remove-tag
+                      li.form__tags-item
+                        span.form__tags-name JavaScript
+                        button(type="button").btn.btn--remove-tag
 
-                  .work-form__row.work-form__row--btns
-                    .work-form__col
-                      .work-form__btns
-                        button(type="button").btn.btn--cancel-edit-work Отмена
-                        button(type="button").btn.btn--save-edit-work Сохранить
+                .form__row.form__row--btns
+                  .form__col
+                    .form__btns
+                      button(type="button").btn.btn--cancel-edit Отмена
+                      button(type="button").btn.btn--save-edit Сохранить
 
           .work-cards
             ul.work-cards__list
@@ -308,6 +308,37 @@
         .container.reviews__container
           .heading-row.reviews__heading-row
             h1.title.reviews__title Блок "Отзывы"
+          
+          .form-block
+            h2.form-block__title Новый отзыв
+
+            form.form.review-form.form-block__content.form-block__content--review
+
+              .form__photo.form__photo--review
+                .form__upload-photo-container--review
+                button(type="button").btn.btn--upload-review-photo Добавить фото
+
+              .form__text.form__text--review
+                .form__row
+                  .form__col
+                    label.form__text-block(for="name")
+                      span.form__label Имя автора
+                      input.form__input.form__input--name#name(type="text" name="name" placeholder="Введите имя автора")
+                  .form__col
+                    label.form__text-block(for="position")
+                      span.form__label Титул автора
+                      input.form__input.form__input--position#position(type="text" name="position" placeholder="Введите титул автора")
+                .form__row.form__row--textarea
+                  .form__col
+                    label.form__text-block.form__text-block--textarea(for="review")
+                      span.form__label Отзыв
+                      textarea.form__textarea#review(name="review" rows="4" placeholder="Введите отзыв")
+
+                .form__row.form__row--btns
+                  .form__col
+                    .form__btns
+                      button(type="button").btn.btn--cancel-edit Отмена
+                      button(type="button").btn.btn--save-edit Сохранить
 
           .review-cards
             ul.review-cards__list
