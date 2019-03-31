@@ -1,370 +1,396 @@
 <template lang="pug">
-  .content-wrapper
+  .admin-content
+    //- auth component
+    .login
+      .login__content
+        a(href="#").btn.btn--close-login-window
+        h1.login__title Авторизация
+        form.login__form
+          .login__form-row
+            .login__form-col
+              label.login__form-block(for="login")
+                span.login__form-label Логин
+                input.login__form-input.login__form-input--login#login(type="text" name="login")
+          .login__form-row
+            .login__form-col
+              label.login__form-block(for="password")
+                span.login__form-label Пароль
+                input.login__form-input.login__form-input--password#password(type="text" name="password")
+          .login__form-row
+            .login__form-col
+              button(type="button").btn.btn__login-submit Отправить
 
-    //- header
-    header.header
-      .container.header__container
-        .header__col.header__col--first
-          .user-info.header__col-content
-            .user-info__avatar-wrapper
-              img(src="../images/content/avatar.jpg" alt="Аватар пользователя").avatar
-            .user-info__name Платон Ясев
-          .window-desc Панель администрирования
-        .header__col.header__col--last
-          a(href="#").exit-btn Выйти
+    .content-wrapper
+      //- header
+      header.header
+        .container.header__container
+          .header__col.header__col--first
+            .user-info.header__col-content
+              .user-info__avatar-wrapper
+                img(src="../images/content/avatar.jpg" alt="Аватар пользователя").avatar
+              .user-info__name Платон Ясев
+            .window-desc Панель администрирования
+          .header__col.header__col--last
+            a(href="#").exit-btn Выйти
 
-    //- nav
-    .nav__wrapper
-      .container.nav__container
-        nav.nav
-          ul.nav__list
-            - var navItems = ["Обо мне", "Работы", "Отзывы"];
-            each item in navItems
-              - var activeClass = item === "Обо мне" ? "nav__item--active" : "";
-              li(class=`nav__item ${activeClass}`)
-                a(href="#").nav__link #{item}
+      //- nav
+      .nav__wrapper
+        .container.nav__container
+          nav.nav
+            ul.nav__list
+              - var navItems = ["Обо мне", "Работы", "Отзывы"];
+              each item in navItems
+                - var activeClass = item === "Обо мне" ? "nav__item--active" : "";
+                li(class=`nav__item ${activeClass}`)
+                  a(href="#").nav__link #{item}
 
-    //- content-block
-    .content-block
+      //- content-block
+      .content-block
 
-      //- about section
-      section.section.about
-        .container.about__container
-          .heading-row.about__heading-row
-            h1.title.about__title Блок "Обо мне"
-            button(type='button').btn.btn--add-skills-group Добавить группу
-          .about__cards
+        //- about section
+        section.section.about
+          .container.about__container
+            .heading-row.about__heading-row
+              h1.title.about__title Блок "Обо мне"
+              button(type='button').btn.btn--add-skills-group Добавить группу
+            .about__cards
 
-            //- skill-cards
-            .skill-cards
-              ul.skill-cards__list
-                //- skill-card
-                li.skill-cards__item
-                  .skill-card.skill-card--edit
-                    .skill-card__heading-row
-                      input(type="text" placeholder="Название новой группы").skill-card__title
-                      .skill-card__heading-btns
-                        .skill-card__edit-mode-btns
-                          button(type='button').btn.btn--save-skill-card
-                          button(type='button').btn.btn--remove-skill-card
-                        .skill-card__read-mode-btns
-                          button(type='button').btn.btn--edit-skill-card
-                    .skill-card__table
-                      table.skill-table
-                    footer.skill-card__footer
-                      input(type="text" placeholder="Новый навык").skill__input.skill__input--title.skill__input--new-title
-                      .skill__percent-block.skill__percent-block--new-skill
-                        input(type="text" placeholder="100").skill__input.skill__input--percent.skill__input--new-percent
-                        span.skill__percent-prefix.skill__percent-prefix--new-skill %
-                      button(type="button").btn.btn--add-skill +
+              //- skill-cards
+              .skill-cards
+                ul.skill-cards__list
+                  //- skill-card
+                  li.skill-cards__item
+                    .skill-card.skill-card--edit
+                      .skill-card__heading-row
+                        input(type="text" placeholder="Название новой группы").skill-card__title
+                        .skill-card__heading-btns
+                          .skill-card__edit-mode-btns
+                            button(type='button').btn.btn--save-skill-card
+                            button(type='button').btn.btn--remove-skill-card
+                          .skill-card__read-mode-btns
+                            button(type='button').btn.btn--edit-skill-card
+                      .skill-card__table
+                        table.skill-table
+                      footer.skill-card__footer
+                        input(type="text" placeholder="Новый навык").skill__input.skill__input--title.skill__input--new-title
+                        .skill__percent-block.skill__percent-block--new-skill
+                          input(type="text" placeholder="100").skill__input.skill__input--percent.skill__input--new-percent
+                          span.skill__percent-prefix.skill__percent-prefix--new-skill %
+                        button(type="button").btn.btn--add-skill +
 
-                //- skill-card
-                li.skill-cards__item
-                  .skill-card.skill-card--edit
-                    .skill-card__heading-row
-                      input(type="text" placeholder="Название новой группы" value="Workflow").skill-card__title
-                      .skill-card__heading-btns
-                        .skill-card__edit-mode-btns
-                          button(type='button').btn.btn--save-skill-card
-                          button(type='button').btn.btn--remove-skill-card
-                        .skill-card__read-mode-btns
-                          button(type='button').btn.btn--edit-skill-card
-                    .skill-card__table
-                      table.skill-table
-                        tr.skill__row
-                          td.skill__col.skill__col--title
-                            input(type="text" placeholder="Новый навык" value="GIT").skill__input.skill__input--table.skill__input--title
-                          td.skill__col.skill__col--percent
-                            .skill__percent-block
-                              input(type="text" placeholder="100" value="100").skill__input.skill__input--table.skill__input--percent
-                              span.skill__percent-prefix %
-                          td.skill__col.skill__col--btns
-                            .skill__btns-block
-                              .skill__edit-mode-btns
-                                button(type='button').btn.btn--save-skill
-                                button(type='button').btn.btn--remove-skill
-                              .skill__read-mode-btns
-                                button(type='button').btn.btn--edit-skill
-                                button(type='button').btn.btn--trash-skill
-                        tr.skill__row
-                          td.skill__col.skill__col--title
-                            input(type="text" placeholder="Новый навык" value="Terminal").skill__input.skill__input--table.skill__input--title
-                          td.skill__col.skill__col--percent
-                            .skill__percent-block
-                              input(type="text" placeholder="100" value="100").skill__input.skill__input--table.skill__input--percent
-                              span.skill__percent-prefix %
-                          td.skill__col.skill__col--btns
-                            .skill__btns-block
-                              .skill__edit-mode-btns
-                                button(type='button').btn.btn--save-skill
-                                button(type='button').btn.btn--remove-skill
-                              .skill__read-mode-btns
-                                button(type='button').btn.btn--edit-skill
-                                button(type='button').btn.btn--trash-skill
-                        tr.skill__row
-                          td.skill__col.skill__col--title
-                            input(type="text" placeholder="Новый навык" value="Gulp").skill__input.skill__input--table.skill__input--title
-                          td.skill__col.skill__col--percent
-                            .skill__percent-block
-                              input(type="text" placeholder="100" value="100").skill__input.skill__input--table.skill__input--percent
-                              span.skill__percent-prefix %
-                          td.skill__col.skill__col--btns
-                            .skill__btns-block
-                              .skill__edit-mode-btns
-                                button(type='button').btn.btn--save-skill
-                                button(type='button').btn.btn--remove-skill
-                              .skill__read-mode-btns
-                                button(type='button').btn.btn--edit-skill
-                                button(type='button').btn.btn--trash-skill
-                        tr.skill__row
-                          td.skill__col.skill__col--title
-                            input(type="text" placeholder="Новый навык" value="Webpack").skill__input.skill__input--table.skill__input--title
-                          td.skill__col.skill__col--percent
-                            .skill__percent-block
-                              input(type="text" placeholder="100" value="100").skill__input.skill__input--table.skill__input--percent
-                              span.skill__percent-prefix %
-                          td.skill__col.skill__col--btns
-                            .skill__btns-block
-                              .skill__edit-mode-btns
-                                button(type='button').btn.btn--save-skill
-                                button(type='button').btn.btn--remove-skill
-                              .skill__read-mode-btns
-                                button(type='button').btn.btn--edit-skill
-                                button(type='button').btn.btn--trash-skill
-                    footer.skill-card__footer
-                      input(type="text" placeholder="Новый навык").skill__input.skill__input--title.skill__input--new-title
-                      .skill__percent-block.skill__percent-block--new-skill
-                        input(type="text" placeholder="100").skill__input.skill__input--percent.skill__input--new-percent
-                        span.skill__percent-prefix.skill__percent-prefix--new-skill %
-                      button(type="button").btn.btn--add-skill +
-
-
-                //- skill-card
-                li.skill-cards__item
-                  .skill-card
-                    .skill-card__heading-row
-                      input(type="text" placeholder="Название новой группы" value="Frontend").skill-card__title
-                      .skill-card__heading-btns
-                        .skill-card__edit-mode-btns
-                          button(type='button').btn.btn--save-skill-card
-                          button(type='button').btn.btn--remove-skill-card
-                        .skill-card__read-mode-btns
-                          button(type='button').btn.btn--edit-skill-card
-                    .skill-card__table
-                      table.skill-table
-                        tr.skill__row
-                          td.skill__col.skill__col--title
-                            input(type="text" placeholder="Новый навык" value="HTML5").skill__input.skill__input--table.skill__input--title
-                          td.skill__col.skill__col--percent
-                            .skill__percent-block
-                              input(type="text" placeholder="100").skill__input.skill__input--table.skill__input--percent
-                              span.skill__percent-prefix %
-                          td.skill__col.skill__col--btns
-                            .skill__btns-block
-                              .skill__edit-mode-btns
-                                button(type='button').btn.btn--save-skill
-                                button(type='button').btn.btn--remove-skill
-                              .skill__read-mode-btns
-                                button(type='button').btn.btn--edit-skill
-                                button(type='button').btn.btn--trash-skill
-                        tr.skill__row.skill__row--edit
-                          td.skill__col.skill__col--title
-                            input(type="text" placeholder="Новый навык" value="CSS3").skill__input.skill__input--table.skill__input--title
-                          td.skill__col.skill__col--percent
-                            .skill__percent-block
-                              input(type="text" placeholder="100").skill__input.skill__input--table.skill__input--percent
-                              span.skill__percent-prefix %
-                          td.skill__col.skill__col--btns
-                            .skill__btns-block
-                              .skill__edit-mode-btns
-                                button(type='button').btn.btn--save-skill
-                                button(type='button').btn.btn--remove-skill
-                              .skill__read-mode-btns
-                                button(type='button').btn.btn--edit-skill
-                                button(type='button').btn.btn--trash-skill
-                        tr.skill__row
-                          td.skill__col.skill__col--title
-                            input(type="text" placeholder="Новый навык" value="JavaScript").skill__input.skill__input--table.skill__input--title
-                          td.skill__col.skill__col--percent
-                            .skill__percent-block
-                              input(type="text" placeholder="100").skill__input.skill__input--table.skill__input--percent
-                              span.skill__percent-prefix %
-                          td.skill__col.skill__col--btns
-                            .skill__btns-block
-                              .skill__edit-mode-btns
-                                button(type='button').btn.btn--save-skill
-                                button(type='button').btn.btn--remove-skill
-                              .skill__read-mode-btns
-                                button(type='button').btn.btn--edit-skill
-                                button(type='button').btn.btn--trash-skill
-                        tr.skill__row
-                          td.skill__col.skill__col--title
-                            input(type="text" placeholder="Новый навык" value="jQuery & Vue.js").skill__input.skill__input--table.skill__input--title
-                          td.skill__col.skill__col--percent
-                            .skill__percent-block
-                              input(type="text" placeholder="100").skill__input.skill__input--table.skill__input--percent
-                              span.skill__percent-prefix %
-                          td.skill__col.skill__col--btns
-                            .skill__btns-block
-                              .skill__edit-mode-btns
-                                button(type='button').btn.btn--save-skill
-                                button(type='button').btn.btn--remove-skill
-                              .skill__read-mode-btns
-                                button(type='button').btn.btn--edit-skill
-                                button(type='button').btn.btn--trash-skill
-                    footer.skill-card__footer
-                      input(type="text" placeholder="Новый навык").skill__input.skill__input--title.skill__input--new-title
-                      .skill__percent-block.skill__percent-block--new-skill
-                        input(type="text" placeholder="100").skill__input.skill__input--percent.skill__input--new-percent
-                        span.skill__percent-prefix.skill__percent-prefix--new-skill %
-                      button(type="button").btn.btn--add-skill +
-      
-      //- works section
-      section.section.works
-        .container.works__container
-          .heading-row.works__heading-row
-            h1.title.works__title Блок "Работы"
-          
-          .form-block
-            h2.form-block__title Редактирование работы
-
-            form.form.work-form.form-block__content.form-block__content--work
-
-              .form__photo.form__photo--work
-                .form__upload-photo-container
-                  .form__upload-photo-content
-                    span.form__upload-photo-desc Перетащите или загрузите для загрузки изображения
-                    button(type="button").btn.btn--upload-work-photo Загрузить
-
-              .form__text.form__text--work
-                .form__row
-                  .form__col
-                    label.form__text-block(for="title")
-                      span.form__label Название
-                      input.form__input.form__input--title#title(type="text" name="title" placeholder="Введите название работы")
-                .form__row
-                  .form__col
-                    label.form__text-block(for="link")
-                      span.form__label Ссылка
-                      input.form__input.form__input--link#link(type="text" name="link" placeholder="Вставьте ссылку")
-                .form__row.form__row--textarea
-                  .form__col
-                    label.form__text-block.form__text-block--textarea(for="description")
-                      span.form__label Описание
-                      textarea.form__textarea#description(name="description" rows="4" placeholder="Введите описание работы")
-                .form__row.form__row--tags
-                  .form__col
-                    label.form__text-block(for="tags")
-                      span.form__label Добавление тега
-                      input.form__input.form__input--tags#tags(type="text" name="tags" placeholder="Если хотите, добавьте теги")
-                .form__row
-                  .form__col
-                    ul.form__tags-list
-                      li.form__tags-item
-                        span.form__tags-name HTML
-                        button(type="button").btn.btn--remove-tag
-                      li.form__tags-item
-                        span.form__tags-name CSS
-                        button(type="button").btn.btn--remove-tag
-                      li.form__tags-item
-                        span.form__tags-name JavaScript
-                        button(type="button").btn.btn--remove-tag
-
-                .form__row.form__row--btns
-                  .form__col
-                    .form__btns
-                      button(type="button").btn.btn--cancel-edit Отмена
-                      button(type="button").btn.btn--save-edit Сохранить
-
-          .work-cards
-            ul.work-cards__list
-              li.work-cards__item.work-cards__item--new-card
-                button(type="button").btn.btn--add-new-card
-                  span.btn__new-card-icon
-                  span.btn__new-card-title Добавить работу
-              li.work-cards__item
-                .work-card
-                  .work-card__header
-                    img(src="../images/content/work-previews/1.jpg" alt="Превью работы").work-card__img
-                    .work-card__tags
-                      .tags
-                        ul.tags__list
-                          li.tags__item HTML
-                          li.tags__item CSS
-                          li.tags__item JavaScript
-                  .work-card__content
-                    h3.work-card__title Сайт школы образования
-                    .work-card__desc
-                      p Этот парень проходил обучение веб-разработке не где-то, а в LoftSchool! 4,5 месяца только самых тяжелых испытаний и бессонных ночей!
-                    a(href="//google.com").work-card__link //google.com
-                    .work-card__btns
-                      button(type="button").btn.btn--card-edit Править
-                      button(type="button").btn.btn--card-remove Удалить
-              li.work-cards__item
-                .work-card
+                  //- skill-card
+                  li.skill-cards__item
+                    .skill-card.skill-card--edit
+                      .skill-card__heading-row
+                        input(type="text" placeholder="Название новой группы" value="Workflow").skill-card__title
+                        .skill-card__heading-btns
+                          .skill-card__edit-mode-btns
+                            button(type='button').btn.btn--save-skill-card
+                            button(type='button').btn.btn--remove-skill-card
+                          .skill-card__read-mode-btns
+                            button(type='button').btn.btn--edit-skill-card
+                      .skill-card__table
+                        table.skill-table
+                          tr.skill__row
+                            td.skill__col.skill__col--title
+                              input(type="text" placeholder="Новый навык" value="GIT").skill__input.skill__input--table.skill__input--title
+                            td.skill__col.skill__col--percent
+                              .skill__percent-block
+                                input(type="text" placeholder="100" value="100").skill__input.skill__input--table.skill__input--percent
+                                span.skill__percent-prefix %
+                            td.skill__col.skill__col--btns
+                              .skill__btns-block
+                                .skill__edit-mode-btns
+                                  button(type='button').btn.btn--save-skill
+                                  button(type='button').btn.btn--remove-skill
+                                .skill__read-mode-btns
+                                  button(type='button').btn.btn--edit-skill
+                                  button(type='button').btn.btn--trash-skill
+                          tr.skill__row
+                            td.skill__col.skill__col--title
+                              input(type="text" placeholder="Новый навык" value="Terminal").skill__input.skill__input--table.skill__input--title
+                            td.skill__col.skill__col--percent
+                              .skill__percent-block
+                                input(type="text" placeholder="100" value="100").skill__input.skill__input--table.skill__input--percent
+                                span.skill__percent-prefix %
+                            td.skill__col.skill__col--btns
+                              .skill__btns-block
+                                .skill__edit-mode-btns
+                                  button(type='button').btn.btn--save-skill
+                                  button(type='button').btn.btn--remove-skill
+                                .skill__read-mode-btns
+                                  button(type='button').btn.btn--edit-skill
+                                  button(type='button').btn.btn--trash-skill
+                          tr.skill__row
+                            td.skill__col.skill__col--title
+                              input(type="text" placeholder="Новый навык" value="Gulp").skill__input.skill__input--table.skill__input--title
+                            td.skill__col.skill__col--percent
+                              .skill__percent-block
+                                input(type="text" placeholder="100" value="100").skill__input.skill__input--table.skill__input--percent
+                                span.skill__percent-prefix %
+                            td.skill__col.skill__col--btns
+                              .skill__btns-block
+                                .skill__edit-mode-btns
+                                  button(type='button').btn.btn--save-skill
+                                  button(type='button').btn.btn--remove-skill
+                                .skill__read-mode-btns
+                                  button(type='button').btn.btn--edit-skill
+                                  button(type='button').btn.btn--trash-skill
+                          tr.skill__row
+                            td.skill__col.skill__col--title
+                              input(type="text" placeholder="Новый навык" value="Webpack").skill__input.skill__input--table.skill__input--title
+                            td.skill__col.skill__col--percent
+                              .skill__percent-block
+                                input(type="text" placeholder="100" value="100").skill__input.skill__input--table.skill__input--percent
+                                span.skill__percent-prefix %
+                            td.skill__col.skill__col--btns
+                              .skill__btns-block
+                                .skill__edit-mode-btns
+                                  button(type='button').btn.btn--save-skill
+                                  button(type='button').btn.btn--remove-skill
+                                .skill__read-mode-btns
+                                  button(type='button').btn.btn--edit-skill
+                                  button(type='button').btn.btn--trash-skill
+                      footer.skill-card__footer
+                        input(type="text" placeholder="Новый навык").skill__input.skill__input--title.skill__input--new-title
+                        .skill__percent-block.skill__percent-block--new-skill
+                          input(type="text" placeholder="100").skill__input.skill__input--percent.skill__input--new-percent
+                          span.skill__percent-prefix.skill__percent-prefix--new-skill %
+                        button(type="button").btn.btn--add-skill +
 
 
-      section.section.reviews
-        .container.reviews__container
-          .heading-row.reviews__heading-row
-            h1.title.reviews__title Блок "Отзывы"
-          
-          .form-block
-            h2.form-block__title Новый отзыв
+                  //- skill-card
+                  li.skill-cards__item
+                    .skill-card
+                      .skill-card__heading-row
+                        input(type="text" placeholder="Название новой группы" value="Frontend").skill-card__title
+                        .skill-card__heading-btns
+                          .skill-card__edit-mode-btns
+                            button(type='button').btn.btn--save-skill-card
+                            button(type='button').btn.btn--remove-skill-card
+                          .skill-card__read-mode-btns
+                            button(type='button').btn.btn--edit-skill-card
+                      .skill-card__table
+                        table.skill-table
+                          tr.skill__row
+                            td.skill__col.skill__col--title
+                              input(type="text" placeholder="Новый навык" value="HTML5").skill__input.skill__input--table.skill__input--title
+                            td.skill__col.skill__col--percent
+                              .skill__percent-block
+                                input(type="text" placeholder="100").skill__input.skill__input--table.skill__input--percent
+                                span.skill__percent-prefix %
+                            td.skill__col.skill__col--btns
+                              .skill__btns-block
+                                .skill__edit-mode-btns
+                                  button(type='button').btn.btn--save-skill
+                                  button(type='button').btn.btn--remove-skill
+                                .skill__read-mode-btns
+                                  button(type='button').btn.btn--edit-skill
+                                  button(type='button').btn.btn--trash-skill
+                          tr.skill__row.skill__row--edit
+                            td.skill__col.skill__col--title
+                              input(type="text" placeholder="Новый навык" value="CSS3").skill__input.skill__input--table.skill__input--title
+                            td.skill__col.skill__col--percent
+                              .skill__percent-block
+                                input(type="text" placeholder="100").skill__input.skill__input--table.skill__input--percent
+                                span.skill__percent-prefix %
+                            td.skill__col.skill__col--btns
+                              .skill__btns-block
+                                .skill__edit-mode-btns
+                                  button(type='button').btn.btn--save-skill
+                                  button(type='button').btn.btn--remove-skill
+                                .skill__read-mode-btns
+                                  button(type='button').btn.btn--edit-skill
+                                  button(type='button').btn.btn--trash-skill
+                          tr.skill__row
+                            td.skill__col.skill__col--title
+                              input(type="text" placeholder="Новый навык" value="JavaScript").skill__input.skill__input--table.skill__input--title
+                            td.skill__col.skill__col--percent
+                              .skill__percent-block
+                                input(type="text" placeholder="100").skill__input.skill__input--table.skill__input--percent
+                                span.skill__percent-prefix %
+                            td.skill__col.skill__col--btns
+                              .skill__btns-block
+                                .skill__edit-mode-btns
+                                  button(type='button').btn.btn--save-skill
+                                  button(type='button').btn.btn--remove-skill
+                                .skill__read-mode-btns
+                                  button(type='button').btn.btn--edit-skill
+                                  button(type='button').btn.btn--trash-skill
+                          tr.skill__row
+                            td.skill__col.skill__col--title
+                              input(type="text" placeholder="Новый навык" value="jQuery & Vue.js").skill__input.skill__input--table.skill__input--title
+                            td.skill__col.skill__col--percent
+                              .skill__percent-block
+                                input(type="text" placeholder="100").skill__input.skill__input--table.skill__input--percent
+                                span.skill__percent-prefix %
+                            td.skill__col.skill__col--btns
+                              .skill__btns-block
+                                .skill__edit-mode-btns
+                                  button(type='button').btn.btn--save-skill
+                                  button(type='button').btn.btn--remove-skill
+                                .skill__read-mode-btns
+                                  button(type='button').btn.btn--edit-skill
+                                  button(type='button').btn.btn--trash-skill
+                      footer.skill-card__footer
+                        input(type="text" placeholder="Новый навык").skill__input.skill__input--title.skill__input--new-title
+                        .skill__percent-block.skill__percent-block--new-skill
+                          input(type="text" placeholder="100").skill__input.skill__input--percent.skill__input--new-percent
+                          span.skill__percent-prefix.skill__percent-prefix--new-skill %
+                        button(type="button").btn.btn--add-skill +
+        
+        //- works section
+        section.section.works
+          .container.works__container
+            .heading-row.works__heading-row
+              h1.title.works__title Блок "Работы"
+            
+            //- form-component
+            .form-block
+              h2.form-block__title Редактирование работы
 
-            form.form.review-form.form-block__content.form-block__content--review
+              form.form.work-form.form-block__content.form-block__content--work
 
-              .form__photo.form__photo--review
-                .form__upload-photo-container--review
-                button(type="button").btn.btn--upload-review-photo Добавить фото
+                .form__photo.form__photo--work
+                  .form__upload-photo-container
+                    .form__upload-photo-content
+                      span.form__upload-photo-desc Перетащите или загрузите для загрузки изображения
+                      button(type="button").btn.btn--upload-work-photo Загрузить
 
-              .form__text.form__text--review
-                .form__row
-                  .form__col
-                    label.form__text-block(for="name")
-                      span.form__label Имя автора
-                      input.form__input.form__input--name#name(type="text" name="name" placeholder="Введите имя автора")
-                  .form__col
-                    label.form__text-block(for="position")
-                      span.form__label Титул автора
-                      input.form__input.form__input--position#position(type="text" name="position" placeholder="Введите титул автора")
-                .form__row.form__row--textarea
-                  .form__col
-                    label.form__text-block.form__text-block--textarea(for="review")
-                      span.form__label Отзыв
-                      textarea.form__textarea#review(name="review" rows="4" placeholder="Введите отзыв")
+                .form__text.form__text--work
+                  .form__row
+                    .form__col
+                      label.form__text-block(for="title")
+                        span.form__label Название
+                        input.form__input.form__input--title#title(type="text" name="title" placeholder="Введите название работы")
+                  .form__row
+                    .form__col
+                      label.form__text-block(for="link")
+                        span.form__label Ссылка
+                        input.form__input.form__input--link#link(type="text" name="link" placeholder="Вставьте ссылку")
+                  .form__row.form__row--textarea
+                    .form__col
+                      label.form__text-block.form__text-block--textarea(for="description")
+                        span.form__label Описание
+                        textarea.form__textarea#description(name="description" rows="4" placeholder="Введите описание работы")
+                  .form__row.form__row--tags
+                    .form__col
+                      label.form__text-block(for="tags")
+                        span.form__label Добавление тега
+                        input.form__input.form__input--tags#tags(type="text" name="tags" placeholder="Если хотите, добавьте теги")
+                  .form__row
+                    .form__col
+                      ul.form__tags-list
+                        li.form__tags-item
+                          span.form__tags-name HTML
+                          button(type="button").btn.btn--remove-tag
+                        li.form__tags-item
+                          span.form__tags-name CSS
+                          button(type="button").btn.btn--remove-tag
+                        li.form__tags-item
+                          span.form__tags-name JavaScript
+                          button(type="button").btn.btn--remove-tag
+                  .form__row.form__row--btns
+                    .form__col
+                      .form__btns
+                        button(type="button").btn.btn--cancel-edit Отмена
+                        button(type="button").btn.btn--save-edit Сохранить
 
-                .form__row.form__row--btns
-                  .form__col
-                    .form__btns
-                      button(type="button").btn.btn--cancel-edit Отмена
-                      button(type="button").btn.btn--save-edit Сохранить
+            //- work cards component
+            .work-cards
+              ul.work-cards__list
+                li.work-cards__item.work-cards__item--new-card
+                  button(type="button").btn.btn--add-new-card
+                    span.btn__new-card-icon
+                    span.btn__new-card-title Добавить работу
+                li.work-cards__item
+                  //- work card component
+                  .work-card
+                    .work-card__header
+                      img(src="../images/content/work-previews/1.jpg" alt="Превью работы").work-card__img
+                      .work-card__tags
+                        .tags
+                          ul.tags__list
+                            li.tags__item HTML
+                            li.tags__item CSS
+                            li.tags__item JavaScript
+                    .work-card__content
+                      h3.work-card__title Сайт школы образования
+                      .work-card__desc
+                        p Этот парень проходил обучение веб-разработке не где-то, а в LoftSchool! 4,5 месяца только самых тяжелых испытаний и бессонных ночей!
+                      a(href="//google.com").work-card__link //google.com
+                      .work-card__btns
+                        button(type="button").btn.btn--card-edit Править
+                        button(type="button").btn.btn--card-remove Удалить
+                li.work-cards__item
+                  .work-card
 
-          .review-cards
-            ul.review-cards__list
-              li.review-cards__item.review-cards__item--new-card
-                button(type="button").btn.btn--add-new-card
-                  span.btn__new-card-icon
-                  span.btn__new-card-title Добавить отзыв
 
-              li.review-cards__item
-                .review-card
-                  .review-card__header
-                    .review-author
-                      .review-author__photo-block
-                        img(src="../images/content/avatar.jpg" alt="Фотография автора отзыва").review-author__img
-                      .review-author__desc
-                        .review-author__name Владимир Сабанцев
-                        .review-author__position Преподаватель
-                  .review-card__content
-                    .review-card__desc
-                      p Этот парень проходил обучение веб-разработке не где-то, а в LoftSchool! 4,5 месяца только самых тяжелых испытаний и бессонных ночей!
-                    .review-card__btns
-                      button(type="button").btn.btn--card-edit Править
-                      button(type="button").btn.btn--card-remove Удалить
+        //- reviews component
+        section.section.reviews
+          .container.reviews__container
+            .heading-row.reviews__heading-row
+              h1.title.reviews__title Блок "Отзывы"
+            
+            //- form component
+            .form-block
+              h2.form-block__title Новый отзыв
 
-              li.review-cards__item
-                .review-card
+              form.form.review-form.form-block__content.form-block__content--review
+
+                .form__photo.form__photo--review
+                  .form__upload-photo-container--review
+                  button(type="button").btn.btn--upload-review-photo Добавить фото
+
+                .form__text.form__text--review
+                  .form__row
+                    .form__col
+                      label.form__text-block(for="name")
+                        span.form__label Имя автора
+                        input.form__input.form__input--name#name(type="text" name="name" placeholder="Введите имя автора")
+                    .form__col
+                      label.form__text-block(for="position")
+                        span.form__label Титул автора
+                        input.form__input.form__input--position#position(type="text" name="position" placeholder="Введите титул автора")
+                  .form__row.form__row--textarea
+                    .form__col
+                      label.form__text-block.form__text-block--textarea(for="review")
+                        span.form__label Отзыв
+                        textarea.form__textarea#review(name="review" rows="4" placeholder="Введите отзыв")
+
+                  .form__row.form__row--btns
+                    .form__col
+                      .form__btns
+                        button(type="button").btn.btn--cancel-edit Отмена
+                        button(type="button").btn.btn--save-edit Сохранить
+
+            //- review cards
+            .review-cards
+              ul.review-cards__list
+                li.review-cards__item.review-cards__item--new-card
+                  button(type="button").btn.btn--add-new-card
+                    span.btn__new-card-icon
+                    span.btn__new-card-title Добавить отзыв
+
+                li.review-cards__item
+                  //- review card component
+                  .review-card
+                    .review-card__header
+                      .review-author
+                        .review-author__photo-block
+                          img(src="../images/content/avatar.jpg" alt="Фотография автора отзыва").review-author__img
+                        .review-author__desc
+                          .review-author__name Владимир Сабанцев
+                          .review-author__position Преподаватель
+                    .review-card__content
+                      .review-card__desc
+                        p Этот парень проходил обучение веб-разработке не где-то, а в LoftSchool! 4,5 месяца только самых тяжелых испытаний и бессонных ночей!
+                      .review-card__btns
+                        button(type="button").btn.btn--card-edit Править
+                        button(type="button").btn.btn--card-remove Удалить
+
+                li.review-cards__item
+                  .review-card
       
 </template>
 
