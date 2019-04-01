@@ -7,6 +7,10 @@
   min-height: 100vh;
   min-width: 100vw;
   position: relative;
+
+  @include phones {
+    background: #fff;
+  }
 }
 
 .login__content {
@@ -16,6 +20,10 @@
   transform: translate(-50%, -50%);
   background: #fff;
   padding: 50px 75px;
+
+  @include phones {
+    padding: 20% 15%;
+  }
 }
 
 .login__title {
@@ -24,6 +32,10 @@
   color: $text-color;
   margin-bottom: 30px;
   text-align: center;
+
+  @include phones {
+    font-size: 30px;
+  }
 }
 
 .login__form {

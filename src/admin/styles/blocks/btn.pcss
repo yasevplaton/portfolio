@@ -207,6 +207,10 @@
         height=100%
       )
       center center no-repeat;
+
+    @include phones {
+      right: 45px;
+    }
   }
 }
 
@@ -249,6 +253,10 @@
   border-top-left-radius: 30px;
   border-bottom-right-radius: 30px;
   transition: opacity 0.3s;
+
+  @include phones {
+    padding: 33px 90px !important;
+  }
 
   &:hover {
     opacity: 0.8;

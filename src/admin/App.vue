@@ -360,7 +360,7 @@
 
                   .form__row.form__row--btns
                     .form__col
-                      .form__btns
+                      .form__btns.form__btns--review
                         button(type="button").btn.btn--cancel-edit Отмена
                         button(type="button").btn.btn--save-edit Сохранить
 

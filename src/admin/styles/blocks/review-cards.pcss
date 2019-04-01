@@ -3,6 +3,12 @@
   grid-template:
     "card card card" max-content / 1fr 1fr 1fr;
   grid-gap: 30px;
+
+  @include tablets {
+    grid-template:
+    "card card" max-content / 1fr 1fr;
+    grid-gap: 20px;
+  }
 }
 
 .review-cards__item {

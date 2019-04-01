@@ -13,6 +13,10 @@
   padding-bottom: 25px;
   padding-left: 10px;
   margin-bottom: 50px;
+
+  @include tablets {
+    margin-bottom: 3%;
+  }
 }
 
 .form-block__content {
@@ -20,6 +24,15 @@
     display: grid;
     grid-template: "photo text" max-content / 1fr 1fr;
     grid-gap: 30px;
+
+    @include tablets {
+      grid-template:
+        "photo" max-content
+        "text" max-content / 1fr ;
+      grid-gap: 30px;
+
+      padding: 0 7%;
+    }
   }
 
   &--review {
