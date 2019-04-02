@@ -7,12 +7,6 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
 const TerserPlugin = require("terser-webpack-plugin");
 
-const VUE_VERSION = require('vue/package.json').version;
-const VUE_LOADER_VERSION = require('vue-loader/package.json').version;
-const ROOT_PATH = path.resolve(__dirname, '..');
-const CACHE_PATH = path.join(ROOT_PATH, 'tmp/cache');
-
-
 module.exports = (env, argv) => {
   const isProductionBuild = argv.mode === "production";
   const publicPath = '/portfolio/';
@@ -28,20 +22,7 @@ module.exports = (env, argv) => {
 
   const vue = {
     test: /\.vue$/,
-    use: [
-      {
-        loader: "vue-loader",
-        options: {
-          cacheDirectory: path.join(CACHE_PATH, 'vue-loader'),
-          cacheIdentifier: [
-            process.env.NODE_ENV || 'development',
-            webpack.version,
-            VUE_VERSION,
-            VUE_LOADER_VERSION,
-          ].join('|'),
-        }
-      }
-    ]
+    loader: "vue-loader"
   };
 
   const js = {
@@ -105,7 +86,7 @@ module.exports = (env, argv) => {
   const config = {
     entry: {
       main: "./src/main.js",
-      admin: "./src/admin/main.js"
+      admin: ["@babel/polyfill", "./src/admin/main.js"]
     },
     output: {
       path: path.resolve(__dirname, "./dist"),

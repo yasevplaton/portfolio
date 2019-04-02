@@ -1,0 +1,44 @@
+.login-input__block {
+  border-bottom: 1px solid rgba(#000, .3);
+  width: 100%;
+  padding-bottom: 10px;
+}
+
+.login-input__label {
+  display: block;
+  font-size: 16px;
+  font-weight: 600;
+  color: rgba(65, 76, 99, 0.3);
+  padding-left: 30px;
+  margin-bottom: 10px;
+}
+
+.login-input__input {
+  border: none;
+  width: 100%;
+  font-size: 18px;
+  font-weight: bold;
+  color: $text-color;
+  padding: 3px 0;
+  padding-left: 30px;
+
+  &--login {
+    background: svg-load(
+        "user.svg",
+        fill=rgba($text-color, 0.3),
+        width=100%,
+        height=100%
+      )
+      0 0 no-repeat;
+  }
+
+  &--password {
+    background: svg-load(
+        "key.svg",
+        fill=rgba($text-color, 0.3),
+        width=100%,
+        height=100%
+      )
+      0 0 no-repeat;
+  }
+}
