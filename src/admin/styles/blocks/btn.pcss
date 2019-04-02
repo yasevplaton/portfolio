@@ -21,6 +21,14 @@
       font-size: 15px;
       font-weight: 600;
       line-height: 1;
+      transition: margin-right .3s;
+
+    }
+
+    &:hover {
+      &:before {
+        margin-right: 20px;
+      }
     }
   }
 
@@ -35,6 +43,18 @@
         height=100%
       )
       center center no-repeat;
+
+    transition: all .3s;
+
+    &:hover {
+      background: svg-load(
+        "pencil.svg",
+        fill=rgba($text-color, 1),
+        width=100%,
+        height=100%
+      )
+      center center no-repeat;
+    }
   }
 
   &--remove-skill-card {
@@ -43,6 +63,11 @@
     height: 12px;
     background: svg-load("remove.svg", fill=#bf2929, width=100%, height=100%)
       center center no-repeat;
+    transition: transform .3s;
+
+    &:hover {
+      transform: scale(1.5);
+    }
   }
 
   &--save-skill-card {
@@ -52,6 +77,11 @@
     background: svg-load("tick.svg", fill=#00d70a, width=100%, height=100%)
       center center no-repeat;
     margin-right: 20px !important;
+    transition: transform .3s;
+
+    &:hover {
+      transform: scale(1.5);
+    }
   }
 
   &--edit-skill {
@@ -66,6 +96,18 @@
       )
       center center no-repeat;
     margin-right: 20px !important;
+
+    transition: all .3s;
+
+    &:hover {
+      background: svg-load(
+        "pencil.svg",
+        fill=rgba($text-color, 1),
+        width=100%,
+        height=100%
+      )
+      center center no-repeat;
+    }
   }
 
   &--trash-skill {
@@ -79,6 +121,18 @@
         height=100%
       )
       center center no-repeat;
+
+    transition: all .3s;
+
+    &:hover {
+      background: svg-load(
+        "trash.svg",
+        fill=rgba($text-color, 1),
+        width=100%,
+        height=100%
+      )
+      center center no-repeat;
+    }
   }
 
   &--save-skill {
@@ -87,7 +141,12 @@
     height: 12px;
     background: svg-load("tick.svg", fill=#00d70a, width=100%, height=100%)
       center center no-repeat;
-    margin-right: 20px !important;
+    margin-right: 15px !important;
+    transition: transform .3s;
+
+    &:hover {
+      transform: scale(1.5);
+    }
   }
 
   &--remove-skill {
@@ -96,6 +155,11 @@
     height: 12px;
     background: svg-load("remove.svg", fill=#bf2929, width=100%, height=100%)
       center center no-repeat;
+    transition: transform .3s;
+
+    &:hover {
+      transform: scale(1.5);
+    }
   }
 
   &--add-skill {
@@ -105,6 +169,12 @@
     font-size: 30px;
     font-weight: 600;
     color: #fff;
+
+    transition: transform .3s;
+
+    &:hover {
+      transform: scale(1.1);
+    }
   }
 
   &--add-new-card {
@@ -112,6 +182,12 @@
     height: 100%;
     background-image: linear-gradient(to right, #006aed, #3f35cb);
     color: #fff;
+
+    transition: opacity .3s;
+
+    &:hover {
+      opacity: .8;
+    }
 
     @include big-phones {
       display: flex;
@@ -133,6 +209,12 @@
         center center no-repeat;
       margin-left: 10px;
     }
+
+    transition: color .3s;
+
+    &:hover {
+      color: $text-color;
+    }
   }
 
   &--card-remove {
@@ -148,6 +230,12 @@
         center center no-repeat;
       margin-left: 10px;
     }
+
+    transition: color .3s;
+
+    &:hover {
+      color: $text-color;
+    }
   }
 
   &--upload-work-photo {
@@ -159,6 +247,12 @@
     border-radius: 25px;
     background-image: linear-gradient(to right, #006aed, #3f35cb);
     line-height: 1;
+
+    transition: opacity .3s;
+
+    &:hover {
+      opacity: .8;
+    }
   }
 
   &--remove-tag {
@@ -180,6 +274,11 @@
     font-weight: 600;
     color: #383bcf;
     margin-right: 60px !important;
+    transition: color .3s;
+
+    &:hover {
+      color: #000;
+    }
 
     @include phones {
       margin-right: 10% !important;
@@ -195,12 +294,23 @@
     background-image: linear-gradient(to right, #006aed, #3f35cb);
     border-radius: 30px;
     line-height: 1;
+    transition: opacity .3s;
+
+    &:hover {
+      opacity: .8;
+    }
   }
 
   &--upload-review-photo {
     font-size: 16px;
     font-weight: 600;
     color: #383bcf;
+
+    transition: color .3s;
+
+    &:hover {
+      color: #000;
+    }
   }
 
   &--close-login-window {
@@ -217,6 +327,11 @@
         height=100%
       )
       center center no-repeat;
+
+    transition: transform .3s;
+    &:hover {
+      transform: scale(1.3);
+    }
 
     @include phones {
       right: 45px;
@@ -281,5 +396,10 @@
 
   &:hover {
     opacity: 0.8;
+  }
+
+  &[disabled] {
+    opacity: 0.5;
+    filter: grayscale(100%);
   }
 }
