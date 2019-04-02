@@ -6,6 +6,10 @@
   display: flex;
   align-items: center;
   color: $text-color;
+
+  @include phones {
+    justify-content: center;
+  }
 }
 
 .nav__item {
@@ -21,5 +25,9 @@
     font-weight: 600;
     color: #383bcf;
     border-bottom: 3px solid #383bcf;
+  }
+
+  @include phones {
+    padding: 30px 20px;
   }
 }

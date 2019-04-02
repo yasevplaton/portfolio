@@ -343,12 +343,12 @@
                   button(type="button").btn.btn--upload-review-photo Добавить фото
 
                 .form__text.form__text--review
-                  .form__row
-                    .form__col
+                  .form__row.form__row--review-author-info
+                    .form__col.form__col--review
                       label.form__text-block(for="name")
                         span.form__label Имя автора
                         input.form__input.form__input--name#name(type="text" name="name" placeholder="Введите имя автора")
-                    .form__col
+                    .form__col.form__col--review
                       label.form__text-block(for="position")
                         span.form__label Титул автора
                         input.form__input.form__input--position#position(type="text" name="position" placeholder="Введите титул автора")

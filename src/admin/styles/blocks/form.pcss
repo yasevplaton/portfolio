@@ -46,22 +46,18 @@
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
-      background: svg-load(
-        "user.svg",
-        fill=#fff,
-        width=100%,
-        height=100%
-      )
-      center center no-repeat;
+      background: svg-load("user.svg", fill=#fff, width=100%, height=100%)
+        center center no-repeat;
+    }
+
+    @include mini-tablets {
+      width: 150px;
+    height: 150px;
     }
   }
 }
 
 .form__upload-photo-content {
-  /* position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%); */
   padding: 10%;
   display: flex;
   flex-direction: column;
@@ -82,6 +78,7 @@
   width: 100%;
   margin-bottom: 40px;
   display: flex;
+  flex-wrap: wrap;
 
   &--textarea {
     margin-bottom: 20px;
@@ -94,6 +91,14 @@
   &--btns {
     margin-bottom: 0;
   }
+
+  &--review-author-info {
+
+    @include mini-tablets {
+      margin-bottom: 0;
+    }
+
+  }
 }
 
 .form__col {
@@ -101,6 +106,17 @@
 
   &:not(:last-child) {
     margin-right: 30px;
+  }
+
+  &--review {
+    @include mini-tablets {
+      flex: 1 0 100%;
+      &:not(:last-child) {
+        margin-right: 0;
+      }
+
+      margin-bottom: 10%;
+    }
   }
 }
 
@@ -172,6 +188,10 @@
   &--review {
     @include tablets {
       justify-content: flex-end;
+    }
+
+    @include phones {
+      justify-content: center;
     }
   }
 }

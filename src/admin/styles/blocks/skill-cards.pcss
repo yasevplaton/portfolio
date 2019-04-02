@@ -1,8 +1,12 @@
 .skill-cards__list {
   display: grid;
-  grid-template:
-    "card card" max-content / 1fr 1fr;
+  grid-template: "card card" max-content / 1fr 1fr;
   grid-gap: 30px;
+
+  @include mini-tablets {
+    grid-template: "card" max-content / 1fr;
+    grid-gap: 10px;
+  }
 }
 
 .skill-cards__item {

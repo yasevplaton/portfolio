@@ -4,6 +4,10 @@
   background-color: #ffffff;
   margin-bottom: 30px;
   padding: 30px;
+
+  @include phones {
+    padding: 5%;
+  }
 }
 
 .form-block__title {
@@ -28,16 +32,27 @@
     @include tablets {
       grid-template:
         "photo" max-content
-        "text" max-content / 1fr ;
+        "text" max-content / 1fr;
       grid-gap: 30px;
 
       padding: 0 7%;
+    }
+
+    @include big-phones {
+      padding: 0;
     }
   }
 
   &--review {
     display: grid;
     grid-template: "photo text" max-content / 1fr 2fr;
+    grid-gap: 30px;
+  }
+
+  @include big-phones {
+    grid-template:
+      "photo" max-content
+      "text" max-content / 1fr;
     grid-gap: 30px;
   }
 }

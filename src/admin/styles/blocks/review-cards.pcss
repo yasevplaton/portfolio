@@ -9,6 +9,11 @@
     "card card" max-content / 1fr 1fr;
     grid-gap: 20px;
   }
+
+  @include big-phones {
+    grid-template: "card" max-content / 1fr;
+    grid-gap: 10px;
+  }
 }
 
 .review-cards__item {

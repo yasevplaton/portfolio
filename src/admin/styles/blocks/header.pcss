@@ -7,6 +7,10 @@
 .header__container {
   display: grid;
   grid-template: "first last" 1fr / 1fr 1fr;
+
+  @include phones {
+    grid-template: "first last" 1fr / 2fr 1fr;
+  }
 }
 
 .header__col {
@@ -29,4 +33,8 @@
 
 .header__col-content {
   margin-right: 25px;
+
+  @include phones {
+    margin-right: 0;
+  }
 }

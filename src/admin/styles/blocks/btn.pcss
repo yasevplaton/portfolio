@@ -112,6 +112,12 @@
     height: 100%;
     background-image: linear-gradient(to right, #006aed, #3f35cb);
     color: #fff;
+
+    @include big-phones {
+      display: flex;
+      align-items: center;
+      padding: 6% !important;
+    }
   }
 
   &--card-edit {
@@ -174,6 +180,10 @@
     font-weight: 600;
     color: #383bcf;
     margin-right: 60px !important;
+
+    @include phones {
+      margin-right: 10% !important;
+    }
   }
 
   &--save-edit {
@@ -233,6 +243,17 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+
+    @include big-phones {
+      font-size: 30px;
+    }
+  }
+
+  @include big-phones {
+    margin-bottom: 0;
+    width: 75px;
+    height: 75px;
+    margin-right: 5%;
   }
 }
 

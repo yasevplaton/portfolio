@@ -8,7 +8,8 @@
   "bp-big-tablets": "840px",
   "bp-tablets": "768px",
   "bp-less-than-tablets": "767px",
-  "bp-mini-tablets": "540px",
+  "bp-mini-tablets": "660px",
+  "bp-big-phones": "540px",
   "bp-phones": "480px",
   "bp-mini-phones": "320px"
 }
