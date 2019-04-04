@@ -89,28 +89,28 @@ html(lang="ru")
           //- personal-info section
           - var personalInfoTableRows = { "Проживаю:": "Москва", "Возраст:": "24 года", "Родился:": "16 октября 1994" }
           section.personal-info#personal-info
-                .container.personal-info__container
-                  .personal-info__content-wrapper
-                    .personal-info__content
-                      .personal-info__image-table-block
-                        .personal-info__image-block
-                          .personal-info__image-wrapper
-                            +image("content/avatar.jpg", "personal-info__image", "Фотография разработчика")
-                        .personal-info__table-block
-                          table.personal-info__table
-                            each value, key in personalInfoTableRows
-                              tr.personal-info__row
-                                td.personal-info__col.personal-info__col--title #{key}
-                                td.personal-info__col.personal-info__col--content #{value}
-                      .personal-info__text-block
-                        .personal-info__greeting-block
-                          span.personal-info__greeting-title Привет, меня зовут
-                          h2.title.title--personal-info.personal-info__title Платон Ясев
-                        .personal-info__info-text
-                          p Я занимаюсь разработкой современных сайтов и приложений. Мне нравится делать интересные и современные проекты.
-                        .personal-info__info-text--italic
-                          p Этот сайт я сделал в рамках обучения в Школе онлайн образования LoftSchool. Чуть позже я освежу в нём свой контент. А пока посмотрите, как тут всё классно и красиво!
-        
+            .container.personal-info__container
+              .personal-info__content-wrapper
+                .personal-info__content
+                  .personal-info__image-table-block
+                    .personal-info__image-block
+                      .personal-info__image-wrapper
+                        +image("content/avatar.jpg", "personal-info__image", "Фотография разработчика")
+                    .personal-info__table-block
+                      table.personal-info__table
+                        each value, key in personalInfoTableRows
+                          tr.personal-info__row
+                            td.personal-info__col.personal-info__col--title #{key}
+                            td.personal-info__col.personal-info__col--content #{value}
+                  .personal-info__text-block
+                    .personal-info__greeting-block
+                      span.personal-info__greeting-title Привет, меня зовут
+                      h2.title.title--personal-info.personal-info__title Платон Ясев
+                    .personal-info__info-text
+                      p Я занимаюсь разработкой современных сайтов и приложений. Мне нравится делать интересные и современные проекты.
+                    .personal-info__info-text--italic
+                      p Этот сайт я сделал в рамках обучения в Школе онлайн образования LoftSchool. Чуть позже я освежу в нём свой контент. А пока посмотрите, как тут всё классно и красиво!
+
         //- triangles
         .triangles-greeting
           svg.triangles-greeting__item.triangles-greeting__item--left(viewBox="0 0 1000 100" preserveAspectRatio="none")
@@ -126,7 +126,7 @@ html(lang="ru")
         //- works section
 
         #works
-        
+
         //- triangle for reviews-contacts block
         .triangles-reviews-contacts
           svg.triangles-reviews-contacts__item(viewBox="0 0 1000 100" preserveAspectRatio="none")
@@ -149,12 +149,12 @@ html(lang="ru")
             .rev-cont-parallax__layer(data-speed="0.7")
               +image("parallax/budda/layer-6.png", "rev-cont-parallax__image", "Слой для параллакса")
 
-            
+
           .container
 
             //- reviews-section
             #reviews
-            
+
             //- contacts section
             section.contacts#contacts
               .contacts__content
@@ -176,7 +176,7 @@ html(lang="ru")
                         textarea.contacts__form-textarea#message(name="message" rows="1" placeholder="Хочу красивый и современный сайт. Плачу много!")
                   .contacts__form-row.contacts__form-row--submit
                     button(type="submit").contacts__form-sumbit-btn Отправить
-      
+
       //- footer
       footer.footer
         .container.footer__container

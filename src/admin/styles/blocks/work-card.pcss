@@ -1,0 +1,58 @@
+.work-card {
+  position: relative;
+  &--edit {
+    &::after {
+      content: "";
+      display: block;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(255, 255, 255, 0.5);
+    }
+  }
+}
+
+.work-card__header {
+  position: relative;
+}
+
+.work-card__tags {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+}
+
+.work-card__content {
+  padding: 40px 30px;
+}
+
+.work-card__title {
+  font-size: 18px;
+  font-weight: bold;
+  color: $text-color;
+  margin-bottom: 25px;
+}
+
+.work-card__desc {
+  font-size: 16px;
+  font-weight: 600;
+  color: rgba(65, 76, 99, 0.7);
+  line-height: 1.88;
+  margin-bottom: 30px;
+}
+
+.work-card__link {
+  font-size: 16px;
+  font-weight: 600;
+  color: $links-color;
+  margin-bottom: 40px;
+  display: inline-block;
+}
+
+.work-card__btns {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}

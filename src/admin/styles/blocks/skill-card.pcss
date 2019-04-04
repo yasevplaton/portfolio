@@ -1,0 +1,73 @@
+.skill-card {
+  padding: 30px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+
+  &--edit {
+    .skill-card__title {
+      border-bottom: 1px solid #000;
+    }
+
+    .skill-card__edit-mode-btns {
+      display: inline-block;
+    }
+
+    .skill-card__read-mode-btns {
+      display: none;
+    }
+  }
+}
+
+.skill-card__heading-row {
+  border-bottom: 1px solid rgba(#1f232d, .15);
+  padding-bottom: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 15px;
+}
+
+.skill-card__heading-btns {
+  display: flex;
+  align-items: center;
+}
+
+.skill-card__title {
+  border: none;
+  font-size: 18px;
+  font-weight: 600;
+  color: $text-color;
+  width: 60%;
+  padding-bottom: 10px;
+
+  @include tablets {
+    width: 70%;
+  }
+
+  @include mini-tablets {
+    font-size: 16px;
+  }
+}
+
+.skill-card__edit-mode-btns {
+  display: none;
+}
+
+.skill-card__read-mode-btns {
+  display: inline-block;
+}
+
+.skill-card__table {
+  width: 100%;
+  flex: 1;
+  overflow: auto;
+  min-height: 50px;
+  margin-bottom: 20px;
+}
+
+.skill-card__footer {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}

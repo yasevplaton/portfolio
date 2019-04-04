@@ -1,0 +1,40 @@
+.header {
+  grid-area: header;
+  background-image: linear-gradient(to right, #3e3e59, #454573);
+  padding: 20px 0;
+}
+
+.header__container {
+  display: grid;
+  grid-template: "first last" 1fr / 1fr 1fr;
+
+  @include phones {
+    grid-template: "first last" 1fr / 2fr 1fr;
+  }
+}
+
+.header__col {
+  display: flex;
+  align-items: center;
+
+
+  &--first {
+    grid-area: first;
+    align-self: center;
+  }
+
+
+
+  &--last {
+    grid-area: last;
+    justify-self: end;
+  }
+}
+
+.header__col-content {
+  margin-right: 25px;
+
+  @include phones {
+    margin-right: 0;
+  }
+}
