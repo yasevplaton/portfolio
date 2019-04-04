@@ -1,0 +1,53 @@
+<template lang="pug">
+  header.header
+    .container.header__container
+      .header__col.header__col--first
+        .user-info.header__col-content
+          .user-info__avatar-wrapper
+            img(src="../images/content/avatar.jpg" alt="Аватар пользователя").avatar
+          .user-info__name Платон Ясев
+        .window-desc Панель администрирования
+      .header__col.header__col--last
+        a(href="#").exit-btn Выйти
+</template>
+
+<style lang="postcss" scoped>
+.header {
+  grid-area: header;
+  background-image: linear-gradient(to right, #3e3e59, #454573);
+  padding: 20px 0;
+}
+
+.header__container {
+  display: grid;
+  grid-template: "first last" 1fr / 1fr 1fr;
+
+  @include phones {
+    grid-template: "first last" 1fr / 2fr 1fr;
+  }
+}
+
+.header__col {
+  display: flex;
+  align-items: center;
+
+  &--first {
+    grid-area: first;
+    align-self: center;
+  }
+
+  &--last {
+    grid-area: last;
+    justify-self: end;
+  }
+}
+
+.header__col-content {
+  margin-right: 25px;
+
+  @include phones {
+    margin-right: 0;
+  }
+}
+</style>
+
