@@ -11,6 +11,8 @@
 </template>
 
 <style lang="postcss" scoped>
+@import "../../../styles/mixins.pcss";
+
 .nav__wrapper {
   grid-area: nav;
 }

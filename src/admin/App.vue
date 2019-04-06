@@ -1,12 +1,13 @@
 <template lang="pug">
-  .admin-content
-    router-view
+  .content-wrapper
+    template
+      admin-header
+      admin-nav
+      router-view
       
 </template>
 
 <script>
-import login from "./components/login/login.vue";
-import about from "./components/about/about.vue";
 
 export default {
   name: "app",
@@ -14,8 +15,8 @@ export default {
     return {}
   },
   components: {
-    login,
-    about
+    adminHeader: () => import("components/common/adminHeader.vue"),
+    adminNav: () => import("components/common/adminNav.vue")
   }
 };
 </script>
@@ -26,6 +27,6 @@ export default {
 @import "normalize.css";
 @import "../styles/mixins.pcss";
 @import "./styles/base.pcss";
-@import "./styles/blocks/*.pcss";
+@import "./styles/common-blocks/*.pcss";
 
 </style>

@@ -12,10 +12,11 @@
   "author": "Platon Yasev",
   "license": "ISC",
   "devDependencies": {
-    "@babel/core": "^7.3.3",
+    "@babel/core": "7.2.2",
     "@babel/plugin-syntax-dynamic-import": "^7.2.0",
     "@babel/polyfill": "^7.4.0",
     "@babel/preset-env": "^7.3.1",
+    "acorn": "^6.0.0",
     "autoprefixer": "^9.4.8",
     "babel-loader": "^8.0.5",
     "cache-loader": "^2.0.1",
@@ -60,6 +61,7 @@
     "simple-vue-validator": "^0.16.0",
     "vue": "^2.6.7",
     "vue-flickity": "^1.1.2",
-    "vue-router": "^3.0.2"
+    "vue-router": "^3.0.2",
+    "vuex": "^3.1.0"
   }
 }

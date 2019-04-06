@@ -88,13 +88,15 @@ export default {
 
 .login {
   background-image: linear-gradient(rgba(#2d3c4e, 0.9), rgba(#2d3c4e, 0.9)),
-    url("../../../images/bg/mountain-baloon.jpg");
+    url("~images/bg/mountain-baloon.jpg");
   background-position: center center, center center;
   background-repeat: repeat, no-repeat;
   background-size: cover, cover;
-  min-height: 100vh;
-  min-width: 100vw;
-  position: relative;
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  top: 0;
+  left: 0;
 
   @include phones {
     background: #fff;

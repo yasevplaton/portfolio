@@ -35,6 +35,7 @@ export default {
     border-bottom-width: 7px;
     position: absolute;
     bottom: 99%;
+    z-index: 1000;
     left: 50%;
     transform: translateX(-50%);
   }

@@ -1,7 +1,7 @@
 import Vue from 'vue';
-import App from './App.vue';
+import App from '@/App.vue';
 import SimpleVueValidation from "simple-vue-validator";
-import router from './router';
+import router from '@/router/index';
 
 Vue.use(SimpleVueValidation);
 
