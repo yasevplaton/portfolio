@@ -3,12 +3,38 @@
     .container.nav__container
       nav.nav
         ul.nav__list
-          - var navItems = ["Обо мне", "Работы", "Отзывы"];
-          each item in navItems
-            - var activeClass = item === "Обо мне" ? "nav__item--active" : "";
-            li(class=`nav__item ${activeClass}`)
-              a(href="#").nav__link #{item}
+          router-link.nav__item(
+            v-for="(route, index) in routes"
+            :key="index"
+            tag="li"
+            :to="route.path"
+            )
+            a(href="").nav__link {{route.title}}
 </template>
+
+<script>
+export default {
+  data() {
+    return {
+      routes: [
+        {
+          title: "Обо мне",
+          path: "/"
+        },
+        {
+          title: "Работы",
+          path: "/works"
+        },
+        {
+          title: "Отзывы",
+          path: "/reviews"
+        }
+      ]
+    };
+  }
+};
+</script>
+
 
 <style lang="postcss" scoped>
 @import "../../../styles/mixins.pcss";
@@ -28,23 +54,29 @@
 }
 
 .nav__item {
-  padding: 30px;
   cursor: pointer;
 
-  &--active {
+  &:hover {
     font-weight: 600;
     color: #383bcf;
     border-bottom: 3px solid #383bcf;
   }
+}
 
-  &:not(&--active):hover {
-    font-weight: 600;
-    color: #383bcf;
-    border-bottom: 3px solid #383bcf;
-  }
+.nav__link {
+  padding: 30px;
+  display: inline-block;
+  width: 100%;
+  height: 100%;
 
   @include phones {
     padding: 30px 20px;
   }
+}
+
+.router-link-exact-active {
+  font-weight: 600;
+  color: #383bcf;
+  border-bottom: 3px solid #383bcf;
 }
 </style>

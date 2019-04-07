@@ -46,6 +46,7 @@
 <script>
 export default {
   components: {
+    formTag: () => import("./formTag.vue")
   }
 }
 </script>

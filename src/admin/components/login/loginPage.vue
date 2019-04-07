@@ -34,8 +34,9 @@
 
 <script>
 import { Validator } from "simple-vue-validator";
-import axios from "axios";
+import $axios from "@/requests";
 import loginInput from "./loginInput";
+import { setToken } from "@/helpers/token";
 
 axios.defaults.baseURL = 'https://webdev-api.loftschool.com';
 
@@ -72,8 +73,7 @@ export default {
             password: this.user.password
           })
           .then(response => {
-            localStorage.setItem('token', response.data.token);
-            console.log(localStorage);
+            setToken(response.data.token);
           });
       } catch (error) {
         console.log(error);
