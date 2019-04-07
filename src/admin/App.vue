@@ -8,12 +8,10 @@
 </template>
 
 <script>
+import { mapState } from 'vuex';
 
 export default {
   name: "app",
-  data() {
-    return {}
-  },
   components: {
     adminHeader: () => import("components/common/adminHeader.vue"),
     adminNav: () => import("components/common/adminNav.vue")

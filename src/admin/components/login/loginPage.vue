@@ -65,14 +65,14 @@ export default {
       if ((await this.$validate()) === false) return;
       this.disableSubmit = true;
       try {
-        $axios
-          .post("/login", {
-            name: this.user.name,
-            password: this.user.password
-          })
-          .then(response => {
-            setToken(response.data.token);
-          });
+        const response = await $axios.post("/login", {
+          name: this.user.name,
+          password: this.user.password
+        });
+
+        setToken(response.data.token);
+        $axios.defaults.headers["Authorization"] = `Bearer ${response.data.token}`;
+        this.$router.replace("/");
       } catch (error) {
         console.log(error);
       }

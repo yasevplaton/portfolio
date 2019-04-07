@@ -3,7 +3,7 @@ import VueRouter from "vue-router";
 import axios from "axios";
 import routes from "@/router/routes";
 import store from "@/store";
-import { removeToken } from "@/helpers/token";
+import { getToken, removeToken } from "@/helpers/token";
 
 Vue.use(VueRouter);
 
@@ -12,26 +12,26 @@ const guard = axios.create({ baseURL });
 
 const router = new VueRouter({ routes });
 
-// router.beforeEach(async (to, from, next) => {
-//   const isPublicRoute = to.matched.some(record => record.meta.public);
-//   const isUserLogged = store.getters["auth/userIsLogged"];
+router.beforeEach(async (to, from, next) => {
+  const isPublicRoute = to.matched.some(record => record.meta.public);
+  const isUserLogged = store.getters["auth/userIsLogged"];
 
-//   if (isPublicRoute === false && isUserLogged === false) {
-//     const token = localStorage.getItem('token');
-//     guard.defaults.headers['Authorization'] = `Bearer ${token}`;
+  if (isPublicRoute === false && isUserLogged === false) {
+    const token = getToken();
+    guard.defaults.headers['Authorization'] = `Bearer ${token}`;
 
-//     try {
-//       const response = await guard.get('/user');
-//       store.commit('auth/SET_USER', response.data.user);
-//       next(); 
-//     } catch (error) {
-//       router.replace('/login');
-//       removeToken();
-//     }
+    try {
+      const response = await guard.get('/user');
+      store.commit('auth/SET_USER', response.data.user);
+      next(); 
+    } catch (error) {
+      router.replace('/login');
+      removeToken();
+    }
 
-//   } else {
-//     next();
-//   }
-// });
+  } else {
+    next();
+  }
+});
 
 export default router;

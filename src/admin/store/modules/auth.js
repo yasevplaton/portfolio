@@ -11,9 +11,7 @@ export default {
   getters: {
     userIsLogged: state => {
       const userObj = state.user;
-      const userObjectIsEmpty =
-        Object.keys(userObj).length === 0 && userObj.constructor === Object;
-
+      const userObjectIsEmpty = Object.keys(userObj).length === 0 && userObj.constructor === Object;
       return userObjectIsEmpty === false;
     }
   }

@@ -1,7 +1,6 @@
 <template lang="pug">
   .skill-cards
     ul.skill-cards__list
-      pre {{categories}}
       li.skill-cards__item(v-if="showAddingForm")
         skill-card-new(@closeNewSkillCard="$emit('closeNewSkillCard')")
       li.skill-cards__item(
@@ -10,11 +9,13 @@
       )
         skill-card(
           :category="category"
+          :skills="filterSkillsByCard(category.id)"
         )
 </template>
 
 <script>
 import { mapActions, mapState } from "vuex";
+import $axios from "@/requests";
 
 export default {
   components: {
@@ -27,14 +28,28 @@ export default {
   computed: {
     ...mapState('skillCategories', {
       categories: state => state.categories
+    }),
+    ...mapState('skills', {
+      skills: state => state.skills
     })
   },
   methods: {
-    ...mapActions("skillCategories", ["fetchCategories"])
+    ...mapActions("skillCategories", ["fetchCategories"]),
+    ...mapActions("skills", ["fetchSkills"]),
+
+    filterSkillsByCard(skillGroupId) {
+      return this.skills.filter(skill => skill.category === skillGroupId);
+    }
   },
   async created() {
     try {
       await this.fetchCategories();
+    } catch (error) {
+      console.log(error.message);
+    }
+
+    try {
+      await this.fetchSkills();
     } catch (error) {
       console.log(error.message);
     }
