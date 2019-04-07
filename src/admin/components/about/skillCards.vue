@@ -1,22 +1,45 @@
 <template lang="pug">
   .skill-cards
     ul.skill-cards__list
+      pre {{categories}}
       li.skill-cards__item(v-if="showAddingForm")
         skill-card-new(@closeNewSkillCard="$emit('closeNewSkillCard')")
-      li.skill-cards__item(v-if="false")
-        skill-card
+      li.skill-cards__item(
+        v-for="category in categories"
+        :key="category.id"
+      )
+        skill-card(
+          :category="category"
+        )
 </template>
 
 <script>
+import { mapActions, mapState } from "vuex";
+
 export default {
   components: {
     skillCardNew: () => import("components/about/skillCardNew.vue"),
-    skillCard: () => import("components/about/skillCard.vue"),
+    skillCard: () => import("components/about/skillCard.vue")
   },
   props: {
     showAddingForm: Boolean
+  },
+  computed: {
+    ...mapState('skillCategories', {
+      categories: state => state.categories
+    })
+  },
+  methods: {
+    ...mapActions("skillCategories", ["fetchCategories"])
+  },
+  async created() {
+    try {
+      await this.fetchCategories();
+    } catch (error) {
+      console.log(error.message);
+    }
   }
-}
+};
 </script>
 
 

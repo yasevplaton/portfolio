@@ -27,4 +27,8 @@ export default {
 @import "../../../styles/mixins.pcss";
 @import "./styles/skill.pcss";
 
+
+.skill__input {
+  pointer-events: none;
+}
 </style>

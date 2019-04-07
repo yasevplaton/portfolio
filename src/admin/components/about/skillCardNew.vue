@@ -1,11 +1,20 @@
 <template lang="pug">
   .skill-card.skill-card--edit
     .skill-card__heading-row
-      input(type="text" placeholder="Название новой группы").skill-card__title
+      input(type="text" placeholder="Название новой группы" v-model="title").skill-card__title
       .skill-card__heading-btns
+
         .skill-card__edit-mode-btns
-          button(type='button').btn.btn--save-skill-card
-          button(type='button' @click="$emit('closeNewSkillCard')").btn.btn--remove-skill-card
+          button(
+            type='button'
+            @click="addSkillCard"
+          ).btn.btn--save-skill-card
+
+          button(
+            type='button'
+            @click="$emit('closeNewSkillCard')"
+          ).btn.btn--remove-skill-card
+
         .skill-card__read-mode-btns
           button(type='button').btn.btn--edit-skill-card
     .skill-card__table
@@ -19,9 +28,29 @@
 </template>
 
 <script>
+import { mapActions } from "vuex";
+
 export default {
   components: {
     skillTable: () => import("components/about/skillTable.vue"),
+  },
+  data() {
+    return {
+      title: ""
+    }
+  },
+  methods: {
+    ...mapActions("skillCategories", ['addNewSkillGroup']),
+
+    async addSkillCard() {
+      try {
+        await this.addNewSkillGroup(this.title);
+        this.title = "";
+        this.$emit('closeNewSkillCard');
+      } catch (error) {
+        alert(error.message)
+      }
+    }
   }
 }
 </script>

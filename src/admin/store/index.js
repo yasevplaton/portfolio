@@ -4,7 +4,7 @@ import Vuex from "vuex";
 Vue.use(Vuex);
 
 import auth from './modules/auth';
-import skillCategories from './modules/skill-categories';
+import skillCategories from './modules/skillCategories';
 import skills from './modules/skills';
 
 export default new Vuex.Store({

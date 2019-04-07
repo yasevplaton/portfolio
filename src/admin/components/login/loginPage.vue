@@ -38,8 +38,6 @@ import $axios from "@/requests";
 import loginInput from "./loginInput";
 import { setToken } from "@/helpers/token";
 
-axios.defaults.baseURL = 'https://webdev-api.loftschool.com';
-
 export default {
   mixins: [require("simple-vue-validator").mixin],
   validators: {
@@ -67,7 +65,7 @@ export default {
       if ((await this.$validate()) === false) return;
       this.disableSubmit = true;
       try {
-        axios
+        $axios
           .post("/login", {
             name: this.user.name,
             password: this.user.password

@@ -28,7 +28,7 @@ export default {
         commit("ADD_SKILL", response.data);
         return response;
       } catch (error) {
-        // error handling
+        console.log(error.message);
       }
     },
 
@@ -38,7 +38,7 @@ export default {
         commit("SET_SKILLS", response.data);
         return response;
       } catch (error) {
-        // error handling
+        console.log(error.message);
       }
     },
 
@@ -58,17 +58,8 @@ export default {
         commit('EDIT_SKILL', response.data.skill);
         return response;
       } catch (error) {
-        // error handling
+        console.log(error.message);
       }
-    },
-
-    createReview(store, review) {
-      const formData = new FormData();
-
-      formData.append('text', review.desc);
-      formData.append('photo', review.photo);
-
-      this.$axios.post('/reviews', formData);
     }
   }
 };
