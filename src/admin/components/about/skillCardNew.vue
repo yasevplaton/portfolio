@@ -5,7 +5,7 @@
       .skill-card__heading-btns
         .skill-card__edit-mode-btns
           button(type='button').btn.btn--save-skill-card
-          button(type='button').btn.btn--remove-skill-card
+          button(type='button' @click="$emit('closeNewSkillCard')").btn.btn--remove-skill-card
         .skill-card__read-mode-btns
           button(type='button').btn.btn--edit-skill-card
     .skill-card__table

@@ -3,8 +3,13 @@
     .container.reviews__container
       .heading-row.reviews__heading-row
         h1.title.reviews__title Блок "Отзывы"
-      review-form
-      review-cards
+      review-form(
+        v-if="showReviewForm"
+        @closeReviewForm="showReviewForm = false"
+      )
+      review-cards(
+        @openReviewForm="showReviewForm = true"
+      )
 </template>
 
 <script>
@@ -12,6 +17,11 @@ export default {
   components: {
     reviewForm: () => import("components/reviews/reviewForm.vue"),
     reviewCards: () => import("components/reviews/reviewCards.vue"),
+  },
+  data() {
+    return {
+      showReviewForm: false
+    }
   }
 };
 </script>

@@ -1,7 +1,7 @@
 <template lang="pug">
   table.skill-table
-    skill-row
-    skill-row
+    // skill-row
+    // skill-row
 </template>
 
 <script>

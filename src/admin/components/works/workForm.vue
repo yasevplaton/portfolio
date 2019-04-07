@@ -39,7 +39,10 @@
         .form__row.form__row--btns
           .form__col
             .form__btns
-              button(type="button").btn.btn--cancel-edit Отмена
+              button(
+                type="button"
+                @click="$emit('closeWorkForm')"
+              ).btn.btn--cancel-edit Отмена
               button(type="button").btn.btn--save-edit Сохранить
 </template>
 

@@ -1,9 +1,9 @@
 <template lang="pug">
   .skill-cards
     ul.skill-cards__list
-      li.skill-cards__item
-        skill-card-new
-      li.skill-cards__item
+      li.skill-cards__item(v-if="showAddingForm")
+        skill-card-new(@closeNewSkillCard="$emit('closeNewSkillCard')")
+      li.skill-cards__item(v-if="false")
         skill-card
 </template>
 
@@ -12,6 +12,9 @@ export default {
   components: {
     skillCardNew: () => import("components/about/skillCardNew.vue"),
     skillCard: () => import("components/about/skillCard.vue"),
+  },
+  props: {
+    showAddingForm: Boolean
   }
 }
 </script>

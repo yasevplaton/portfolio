@@ -1,7 +1,10 @@
 <template lang="pug">
   ul.work-cards__list
     li.work-cards__item.work-cards__item--new-card
-      button(type="button").btn.btn--add-new-card
+      button(
+        type="button"
+        @click="$emit('openWorkForm')"
+      ).btn.btn--add-new-card
         span.btn__new-card-icon
         span.btn__new-card-title Добавить работу
     li.work-cards__item

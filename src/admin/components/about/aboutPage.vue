@@ -3,19 +3,29 @@
     .container.about__container
       .heading-row.about__heading-row
         h1.title.about__title Блок "Обо мне"
-        button(type='button').btn.btn--add-skills-group Добавить группу
+        button(
+          type='button'
+          @click="showAddingForm = true"
+        ).btn.btn--add-skills-group Добавить группу
       .about__cards
-        skill-cards()
+        skill-cards(
+          :showAddingForm="showAddingForm"
+          @closeNewSkillCard="showAddingForm = false"
+        )
           
 </template>
 
 <script>
-
 export default {
   components: {
     skillCards: () => import("components/about/skillCards.vue")
+  },
+  data() {
+    return {
+      showAddingForm: false
+    };
   }
-}
+};
 </script>
 
 

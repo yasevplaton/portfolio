@@ -3,8 +3,13 @@
     .container.works__container
       .heading-row.works__heading-row
         h1.title.works__title Блок "Работы"
-      work-form
-      work-cards
+      work-form(
+        v-if="showWorkForm"
+        @closeWorkForm="showWorkForm = false"
+      )
+      work-cards(
+        @openWorkForm="showWorkForm = true"
+      )
         
 </template>
 
@@ -14,6 +19,11 @@ export default {
     workForm: () => import("components/works/workForm.vue"),
     formTag: () => import("components/works/formTag.vue"),
     workCards: () => import("components/works/workCards.vue"),
+  },
+  data() {
+    return {
+      showWorkForm: false
+    }
   }
 }
 </script>

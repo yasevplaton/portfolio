@@ -2,7 +2,10 @@
   .review-cards
     ul.review-cards__list
       li.review-cards__item.review-cards__item--new-card
-        button(type="button").btn.btn--add-new-card
+        button(
+          type="button"
+          @click="$emit('openReviewForm')"
+        ).btn.btn--add-new-card
           span.btn__new-card-icon
           span.btn__new-card-title Добавить отзыв
       li.review-cards__item
