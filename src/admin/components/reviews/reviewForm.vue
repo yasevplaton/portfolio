@@ -5,8 +5,16 @@
     form.form.review-form.form-block__content.form-block__content--review
 
       .form__photo.form__photo--review
-        .form__upload-photo-container--review
-        button(type="button").btn.btn--upload-review-photo Добавить фото
+        label.form__upload-photo-wrapper.form__upload-photo-wrapper--review
+          .form__upload-photo-container--review(
+            :class="{'filled' : this.renderedPhotoUrl.length}"
+            :style="{'backgroundImage' : `url(${this.renderedPhotoUrl})`}"
+          )
+            input(
+              type="file"
+              @change="appendFileAndRenderPhoto"
+            ).form__upload-photo-input
+          .btn.btn--upload-review-photo Добавить фото
 
       .form__text.form__text--review
         .form__row.form__row--review-author-info
@@ -36,7 +44,32 @@
 
 <script>
 export default {
-
+  data() {
+    return {
+      renderedPhotoUrl: "",
+      review: {
+        photo: "",
+        author: "",
+        occ: "",
+        text: ""
+      }
+    };
+  },
+  methods: {
+    appendFileAndRenderPhoto(e) {
+      const file = e.target.files[0];
+      this.review.photo = file;
+      const reader = new FileReader();
+      try {
+        reader.readAsDataURL(file);
+        reader.onload = () => {
+          this.renderedPhotoUrl = reader.result;
+        };
+      } catch (error) {
+        console.error(error.message);
+      }
+    }
+  }
 };
 </script>
 

@@ -3,11 +3,7 @@
     .work-card__header
       img(src="~images/content/work-previews/1.jpg" alt="Превью работы").work-card__img
       .work-card__tags
-        .tags
-          ul.tags__list
-            li.tags__item HTML
-            li.tags__item CSS
-            li.tags__item JavaScript
+        work-tags
     .work-card__content
       h3.work-card__title Сайт школы образования
       .work-card__desc
@@ -20,7 +16,9 @@
 
 <script>
 export default {
-  
+  components: {
+    workTags: () => import("./workTags.vue")
+  }
 }
 </script>
 

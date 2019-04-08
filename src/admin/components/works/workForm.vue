@@ -5,10 +5,18 @@
     form.form.work-form.form-block__content.form-block__content--work
 
       .form__photo.form__photo--work
-        .form__upload-photo-container
-          .form__upload-photo-content
-            span.form__upload-photo-desc Перетащите или загрузите для загрузки изображения
-            button(type="button").btn.btn--upload-work-photo Загрузить
+        label.form__upload-photo-wrapper
+          .form__upload-photo-container(
+            :class="{'filled' : this.renderedPhotoUrl.length}"
+            :style="{'backgroundImage' : `url(${this.renderedPhotoUrl})`}"
+          )
+            input(
+              type="file"
+              @change="appendFileAndRenderPhoto"
+            ).form__upload-photo-input
+            .form__upload-photo-content
+              span.form__upload-photo-desc Перетащите или загрузите для загрузки изображения
+              .btn.btn--upload-work-photo Загрузить
 
       .form__text.form__text--work
         .form__row
@@ -50,6 +58,33 @@
 export default {
   components: {
     formTag: () => import("./formTag.vue")
+  },
+  data() {
+    return {
+      renderedPhotoUrl: "",
+      work: {
+        title: "",
+        techs: "",
+        photo: "",
+        link: "",
+        description: ""
+      }
+    }
+  },
+  methods: {
+    appendFileAndRenderPhoto(e) {
+      const file = e.target.files[0];
+      this.work.photo = file;
+      const reader = new FileReader();
+      try {
+        reader.readAsDataURL(file);
+        reader.onload = () => {
+          this.renderedPhotoUrl = reader.result;
+        };
+      } catch (error) {
+        console.error(error.message);
+      }
+    }
   }
 }
 </script>

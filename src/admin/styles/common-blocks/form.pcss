@@ -5,9 +5,6 @@
 
   &--review {
     grid-area: photo;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
   }
 }
 
@@ -20,11 +17,31 @@
   }
 }
 
+.form__upload-photo-wrapper {
+  cursor: pointer;
+
+  &--review {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
 .form__upload-photo-container {
   border: dashed 1px #a1a1a1;
   background-color: #dee4ed;
   min-height: 50%;
   position: relative;
+
+  &.filled {
+    background: center center no-repeat / cover;
+    border: none;
+
+    .form__upload-photo-content {
+      display: none;
+    }
+
+  }
 
   &--review {
     border: none;
@@ -36,6 +53,13 @@
     display: block;
     position: relative;
     margin-bottom: 30px;
+
+    &.filled {
+      background: center center no-repeat / cover;
+      &:after {
+        display: none;
+      }
+    }
 
     &::after {
       content: "";
@@ -52,9 +76,15 @@
 
     @include mini-tablets {
       width: 150px;
-    height: 150px;
+      height: 150px;
     }
   }
+}
+
+.form__upload-photo-input {
+  position: absolute;
+  top: 0;
+  left: -99999999px;
 }
 
 .form__upload-photo-content {
@@ -93,11 +123,9 @@
   }
 
   &--review-author-info {
-
     @include mini-tablets {
       margin-bottom: 0;
     }
-
   }
 }
 

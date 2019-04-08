@@ -84,6 +84,8 @@ export default {
     async addNewSkill() {
       try {
         await this.addSkill(this.skill);
+        this.skill.title = "";
+        this.skill.percent = "";
       } catch (error) {
         console.log(error.message);
       }
