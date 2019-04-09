@@ -4,16 +4,15 @@
       .heading-row.works__heading-row
         h1.title.works__title Блок "Работы"
       work-form(
-        v-if="showWorkForm"
-        @closeWorkForm="showWorkForm = false"
+        v-if="workForm.show"
       )
-      work-cards(
-        @openWorkForm="showWorkForm = true"
-      )
+      work-cards
         
 </template>
 
 <script>
+import { mapState, mapMutations } from "vuex";
+
 export default {
   components: {
     workForm: () => import("components/works/workForm.vue"),
@@ -22,8 +21,16 @@ export default {
   },
   data() {
     return {
-      showWorkForm: false
+
     }
+  },
+  computed: {
+    ...mapState('works', {
+      workForm: state => state.workForm
+    })
+  },
+  methods: {
+
   }
 }
 </script>

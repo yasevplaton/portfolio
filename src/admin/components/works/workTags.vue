@@ -1,14 +1,17 @@
 <template lang="pug">
   .tags
     ul.tags__list
-      li.tags__item HTML
-      li.tags__item CSS
-      li.tags__item JavaScript
+      li.tags__item(
+        v-for="(tag, index) in tags"
+        :key="index"
+      ) {{tag}}
 </template>
 
 <script>
 export default {
-  
+  props: {
+    tags: Array
+  }
 }
 </script>
 

@@ -23,22 +23,22 @@
           .form__col
             label.form__text-block(for="title")
               span.form__label Название
-              input.form__input.form__input--title#title(type="text" name="title" placeholder="Введите название работы")
+              input.form__input.form__input--title#title(type="text" name="title" placeholder="Введите название работы" v-model="work.title")
         .form__row
           .form__col
             label.form__text-block(for="link")
               span.form__label Ссылка
-              input.form__input.form__input--link#link(type="text" name="link" placeholder="Вставьте ссылку")
+              input.form__input.form__input--link#link(type="text" name="link" placeholder="Вставьте ссылку" v-model="work.link")
         .form__row.form__row--textarea
           .form__col
             label.form__text-block.form__text-block--textarea(for="description")
               span.form__label Описание
-              textarea.form__textarea#description(name="description" rows="4" placeholder="Введите описание работы")
+              textarea.form__textarea#description(name="description" rows="4" placeholder="Введите описание работы" v-model="work.description")
         .form__row.form__row--tags
           .form__col
             label.form__text-block(for="tags")
               span.form__label Добавление тега
-              input.form__input.form__input--tags#tags(type="text" name="tags" placeholder="Если хотите, добавьте теги")
+              input.form__input.form__input--tags#tags(type="text" name="tags" placeholder="Если хотите, добавьте теги" v-model="work.techs")
         .form__row
           .form__col
             ul.form__tags-list
@@ -49,12 +49,24 @@
             .form__btns
               button(
                 type="button"
-                @click="$emit('closeWorkForm')"
+                @click="CLOSE_FORM"
               ).btn.btn--cancel-edit Отмена
-              button(type="button").btn.btn--save-edit Сохранить
+              button(
+                type="button"
+                @click="addNewWork"
+                v-if="!workForm.editMode"
+              ).btn.btn--save-edit Сохранить
+              button(
+                type="button"
+                v-if="workForm.editMode"
+                @click="saveEditedWork"
+              ).btn.btn--save-edit Сохранить
 </template>
 
 <script>
+import { mapActions, mapMutations, mapState } from "vuex";
+import { BASE_URL } from "@/helpers/consts";
+
 export default {
   components: {
     formTag: () => import("./formTag.vue")
@@ -69,9 +81,21 @@ export default {
         link: "",
         description: ""
       }
+    };
+  },
+  computed: {
+    ...mapState("works", {
+      workForm: state => state.workForm,
+      editedWork: state => state.editedWork
+    }),
+    remotePhotoPath() {
+      return `${BASE_URL}/${this.work.photo}`;
     }
   },
   methods: {
+    ...mapActions("works", ["addWork", "editWork"]),
+    ...mapMutations("works", ["CLOSE_FORM"]),
+
     appendFileAndRenderPhoto(e) {
       const file = e.target.files[0];
       this.work.photo = file;
@@ -84,14 +108,58 @@ export default {
       } catch (error) {
         console.error(error.message);
       }
+    },
+
+    async addNewWork() {
+      try {
+        const workFormData = this.createWorkFormData();
+        await this.addWork(workFormData);
+        this["CLOSE_FORM"]();
+      } catch (error) {
+        console.error(error.message);
+      }
+    },
+
+    createWorkFormData() {
+      const formData = new FormData();
+      formData.append("title", this.work.title);
+      formData.append("techs", this.work.techs);
+      formData.append("photo", this.work.photo);
+      formData.append("link", this.work.link);
+      formData.append("description", this.work.description);
+      return formData;
+    },
+
+    setEditedWork() {
+      this.work = { ...this.editedWork };
+      this.renderedPhotoUrl = this.remotePhotoPath;
+    },
+
+    async saveEditedWork() {
+      try {
+
+        const workData = {
+          id: this.work.id,
+          data: this.createWorkFormData()
+        };
+
+        await this.editWork(workData);
+        this['CLOSE_FORM']();
+      } catch (error) {
+        console.error(error.message);
+      }
+    }
+  },
+  created() {
+    if (this.workForm.editMode) {
+      this.setEditedWork();
     }
   }
-}
+};
 </script>
 
 
 
 <style lang="postcss" scoped>
 @import "../../../styles/mixins.pcss";
-
 </style>

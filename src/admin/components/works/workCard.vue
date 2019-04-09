@@ -1,23 +1,77 @@
 <template lang="pug">
   .work-card
     .work-card__header
-      img(src="~images/content/work-previews/1.jpg" alt="Превью работы").work-card__img
+      img(:src="remotePhotoPath" alt="Превью работы").work-card__img
       .work-card__tags
-        work-tags
+        work-tags(
+          :tags="tagsArray"
+        )
     .work-card__content
-      h3.work-card__title Сайт школы образования
-      .work-card__desc
-        p Этот парень проходил обучение веб-разработке не где-то, а в LoftSchool! 4,5 месяца только самых тяжелых испытаний и бессонных ночей!
-      a(href="//google.com").work-card__link //google.com
+      .work-card__text-content
+        h3.work-card__title {{work.title}}
+        .work-card__desc
+          p {{work.description}}
+        a(:href="work.link").work-card__link {{work.link}}
       .work-card__btns
-        button(type="button").btn.btn--card-edit Править
-        button(type="button").btn.btn--card-remove Удалить
+        button(
+          type="button"
+          @click="editWork"
+        ).btn.btn--card-edit Править
+        button(
+          type="button"
+          @click="removeCurrentWork"
+        ).btn.btn--card-remove Удалить
 </template>
 
 <script>
+import { BASE_URL } from "@/helpers/consts";
+import { mapActions, mapMutations } from "vuex";
+
 export default {
   components: {
     workTags: () => import("./workTags.vue")
+  },
+  props: {
+    work: Object
+  },
+  data() {
+    return {
+      
+    }
+  },
+  computed: {
+    remotePhotoPath() {
+      return `${BASE_URL}/${this.work.photo}`;
+    },
+    tagsArray() {
+      return this.work.techs.split(',');
+    }
+  },
+  methods: {
+    ...mapActions("works", ['removeWork']),
+    ...mapMutations("works", ['SHOW_FORM', 'TURN_EDIT_MODE_ON', 'SET_EDITED_WORK']),
+
+    async removeCurrentWork() {
+      try {
+        await this.removeWork(this.work.id);
+      } catch (error) {
+        console.error(error.message);
+      }
+    },
+
+    showFormAndTurnEditModeOn() {
+      this['TURN_EDIT_MODE_ON']();
+      this['SHOW_FORM']();
+    },
+
+    setEditedWork() {
+      this['SET_EDITED_WORK'](this.work);
+    },
+
+    editWork() {
+      this.setEditedWork();
+      this.showFormAndTurnEditModeOn();
+    }
   }
 }
 </script>
@@ -28,6 +82,9 @@ export default {
 
 .work-card {
   position: relative;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
   &--edit {
     &::after {
       content: "";
@@ -54,6 +111,10 @@ export default {
 
 .work-card__content {
   padding: 40px 30px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .work-card__title {
