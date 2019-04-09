@@ -3,7 +3,6 @@
     .container.reviews__container
       .heading-row.reviews__heading-row
         h1.title.reviews__title Блок "Отзывы"
-        pre {{editedReview}}
       review-form(
         v-if="reviewForm.show"
       )
