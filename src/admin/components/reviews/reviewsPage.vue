@@ -3,16 +3,16 @@
     .container.reviews__container
       .heading-row.reviews__heading-row
         h1.title.reviews__title Блок "Отзывы"
+        pre {{editedReview}}
       review-form(
-        v-if="showReviewForm"
-        @closeReviewForm="showReviewForm = false"
+        v-if="reviewForm.show"
       )
-      review-cards(
-        @openReviewForm="showReviewForm = true"
-      )
+      review-cards
 </template>
 
 <script>
+import { mapState } from "vuex";
+
 export default {
   components: {
     reviewForm: () => import("components/reviews/reviewForm.vue"),
@@ -20,8 +20,13 @@ export default {
   },
   data() {
     return {
-      showReviewForm: false
     }
+  },
+  computed: {
+    ...mapState("reviews", {
+      reviewForm: state => state.reviewForm,
+      editedReview: state => state.editedReview
+    })
   }
 };
 </script>

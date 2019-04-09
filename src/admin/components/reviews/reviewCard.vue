@@ -2,23 +2,56 @@
   .review-card
     .review-card__header
       .review-author
-        .review-author__photo-block
-          img(src="~images/content/avatar.jpg" alt="Фотография автора отзыва").review-author__img
+        .review-author__photo-block(
+          :style="{'backgroundImage' : `url(${this.remotePhotoPath})`}"
+        )
         .review-author__desc
-          .review-author__name Владимир Сабанцев
-          .review-author__position Преподаватель
+          .review-author__name {{review.author}}
+          .review-author__position {{review.occ}}
     .review-card__content
       .review-card__desc
-        p Этот парень проходил обучение веб-разработке не где-то, а в LoftSchool! 4,5 месяца только самых тяжелых испытаний и бессонных ночей!
+        p {{review.text}}
       .review-card__btns
-        button(type="button").btn.btn--card-edit Править
-        button(type="button").btn.btn--card-remove Удалить
+        button(
+          type="button"
+          @click="editReview"
+        ).btn.btn--card-edit Править
+        button(
+          type="button"
+          @click="removeReview(review.id)"
+        ).btn.btn--card-remove Удалить
 </template>
 
 <script>
+import { BASE_URL } from "@/helpers/consts";
+import { mapActions, mapMutations } from 'vuex';
+
 export default {
-  components: {
-    
+  props: {
+    review: Object
+  },
+  computed: {
+    remotePhotoPath() {
+      return `${BASE_URL}/${this.review.photo}`;
+    },
+  },
+  methods: {
+    ...mapActions('reviews', ['removeReview']),
+    ...mapMutations('reviews', ['SHOW_FORM', 'TURN_EDIT_MODE_ON', 'SET_EDITED_REVIEW']),
+
+    showFormAndTurnEditModeOn() {
+      this['TURN_EDIT_MODE_ON']();
+      this['SHOW_FORM']();
+    },
+
+    setEditedReview() {
+      this['SET_EDITED_REVIEW'](this.review);
+    },
+
+    editReview() {
+      this.setEditedReview();
+      this.showFormAndTurnEditModeOn();
+    }
   }
 };
 </script>
@@ -29,6 +62,8 @@ export default {
 .review-card {
   padding: 30px;
   position: relative;
+  display: flex;
+  flex-direction: column;
 
   &--edit {
     &::after {
@@ -48,6 +83,13 @@ export default {
   padding-bottom: 30px;
   border-bottom: 1px solid rgba($text-color, 0.15);
   margin-bottom: 30px;
+}
+
+.review-card__content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .review-card__btns {
@@ -74,9 +116,8 @@ export default {
   height: 50px;
   margin-right: 20px;
   flex-shrink: 0;
-}
-
-.review-author__img {
+  background: center center no-repeat;
+  background-size: cover;
   border-radius: 50%;
 }
 

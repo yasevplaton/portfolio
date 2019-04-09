@@ -4,20 +4,50 @@
       li.review-cards__item.review-cards__item--new-card
         button(
           type="button"
-          @click="$emit('openReviewForm')"
+          @click="showFormAndTurnEditModeOff"
         ).btn.btn--add-new-card
           span.btn__new-card-icon
           span.btn__new-card-title Добавить отзыв
-      li.review-cards__item
-        review-card
-      li.review-cards__item
-        review-card
+      li.review-cards__item(
+        v-for="review in reviews"
+        :key="review.id"
+      )
+        review-card(
+          :review="review"
+        )
 </template>
 
 <script>
+import { mapMutations, mapState, mapActions } from 'vuex';
+
 export default {
   components: {
     reviewCard: () => import("components/reviews/reviewCard.vue")
+  },
+  computed: {
+    ...mapState("reviews", {
+      reviews: state => state.reviews
+    })
+  },
+  methods: {
+    ...mapMutations('reviews', ['SHOW_FORM', 'TURN_EDIT_MODE_OFF']),
+    ...mapActions('reviews', ['fetchReviews']),
+
+    showFormAndTurnEditModeOff() {
+      this['TURN_EDIT_MODE_OFF']();
+      this['SHOW_FORM']();
+    }
+
+  },
+
+  async created() {
+
+    try {
+      await this.fetchReviews();
+    } catch (error) {
+      console.error(error.message);
+    }
+
   }
 };
 </script>

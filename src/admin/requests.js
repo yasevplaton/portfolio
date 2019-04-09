@@ -20,6 +20,8 @@ axios.interceptors.response.use(
         axios.defaults.headers["Authorization"] = `Bearer ${token}`;
         originalRequest.headers["Authorization"] = `Bearer ${token}`;
         return axios(originalRequest);
+      }).catch(error => {
+        console.error(error.message);
       });
     }
     return Promise.reject(error);

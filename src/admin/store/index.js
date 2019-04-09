@@ -7,12 +7,14 @@ import auth from './modules/auth';
 import skillCategories from './modules/skillCategories';
 import skills from './modules/skills';
 import works from './modules/works';
+import reviews from './modules/reviews';
 
 export default new Vuex.Store({
   modules: {
     auth,
     skillCategories,
     skills,
-    works
+    works,
+    reviews
   }
 });
