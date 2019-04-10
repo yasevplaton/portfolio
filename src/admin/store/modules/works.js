@@ -6,7 +6,8 @@ export default {
       show: false,
       editMode: false
     },
-    editedWork: {}
+    editedWork: {},
+    editedTags: []
   },
   mutations: {
     SET_WORKS: (state, works) => {
@@ -37,17 +38,31 @@ export default {
       state.workForm.show = false;
     },
 
-    TURN_EDIT_MODE_ON: (state) => {
+    TURN_EDIT_MODE_ON: (state, work) => {
       state.workForm.editMode = true;
+      state.editedWork = {...work};
+      state.editedTags = state.editedWork.techs.split(',');
     },
 
     TURN_EDIT_MODE_OFF: (state) => {
       state.workForm.editMode = false;
+      state.editedWork = {};
+      state.editedTags = [];
     },
 
-    SET_EDITED_WORK: (state, work) => {
-      state.editedWork = {...work};
-    }
+    REMOVE_TAG: (state, deletedTag) => {
+      state.editedTags = state.editedTags.filter(tag =>
+        tag !== deletedTag
+      );
+    },
+
+    ADD_TAGS: (state, addingTags) => {
+      let tagsForAdd = addingTags.split(',');
+      tagsForAdd = tagsForAdd.filter(tag => tag !== "");
+      state.editedTags = [...state.editedTags, ...tagsForAdd];
+    },
+
+
   },
   actions: {
     async addWork({ commit }, work) {

@@ -16,7 +16,6 @@ import { mapState, mapMutations } from "vuex";
 export default {
   components: {
     workForm: () => import("components/works/workForm.vue"),
-    formTag: () => import("components/works/formTag.vue"),
     workCards: () => import("components/works/workCards.vue"),
   },
   data() {

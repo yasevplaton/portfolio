@@ -15,7 +15,7 @@
       .work-card__btns
         button(
           type="button"
-          @click="editWork"
+          @click="showFormAndTurnEditModeOn"
         ).btn.btn--card-edit Править
         button(
           type="button"
@@ -60,18 +60,9 @@ export default {
     },
 
     showFormAndTurnEditModeOn() {
-      this['TURN_EDIT_MODE_ON']();
+      this['TURN_EDIT_MODE_ON'](this.work);
       this['SHOW_FORM']();
     },
-
-    setEditedWork() {
-      this['SET_EDITED_WORK'](this.work);
-    },
-
-    editWork() {
-      this.setEditedWork();
-      this.showFormAndTurnEditModeOn();
-    }
   }
 }
 </script>
@@ -138,6 +129,10 @@ export default {
   color: $links-color;
   margin-bottom: 40px;
   display: inline-block;
+
+  &:hover {
+    text-decoration: underline;
+  }
 }
 
 .work-card__btns {

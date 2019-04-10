@@ -40,9 +40,8 @@
               span.form__label Добавление тега
               input.form__input.form__input--tags#tags(type="text" name="tags" placeholder="Если хотите, добавьте теги" v-model="work.techs")
         .form__row
-          .form__col
-            ul.form__tags-list
-              form-tag
+          .form__col(v-if="workForm.editMode")
+            form-tags
 
         .form__row.form__row--btns
           .form__col
@@ -69,7 +68,7 @@ import { BASE_URL } from "@/helpers/consts";
 
 export default {
   components: {
-    formTag: () => import("./formTag.vue")
+    formTags: () => import("./formTags.vue")
   },
   data() {
     return {
@@ -86,15 +85,21 @@ export default {
   computed: {
     ...mapState("works", {
       workForm: state => state.workForm,
-      editedWork: state => state.editedWork
+      editedWork: state => state.editedWork,
+      editedTags: state => state.editedTags
     }),
+
     remotePhotoPath() {
       return `${BASE_URL}/${this.work.photo}`;
+    },
+
+    editedTagsAsString() {
+      return this.editedTags.join(',');
     }
   },
   methods: {
     ...mapActions("works", ["addWork", "editWork"]),
-    ...mapMutations("works", ["CLOSE_FORM"]),
+    ...mapMutations("works", ["CLOSE_FORM", 'ADD_TAGS']),
 
     appendFileAndRenderPhoto(e) {
       const file = e.target.files[0];
@@ -123,7 +128,13 @@ export default {
     createWorkFormData() {
       const formData = new FormData();
       formData.append("title", this.work.title);
-      formData.append("techs", this.work.techs);
+
+      if (this.workForm.editMode) {
+        formData.append("techs", this.editedTagsAsString);
+      } else {
+        formData.append("techs", this.work.techs);
+      }
+
       formData.append("photo", this.work.photo);
       formData.append("link", this.work.link);
       formData.append("description", this.work.description);
@@ -138,6 +149,8 @@ export default {
     async saveEditedWork() {
       try {
 
+        this['ADD_TAGS'](this.work.techs);
+
         const workData = {
           id: this.work.id,
           data: this.createWorkFormData()
@@ -145,14 +158,16 @@ export default {
 
         await this.editWork(workData);
         this['CLOSE_FORM']();
+
       } catch (error) {
         console.error(error.message);
       }
-    }
+    },
   },
   created() {
     if (this.workForm.editMode) {
       this.setEditedWork();
+      this.work.techs = "";
     }
   }
 };
