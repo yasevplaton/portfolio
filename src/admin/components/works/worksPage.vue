@@ -30,6 +30,9 @@ export default {
   },
   methods: {
 
+  },
+  created() {
+    this.workForm.show = false;
   }
 }
 </script>

@@ -1,20 +1,23 @@
 <template lang="pug">
   .content-wrapper
     template
-      admin-header
-      admin-nav
+      admin-header(v-if="userIsLogged")
+      admin-nav(v-if="userIsLogged")
       router-view
       
 </template>
 
 <script>
-import { mapState } from 'vuex';
+import { mapGetters } from 'vuex';
 
 export default {
   name: "app",
   components: {
     adminHeader: () => import("components/common/adminHeader.vue"),
     adminNav: () => import("components/common/adminNav.vue")
+  },
+  computed: {
+    ...mapGetters('auth', ['userIsLogged'])
   }
 };
 </script>

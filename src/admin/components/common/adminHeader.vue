@@ -21,7 +21,7 @@ export default {
   methods: {
     logout() {
       removeToken();
-      this.$router.push('/login');
+      this.$router.replace('/login');
     }
   }
 }

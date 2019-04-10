@@ -26,6 +26,9 @@ export default {
       reviewForm: state => state.reviewForm,
       editedReview: state => state.editedReview
     })
+  },
+  created() {
+    this.reviewForm.show = false;
   }
 };
 </script>
