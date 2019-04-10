@@ -8,8 +8,25 @@
           .user-info__name Платон Ясев
         .window-desc Панель администрирования
       .header__col.header__col--last
-        a(href="#").exit-btn Выйти
+        a(
+          href="#"
+          @click="logout"
+        ).exit-btn Выйти
 </template>
+
+<script>
+import { removeToken } from '@/helpers/token';
+
+export default {
+  methods: {
+    logout() {
+      removeToken();
+      this.$router.push('/login');
+    }
+  }
+}
+</script>
+
 
 <style lang="postcss" scoped>
 @import "../../../styles/mixins.pcss";
