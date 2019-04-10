@@ -1,7 +1,5 @@
 .skill__row {
-
   &--edit {
-
     .skill__col--title {
       border-bottom: 1px solid #000;
     }
@@ -52,10 +50,20 @@
     width: 100%;
   }
 
+  &--new-title-wrapper {
+    position: relative;
+
+    &.error {
+      .skill__input-error {
+        display: block;
+      }
+    }
+  }
+
   &--new-title {
-    width: 50%;
+    width: 95%;
     border-bottom: 1px solid #000;
-    padding-bottom: 10px;
+    padding-bottom: 0.7rem;
     margin-right: 10px;
     padding-left: 10px;
   }
@@ -63,6 +71,13 @@
   &--new-percent {
     width: 100%;
   }
+}
+
+.skill__input-error {
+  display: none;
+  position: absolute;
+  top: 100%;
+  z-index: 100;
 }
 
 .skill__percent-block {

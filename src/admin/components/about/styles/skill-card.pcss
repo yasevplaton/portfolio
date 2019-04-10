@@ -28,6 +28,20 @@
   align-items: center;
   justify-content: space-between;
   margin-bottom: 15px;
+  position: relative;
+
+  &.error {
+    .skill-card__title-error {
+      display: block;
+    }
+  }
+}
+
+.skill-card__title-error {
+  display: none;
+  position: absolute;
+  top: 100%;
+  z-index: 100;
 }
 
 .skill-card__heading-btns {

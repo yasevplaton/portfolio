@@ -1,7 +1,13 @@
 <template lang="pug">
   .skill-card.skill-card--edit
-    .skill-card__heading-row
+    .skill-card__heading-row(
+      :class="{'error' : validation.firstError('title')}"
+    )
       input(type="text" placeholder="Название новой группы" v-model="title").skill-card__title
+      .skill-card__title-error
+        error-tooltip(
+          :errorText="validation.firstError('title')"
+        )
       .skill-card__heading-btns
 
         .skill-card__edit-mode-btns
@@ -29,10 +35,18 @@
 
 <script>
 import { mapActions } from "vuex";
+import { Validator } from "simple-vue-validator";
 
 export default {
+  mixins: [require("simple-vue-validator").mixin],
+  validators: {
+    "title": value => {
+      return Validator.value(value).required("Введите название группы");
+    }
+  },
   components: {
     skillTable: () => import("components/about/skillTable.vue"),
+    errorTooltip: () => import("components/common/errorTooltip.vue")
   },
   data() {
     return {
@@ -43,6 +57,7 @@ export default {
     ...mapActions("skillCategories", ['addNewSkillGroup']),
 
     async addSkillCard() {
+      if ((await this.$validate()) === false) return;
       try {
         await this.addNewSkillGroup(this.title);
         this.title = "";
