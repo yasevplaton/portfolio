@@ -47,6 +47,12 @@
 
   }
 
+  &.error {
+    .form__upload-photo-error {
+      display: block;
+    }
+  }
+
   &--review {
     border: none;
     min-height: initial;
@@ -62,6 +68,12 @@
       background: center center no-repeat / cover;
       &:after {
         display: none;
+      }
+    }
+
+    &.error {
+      .form__upload-photo-error {
+        display: block;
       }
     }
 
@@ -89,6 +101,15 @@
   position: absolute;
   top: 0;
   left: -99999999px;
+}
+
+.form__upload-photo-error {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 100;
 }
 
 .form__upload-photo-content {
@@ -156,6 +177,13 @@
   width: 100%;
   border-bottom: 1px solid $text-color;
   padding-bottom: 15px;
+  position: relative;
+
+  &.error {
+    .form__text-block-error {
+      display: block;
+    }
+  }
 
   &--textarea {
     border: none;
@@ -176,6 +204,13 @@
   width: 100%;
   font-size: 16px;
   font-weight: 600;
+}
+
+.form__text-block-error {
+  display: none;
+  position: absolute;
+  top: 100%;
+  z-index: 100;
 }
 
 .form__textarea {

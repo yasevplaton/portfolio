@@ -36,8 +36,7 @@ export default {
     position: absolute;
     bottom: 99%;
     z-index: 1000;
-    left: 50%;
-    transform: translateX(-50%);
+    left: 0;
   }
 }
 </style>

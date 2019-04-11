@@ -83,12 +83,19 @@
 .skill__percent-block {
   display: flex;
   align-items: center;
+  position: relative;
 
   &--new-skill {
     width: 45px;
     margin-right: 30px;
     border-bottom: 1px solid #000;
     padding-bottom: 9px;
+  }
+
+  &.error {
+    .skill__input-error {
+      display: block;
+    }
   }
 }
 

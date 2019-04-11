@@ -7,30 +7,55 @@
       .form__photo.form__photo--review
         label.form__upload-photo-wrapper.form__upload-photo-wrapper--review
           .form__upload-photo-container--review(
-            :class="{'filled' : this.renderedPhotoUrl.length}"
+            :class="{'filled' : this.renderedPhotoUrl.length, 'error' : validation.firstError('renderedPhotoUrl')}"
             :style="{'backgroundImage' : `url(${this.renderedPhotoUrl})`}"
           )
             input(
               type="file"
               @change="appendFileAndRenderPhoto"
             ).form__upload-photo-input
+            .form__upload-photo-error
+              error-tooltip(
+                :errorText="validation.firstError('renderedPhotoUrl')"
+              )
           .btn.btn--upload-review-photo Добавить фото
 
       .form__text.form__text--review
         .form__row.form__row--review-author-info
           .form__col.form__col--review
-            label.form__text-block(for="name")
+            label.form__text-block(
+              for="name"
+              :class="{'error' : validation.firstError('review.author')}"
+            )
               span.form__label Имя автора
               input.form__input.form__input--name#name(type="text" name="name" placeholder="Введите имя автора" v-model="review.author")
+              .form__text-block-error
+                error-tooltip(
+                  :errorText="validation.firstError('review.author')"
+                )
           .form__col.form__col--review
-            label.form__text-block(for="position")
+            label.form__text-block(
+              for="position"
+              :class="{'error' : validation.firstError('review.occ')}"
+            )
               span.form__label Титул автора
               input.form__input.form__input--position#position(type="text" name="position" placeholder="Введите титул автора" v-model="review.occ")
+              .form__text-block-error
+                error-tooltip(
+                  :errorText="validation.firstError('review.occ')"
+                )
         .form__row.form__row--textarea
           .form__col
-            label.form__text-block.form__text-block--textarea(for="review")
+            label.form__text-block.form__text-block--textarea(
+              for="position"
+              :class="{'error' : validation.firstError('review.text')}"
+            )
               span.form__label Отзыв
               textarea.form__textarea#review(name="review" rows="4" placeholder="Введите отзыв" v-model="review.text")
+              .form__text-block-error
+                error-tooltip(
+                  :errorText="validation.firstError('review.text')"
+                )
 
         .form__row.form__row--btns
           .form__col
@@ -54,8 +79,27 @@
 <script>
 import { mapMutations, mapState, mapActions } from 'vuex';
 import { BASE_URL } from "@/helpers/consts";
+import { Validator } from "simple-vue-validator";
 
 export default {
+  mixins: [require("simple-vue-validator").mixin],
+  validators: {
+    "renderedPhotoUrl": value => {
+      return Validator.value(value).required("Загрузите картинку");
+    },
+    "review.author": value => {
+      return Validator.value(value).required("Введите имя");
+    },
+    "review.occ": value => {
+      return Validator.value(value).required("Введите титул");
+    },
+    "review.text": value => {
+      return Validator.value(value).required("Введите отзыв");
+    }
+  },
+  components: {
+    errorTooltip: () => import("components/common/errorTooltip.vue")
+  },
   data() {
     return {
       renderedPhotoUrl: "",
@@ -116,6 +160,7 @@ export default {
     },
 
     async addNewReview() {
+      if ((await this.$validate()) === false) return;
       try {
         const reviewFormData = this.createReviewFormData();
         await this.addReview(reviewFormData);
@@ -131,6 +176,7 @@ export default {
     },
 
     async saveEditedReview() {
+      if ((await this.$validate()) === false) return;
       try {
         const reviewData = {
           id: this.review.id,

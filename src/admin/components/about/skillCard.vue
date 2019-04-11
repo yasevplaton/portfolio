@@ -45,7 +45,7 @@
         span.skill__percent-prefix.skill__percent-prefix--new-skill %
         .skill__input-error
           error-tooltip(
-            :errorText="validation.firstError('skill.title')"
+            :errorText="validation.firstError('skill.percent')"
           )
       button(
         type="button"
