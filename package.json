@@ -44,6 +44,7 @@
     "thread-loader": "^2.1.2",
     "vue-loader": "^15.6.4",
     "vue-template-compiler": "^2.6.7",
+    "webdriverio": "4.13.1",
     "webpack": "^4.29.6",
     "webpack-cli": "^3.2.3",
     "webpack-dev-server": "^3.2.1"
@@ -53,6 +54,7 @@
   ],
   "dependencies": {
     "axios": "^0.18.0",
+    "fs": "^0.0.1-security",
     "normalize.css": "^8.0.1",
     "promptly": "^3.0.3",
     "pug": "^2.0.3",
