@@ -34,7 +34,7 @@
 </template>
 
 <script>
-import { mapActions } from "vuex";
+import { mapActions, mapMutations, mapState } from "vuex";
 import { Validator } from "simple-vue-validator";
 
 export default {
@@ -55,15 +55,27 @@ export default {
   },
   methods: {
     ...mapActions("skillCategories", ['addNewSkillGroup']),
+    ...mapMutations("tooltip", ["SHOW_TOOLTIP"]),
 
     async addSkillCard() {
       if ((await this.$validate()) === false) return;
       try {
         await this.addNewSkillGroup(this.title);
+
+        this['SHOW_TOOLTIP']({
+          type: 'success',
+          text: 'Группа добавлена'
+        });
+
         this.title = "";
         this.$emit('closeNewSkillCard');
       } catch (error) {
-        alert(error.message)
+        console.error(error.message);
+
+        this['SHOW_TOOLTIP']({
+          type: 'error',
+          text: 'Произошла ошибка'
+        });
       }
     }
   }

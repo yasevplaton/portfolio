@@ -32,7 +32,7 @@
 </template>
 
 <script>
-import { mapActions } from 'vuex';
+import { mapActions, mapMutations } from "vuex";
 
 export default {
   props: {
@@ -41,43 +41,54 @@ export default {
   data() {
     return {
       editMode: false,
-      editedSkill: {...this.skill}
-    }
+      editedSkill: { ...this.skill }
+    };
   },
   methods: {
-    ...mapActions('skills', ['removeSkill', 'editSkill']),
+    ...mapActions("skills", ["removeSkill", "editSkill"]),
+    ...mapMutations("tooltip", ["SHOW_TOOLTIP"]),
 
     async removeCurrentSkill() {
       try {
-        
         await this.removeSkill(this.skill.id);
-
+        this["SHOW_TOOLTIP"]({
+          type: "success",
+          text: "Навык удален"
+        });
       } catch (error) {
         console.error(error.message);
+        this["SHOW_TOOLTIP"]({
+          type: "error",
+          text: "Произошла ошибка при удалении навыка"
+        });
       }
-
     },
 
     async editCurrentSkill() {
       try {
-        
         await this.editSkill(this.editedSkill);
+        this["SHOW_TOOLTIP"]({
+          type: "success",
+          text: "Навык обновлен"
+        });
         this.editMode = false;
-
       } catch (error) {
         console.error(error.message);
-      }
 
+        this["SHOW_TOOLTIP"]({
+          type: "error",
+          text: "Произошла ошибка"
+        });
+      }
     }
   }
-}
+};
 </script>
 
 
 <style lang="postcss" scoped>
 @import "../../../styles/mixins.pcss";
 @import "./styles/skill.pcss";
-
 
 .skill__input {
   pointer-events: none;

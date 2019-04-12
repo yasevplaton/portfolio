@@ -1,6 +1,7 @@
 <template lang="pug">
   section.section.about
     .container.about__container
+      // pre {{tooltipState}}
       .heading-row.about__heading-row
         h1.title.about__title Блок "Обо мне"
         button(
@@ -16,6 +17,7 @@
 </template>
 
 <script>
+import { mapState } from 'vuex';
 export default {
   components: {
     skillCards: () => import("components/about/skillCards.vue")

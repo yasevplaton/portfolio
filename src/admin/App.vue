@@ -4,17 +4,19 @@
       admin-header(v-if="userIsLogged")
       admin-nav(v-if="userIsLogged")
       router-view
+    query-tooltip
       
 </template>
 
 <script>
-import { mapGetters } from 'vuex';
+import { mapGetters, mapState } from 'vuex';
 
 export default {
   name: "app",
   components: {
     adminHeader: () => import("components/common/adminHeader.vue"),
-    adminNav: () => import("components/common/adminNav.vue")
+    adminNav: () => import("components/common/adminNav.vue"),
+    queryTooltip: () => import("components/common/queryTooltip.vue")
   },
   computed: {
     ...mapGetters('auth', ['userIsLogged'])

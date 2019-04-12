@@ -54,7 +54,7 @@
 </template>
 
 <script>
-import { mapActions } from "vuex";
+import { mapActions, mapMutations } from "vuex";
 import { Validator } from "simple-vue-validator";
 
 export default {
@@ -96,12 +96,21 @@ export default {
 
     ...mapActions("skillCategories", ['removeSkillGroup', 'editSkillGroup']),
     ...mapActions("skills", ['addSkill']),
+    ...mapMutations('tooltip', ['SHOW_TOOLTIP']),
 
     async removeCurrSkillCard(skillCardId) {
       try {
         await this.removeSkillGroup(skillCardId);
+        this['SHOW_TOOLTIP']({
+          type: 'success',
+          text: 'Группа удалена'
+        });
       } catch (error) {
         console.log(error.message);
+        this['SHOW_TOOLTIP']({
+          type: 'error',
+          text: 'Произошла ошибка'
+        });
       }
     },
 
@@ -109,9 +118,17 @@ export default {
       if ((await this.$validate("editedCategory.category")) === false) return;
       try {
         await this.editSkillGroup(skillCard);
+        this['SHOW_TOOLTIP']({
+          type: 'success',
+          text: 'Группа обновлена'
+        });
         this.editMode = false;
       } catch (error) {
         console.log(error.message);
+        this['SHOW_TOOLTIP']({
+          type: 'error',
+          text: 'Произошла ошибка'
+        });
       }
     },
 
@@ -119,10 +136,18 @@ export default {
       if ((await this.$validate()) === false) return;
       try {
         await this.addSkill(this.skill);
+        this['SHOW_TOOLTIP']({
+          type: 'success',
+          text: 'Навык добавлен'
+        });
         this.skill.title = "";
         this.skill.percent = "";
       } catch (error) {
         console.log(error.message);
+        this['SHOW_TOOLTIP']({
+          type: 'error',
+          text: 'Произошла ошибка'
+        });
       }
     }
 

@@ -35,7 +35,6 @@
 <script>
 import { Validator } from "simple-vue-validator";
 import $axios from "@/requests";
-import loginInput from "./loginInput";
 import { setToken } from "@/helpers/token";
 
 export default {
@@ -58,7 +57,7 @@ export default {
     };
   },
   components: {
-    loginInput
+    loginInput: () => import('./loginInput')
   },
   methods: {
     async login() {

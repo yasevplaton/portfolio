@@ -14,7 +14,7 @@
 </template>
 
 <script>
-import { mapActions, mapState } from "vuex";
+import { mapActions, mapState, mapMutations } from "vuex";
 import $axios from "@/requests";
 
 export default {
@@ -36,6 +36,7 @@ export default {
   methods: {
     ...mapActions("skillCategories", ["fetchCategories"]),
     ...mapActions("skills", ["fetchSkills"]),
+    ...mapMutations('tooltip', ['SHOW_TOOLTIP']),
 
     filterSkillsByCard(skillGroupId) {
       return this.skills.filter(skill => skill.category === skillGroupId);
@@ -44,14 +45,30 @@ export default {
   async created() {
     try {
       await this.fetchCategories();
+      this['SHOW_TOOLTIP']({
+          type: 'success',
+          text: 'Категории загружены'
+      });
     } catch (error) {
       console.log(error.message);
+      this['SHOW_TOOLTIP']({
+          type: 'error',
+          text: 'Произошла ошибка при загрузке категорий'
+      });
     }
 
     try {
       await this.fetchSkills();
+      this['SHOW_TOOLTIP']({
+          type: 'success',
+          text: 'Навыки загружены'
+      });
     } catch (error) {
       console.log(error.message);
+      this['SHOW_TOOLTIP']({
+          type: 'error',
+          text: 'Произошла ошибка при загрузке навыков'
+      });
     }
   }
 };
