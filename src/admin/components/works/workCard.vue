@@ -50,12 +50,21 @@ export default {
   methods: {
     ...mapActions("works", ['removeWork']),
     ...mapMutations("works", ['SHOW_FORM', 'TURN_EDIT_MODE_ON', 'SET_EDITED_WORK']),
+    ...mapMutations('tooltip', ['SHOW_TOOLTIP']),
 
     async removeCurrentWork() {
       try {
         await this.removeWork(this.work.id);
+        this['SHOW_TOOLTIP']({
+          type: 'success',
+          text: 'Работа удалена'
+        });
       } catch (error) {
         console.error(error.message);
+        this['SHOW_TOOLTIP']({
+          type: 'error',
+          text: 'Произошла ошибка'
+        });
       }
     },
 

@@ -18,7 +18,7 @@
 </template>
 
 <script>
-import { mapMutations, mapState, mapActions } from 'vuex';
+import { mapMutations, mapState, mapActions } from "vuex";
 
 export default {
   components: {
@@ -30,24 +30,30 @@ export default {
     })
   },
   methods: {
-    ...mapMutations('reviews', ['SHOW_FORM', 'TURN_EDIT_MODE_OFF']),
-    ...mapActions('reviews', ['fetchReviews']),
+    ...mapMutations("reviews", ["SHOW_FORM", "TURN_EDIT_MODE_OFF"]),
+    ...mapActions("reviews", ["fetchReviews"]),
+    ...mapMutations("tooltip", ["SHOW_TOOLTIP"]),
 
     showFormAndTurnEditModeOff() {
-      this['TURN_EDIT_MODE_OFF']();
-      this['SHOW_FORM']();
+      this["TURN_EDIT_MODE_OFF"]();
+      this["SHOW_FORM"]();
     }
-
   },
 
   async created() {
-
     try {
       await this.fetchReviews();
+      this["SHOW_TOOLTIP"]({
+        type: "success",
+        text: "Отзывы загружены"
+      });
     } catch (error) {
       console.error(error.message);
+      this["SHOW_TOOLTIP"]({
+        type: "error",
+        text: "Произошла ошибка"
+      });
     }
-
   }
 };
 </script>
@@ -57,13 +63,11 @@ export default {
 
 .review-cards__list {
   display: grid;
-  grid-template:
-    "card card card" max-content / 1fr 1fr 1fr;
+  grid-template: "card card card" max-content / 1fr 1fr 1fr;
   grid-gap: 30px;
 
   @include tablets {
-    grid-template:
-    "card card" max-content / 1fr 1fr;
+    grid-template: "card card" max-content / 1fr 1fr;
     grid-gap: 20px;
   }
 

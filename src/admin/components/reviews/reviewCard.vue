@@ -18,7 +18,7 @@
         ).btn.btn--card-edit Править
         button(
           type="button"
-          @click="removeReview(review.id)"
+          @click="removeCurrentReview"
         ).btn.btn--card-remove Удалить
 </template>
 
@@ -38,6 +38,7 @@ export default {
   methods: {
     ...mapActions('reviews', ['removeReview']),
     ...mapMutations('reviews', ['SHOW_FORM', 'TURN_EDIT_MODE_ON', 'SET_EDITED_REVIEW']),
+    ...mapMutations('tooltip', ['SHOW_TOOLTIP']),
 
     showFormAndTurnEditModeOn() {
       this['TURN_EDIT_MODE_ON']();
@@ -51,6 +52,22 @@ export default {
     editReview() {
       this.setEditedReview();
       this.showFormAndTurnEditModeOn();
+    },
+
+    async removeCurrentReview() {
+      try {
+        await this.removeReview(this.review.id);
+        this['SHOW_TOOLTIP']({
+          type: 'success',
+          text: 'Отзыв удален'
+        });
+      } catch (error) {
+        console.error(error.message);
+        this['SHOW_TOOLTIP']({
+          type: 'error',
+          text: 'Произошла ошибка'
+        });
+      }
     }
   }
 };

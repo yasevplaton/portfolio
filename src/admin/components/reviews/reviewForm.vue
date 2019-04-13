@@ -135,6 +135,7 @@ export default {
   methods: {
     ...mapMutations('reviews', ['CLOSE_FORM']),
     ...mapActions('reviews', ['addReview', 'editReview']),
+    ...mapMutations('tooltip', ['SHOW_TOOLTIP']),
 
     appendFileAndRenderPhoto(e) {
       const file = e.target.files[0];
@@ -164,9 +165,17 @@ export default {
       try {
         const reviewFormData = this.createReviewFormData();
         await this.addReview(reviewFormData);
+        this['SHOW_TOOLTIP']({
+          type: 'success',
+          text: 'Отзыв добавлен'
+        });
         this['CLOSE_FORM']();
       } catch (error) {
         console.error(error.message);
+        this['SHOW_TOOLTIP']({
+          type: 'error',
+          text: 'Произошла ошибка'
+        });
       }
     },
 
@@ -183,9 +192,17 @@ export default {
           data: this.createReviewFormData()
         };
         await this.editReview(reviewData);
+        this['SHOW_TOOLTIP']({
+          type: 'success',
+          text: 'Отзыв обновлен'
+        });
         this['CLOSE_FORM']();
       } catch (error) {
         console.error(error.message);
+        this['SHOW_TOOLTIP']({
+          type: 'error',
+          text: 'Произошла ошибка'
+        });
       }
     }
 

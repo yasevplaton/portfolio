@@ -108,7 +108,7 @@ import { Validator } from "simple-vue-validator";
 export default {
   mixins: [require("simple-vue-validator").mixin],
   validators: {
-    "renderedPhotoUrl": value => {
+    renderedPhotoUrl: value => {
       return Validator.value(value).required("Загрузите картинку");
     },
     "work.title": value => {
@@ -120,8 +120,10 @@ export default {
     "work.description": value => {
       return Validator.value(value).required("Введите описание");
     },
-    "editedTagsAsString": value => {
-      return Validator.value(value).required("Работа должна содержать по крайней мере один тег");
+    editedTagsAsString: value => {
+      return Validator.value(value).required(
+        "Работа должна содержать по крайней мере один тег"
+      );
     }
   },
   components: {
@@ -152,12 +154,13 @@ export default {
     },
 
     editedTagsAsString() {
-      return this.editedTags.join(',');
+      return this.editedTags.join(",");
     }
   },
   methods: {
     ...mapActions("works", ["addWork", "editWork"]),
-    ...mapMutations("works", ["CLOSE_FORM", 'ADD_TAGS']),
+    ...mapMutations("works", ["CLOSE_FORM", "ADD_TAGS"]),
+    ...mapMutations("tooltip", ["SHOW_TOOLTIP"]),
 
     appendFileAndRenderPhoto(e) {
       const file = e.target.files[0];
@@ -178,9 +181,17 @@ export default {
       try {
         const workFormData = this.createWorkFormData();
         await this.addWork(workFormData);
+        this["SHOW_TOOLTIP"]({
+          type: "success",
+          text: "Работа добавлена"
+        });
         this["CLOSE_FORM"]();
       } catch (error) {
         console.error(error.message);
+        this["SHOW_TOOLTIP"]({
+          type: "error",
+          text: "Произошла ошибка"
+        });
       }
     },
 
@@ -208,19 +219,25 @@ export default {
     async saveEditedWork() {
       if ((await this.$validate()) === false) return;
       try {
-
         const workData = {
           id: this.work.id,
           data: this.createWorkFormData()
         };
 
         await this.editWork(workData);
-        this['CLOSE_FORM']();
-
+        this['SHOW_TOOLTIP']({
+          type: 'success',
+          text: 'Работа обновлена'
+        });
+        this["CLOSE_FORM"]();
       } catch (error) {
         console.error(error.message);
+        this['SHOW_TOOLTIP']({
+          type: 'error',
+          text: 'Произошла ошибка'
+        });
       }
-    },
+    }
   },
   created() {
     if (this.workForm.editMode) {
