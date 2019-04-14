@@ -1,5 +1,6 @@
 import Vue from "vue";
 import Flickity from "vue-flickity";
+import axios from 'axios';
 
 const review = {
   template: "#review",
@@ -29,10 +30,11 @@ new Vue({
     };
   },
   methods: {
-    makeArrWithRequiredImages(data) {
+    makeArrWithAbsoluteImages(data) {
       return data.map(item => {
-        const requiredPic = require(`../images/content/${item.photoPath}`);
-        item.photoPath = requiredPic;
+        const absolutePic = `https://webdev-api.loftschool.com/${item.photo}`;
+        item.photo = absolutePic;
+
         return item;
       });
     },
@@ -46,7 +48,10 @@ new Vue({
     }
   },
   created() {
-    const data = require("../data/reviews.json");
-    this.reviews = this.makeArrWithRequiredImages(data);
+    axios.get('https://webdev-api.loftschool.com/reviews/111')
+    .then(response => {
+      const data = response.data;
+      this.reviews = this.makeArrWithAbsoluteImages(data);
+    });
   }
 });

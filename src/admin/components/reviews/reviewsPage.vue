@@ -43,7 +43,7 @@ export default {
   background-position: center center, center center;
   background-repeat: repeat, no-repeat;
   background-size: cover, cover;
-  min-height: 100vh;
+  /* min-height: 100vh; */
 }
 
 .reviews__container {
