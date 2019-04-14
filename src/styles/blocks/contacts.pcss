@@ -77,6 +77,20 @@
 .contacts__form-block {
   border-bottom: 1px solid $text-color;
   padding-bottom: 15px;
+  position: relative;
+
+  &.error {
+    .contacts__form-error {
+      display: block;
+    }
+  }
+}
+
+.contacts__form-error {
+  display: none;
+  position: absolute;
+  top: 100%;
+  z-index: 100;
 }
 
 .contacts__form-label {
@@ -151,7 +165,7 @@
   }
 }
 
-.contacts__form-sumbit-btn {
+.contacts__form-submit-btn {
   font-size: 18px;
   font-weight: bold;
   color: #ffffff;

@@ -49,7 +49,7 @@ const info = {
 };
 
 new Vue({
-  el: "#works",
+  el: "#works-root",
   template: "#works-component",
   components: {
     display,

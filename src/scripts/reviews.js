@@ -10,7 +10,7 @@ const review = {
 };
 
 new Vue({
-  el: "#reviews",
+  el: "#reviews-root",
   template: "#reviews-list",
   components: {
     review,

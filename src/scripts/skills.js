@@ -37,7 +37,7 @@ const stackRow = {
 };
 
 new Vue({
-  el: "#skills",
+  el: "#skills-root",
   template: "#skills-template",
   components: {
     stackRow
