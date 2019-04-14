@@ -73,6 +73,24 @@ html(lang="ru")
                       .hamburger-menu__bar2
                       .hamburger-menu__bar3
 
+                  .mobile-menu
+                    button(type="button").mobile-menu__close
+                      +icon('remove', "mobile-menu__close-icon")
+                    .mobile-menu__content
+                      ul.mobile-menu__list
+                        each item, index in navItems
+                          li.mobile-menu__item.mobile-menu__item--header
+                            a(href=`${navAnchors[index]}`).mobile-menu__link #{item}
+                      
+                      .mobile__menu__socials
+                        .socials
+                          ul.socials__list
+                            each item, index in socialItems
+                              li(class=`socials__item socials__item--${item}`)
+                                a(href=`${socialLinks[index]}` aria-label=`${socialAriaLabels[index]}` target="_blank").socials__link
+                                  +icon(item, `socials__icon socials__icon--${item}`)
+
+
               .hero__greeting-block-wrapper
                 h1.hero__greeting-block
                   .hero__greeting-desc
