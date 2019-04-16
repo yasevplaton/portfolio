@@ -1,12 +1,12 @@
 script(type="text/x-template")#works-component
-  section.works
+  section.works#works
     .container.works__container
       .works__content-wrapper
         h2.title.title--works.works__title Мои работы
         .works__content
           .works__slider
             ul.works__slider-list
-              li.works__slider-item
+              li.works__slider-item(v-if="works.length > 0")
                 display(
                   :works="works"
                   :currentWork="currentWork"
@@ -56,12 +56,12 @@ script(type="text/x-template")#thumbs-list
 script(type="text/x-template")#info-component
   .works__desc-block
     techList(
-      :skills="currentWork.skills"
+      :techs="currentWork.techs"
     )
     .works__desc
       h3.works__desc-title {{currentWork.title}}
       .works__desc-text 
-        p {{currentWork.desc}}
+        p {{currentWork.description}}
     a(:href="currentWork.link" target="_blank").works__link Посмотреть сайт
 
 
@@ -69,5 +69,5 @@ script(type="text/x-template")#info-component
 script(type="text/x-template")#tech-list
   ul.works__tech-list
     li.tech.works__tech-item(
-      v-for="(skill, index) in skillsArray" :key="index"
-    ) {{skill}}
+      v-for="(tech, index) in techsArray" :key="index"
+    ) {{tech}}

@@ -6,16 +6,18 @@
   "scripts": {
     "dev": "webpack-dev-server --mode=development --open --hot",
     "build": "rm -rf dist && webpack --mode=production --progress",
-    "reg": "node reg-util.js"
+    "reg": "node reg-util.js",
+    "test": "jest"
   },
   "keywords": [],
   "author": "Platon Yasev",
   "license": "ISC",
   "devDependencies": {
-    "@babel/core": "^7.3.3",
+    "@babel/core": "7.2.2",
     "@babel/plugin-syntax-dynamic-import": "^7.2.0",
     "@babel/polyfill": "^7.4.0",
     "@babel/preset-env": "^7.3.1",
+    "acorn": "^6.0.0",
     "autoprefixer": "^9.4.8",
     "babel-loader": "^8.0.5",
     "cache-loader": "^2.0.1",
@@ -43,6 +45,7 @@
     "thread-loader": "^2.1.2",
     "vue-loader": "^15.6.4",
     "vue-template-compiler": "^2.6.7",
+    "webdriverio": "4.13.1",
     "webpack": "^4.29.6",
     "webpack-cli": "^3.2.3",
     "webpack-dev-server": "^3.2.1"
@@ -52,6 +55,7 @@
   ],
   "dependencies": {
     "axios": "^0.18.0",
+    "fs": "^0.0.1-security",
     "normalize.css": "^8.0.1",
     "promptly": "^3.0.3",
     "pug": "^2.0.3",
@@ -60,6 +64,7 @@
     "simple-vue-validator": "^0.16.0",
     "vue": "^2.6.7",
     "vue-flickity": "^1.1.2",
-    "vue-router": "^3.0.2"
+    "vue-router": "^3.0.2",
+    "vuex": "^3.1.0"
   }
 }

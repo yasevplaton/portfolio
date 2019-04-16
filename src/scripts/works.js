@@ -1,4 +1,5 @@
 import Vue from "vue";
+import axios from 'axios';
 
 const btns = {
   template: "#slider-btns"
@@ -28,11 +29,11 @@ const display = {
 const techList = {
   template: "#tech-list",
   props: {
-    skills: String
+    techs: String
   },
   computed: {
-    skillsArray() {
-      return this.skills.split(',');
+    techsArray() {
+      return this.techs.split(',');
     }
   }
 };
@@ -48,7 +49,7 @@ const info = {
 };
 
 new Vue({
-  el: "#works",
+  el: "#works-root",
   template: "#works-component",
   components: {
     display,
@@ -77,12 +78,10 @@ new Vue({
       if (value < 0) this.currentIndex = worksAmount;
     },
 
-    makeArrWithRequiredImages(data) {
+    makeArrWithAbsoluteImages(data) {
       return data.map(item => {
-        const requiredPic = require(`../images/content/work-previews/${
-          item.photo
-        }`);
-        item.photo = requiredPic;
+        const absolutePic = `https://webdev-api.loftschool.com/${item.photo}`;
+        item.photo = absolutePic;
 
         return item;
       });
@@ -104,7 +103,13 @@ new Vue({
     }
   },
   created() {
-    const data = require("../data/works.json");
-    this.works = this.makeArrWithRequiredImages(data);
+
+    axios.get('https://webdev-api.loftschool.com/works/111')
+    .then(response => {
+      const data = response.data;
+      this.works = this.makeArrWithAbsoluteImages(data);
+    })
+    .catch(error => console.error(error.message));
+
   }
 });

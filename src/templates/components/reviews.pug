@@ -1,5 +1,5 @@
 script(type="text/x-template")#reviews-list
-  section.reviews
+  section.reviews#reviews
     .reviews__slider
       .reviews__heading-row
         h2.title.title--reviews Что обо мне говорят
@@ -8,7 +8,7 @@ script(type="text/x-template")#reviews-list
             +icon('arrow-down', 'arrow arrow--left')
           button(type="button" @click="next()").reviews__btn.reviews__btn--right
             +icon('arrow-down', 'arrow arrow--right')
-      flickity.reviews__list(ref="flickity" :options="flickityOptions")
+      flickity.reviews__list(ref="flickity" :options="flickityOptions" v-if="reviews.length > 0")
         .review.reviews__item.carousel-cell(v-for="review in reviews" :key="review.id")
           review(
             :review="review"
@@ -17,10 +17,10 @@ script(type="text/x-template")#reviews-list
 script(type="text/x-template")#review
   blockquote.review__content-block
     .review__content
-      p {{review.content}}
+      p {{review.text}}
     footer.review__person-info
       .review__img-wrapper
-        img(:src="review.photoPath" alt="Фотография оставившего отзыв").review__img
+        img(:src="review.photo" alt="Фотография оставившего отзыв").review__img
       .review__person-desc
-        cite.review__name {{review.name}}
-        span.review__position {{review.position}}
+        cite.review__name {{review.author}}
+        span.review__position {{review.occ}}

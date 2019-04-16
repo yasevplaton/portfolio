@@ -1,5 +1,5 @@
 script(type="text/x-template")#skills-template
-  section.skills
+  section.skills#skills
     .container.skills__container
       .skills__content-wrapper
         h2.title.title--skills.skills__title Чем я могу быть полезен вам
@@ -10,19 +10,19 @@ script(type="text/x-template")#skills-template
               span.skills__desc LoftSchool. Чуть позже я освежу в нём свой контент. 
               span.skills__desc А пока посмотрите, как тут всё классно и красиво!
             ul.skills__stack-list
-              li.skills__stack-item(v-for="skill in skills" :key="skill.skillsGroup")
+              li.skills__stack-item(v-for="category in categories" :key="category.id")
                 stackRow(
-                  :skill="skill"
+                  :category="category"
+                  :skills="filterSkillsByCategory(category.id)"
                 )
 
 script(type="text/x-template")#stack-row-template
   .stack-row
-    h3.stack-row__title {{skill.skillsGroup}}
+    h3.stack-row__title {{category.category}}
     ul.stack-row__list
-      li.stack-row__item(v-for="(skillPercent, skillName) in skill.skills")
+      li.stack-row__item(v-for="skill in skills" :key="skill.id")
         skill(
-          :skillName="skillName"
-          :skillPercent="skillPercent"
+          :skill="skill"
         )
 
 script(type="text/x-template")#skill-template
@@ -40,4 +40,4 @@ script(type="text/x-template")#skill-template
             stroke="url(#circle-gradient)"
             transform='rotate(180 50 50)'
           )
-      span.skill__title {{skillName}}
+      span.skill__title {{skill.title}}

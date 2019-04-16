@@ -5,6 +5,7 @@
     span.login-input__label {{title}}
     input(
       v-bind="$attrs"
+      :value="value"
       @input="$emit('input', $event.target.value)"
     ).login-input__input
 
@@ -15,7 +16,6 @@
 </template>
 
 <script>
-import errorTooltip from "./errorTooltip";
 
 export default {
   inheritAttrs: false,
@@ -28,7 +28,7 @@ export default {
     value: String | Number
   },
   components: {
-    errorTooltip
+    errorTooltip: () => import("components/common/errorTooltip.vue")
   }
 };
 </script>

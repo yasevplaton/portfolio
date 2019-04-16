@@ -73,6 +73,27 @@ html(lang="ru")
                       .hamburger-menu__bar2
                       .hamburger-menu__bar3
 
+                  .mobile-menu
+
+                    .mobile-menu__cntrls
+                      button(type="button").mobile-menu__close
+                        +icon('remove', "mobile-menu__close-icon")
+
+                    .mobile-menu__content
+                      ul.mobile-menu__list
+                        each item, index in navItems
+                          li.mobile-menu__item
+                            a(href=`${navAnchors[index]}`).mobile-menu__link #{item}
+                      
+                      .mobile__menu__socials
+                        .socials
+                          ul.socials__list
+                            each item, index in socialItems
+                              li(class=`socials__item socials__item--${item}`)
+                                a(href=`${socialLinks[index]}` aria-label=`${socialAriaLabels[index]}` target="_blank").socials__link
+                                  +icon(item, `socials__icon socials__icon--${item}`)
+
+
               .hero__greeting-block-wrapper
                 h1.hero__greeting-block
                   .hero__greeting-desc
@@ -121,11 +142,11 @@ html(lang="ru")
 
 
         //- skills section
-        #skills
+        #skills-root
 
         //- works section
 
-        #works
+        #works-root
 
         //- triangle for reviews-contacts block
         .triangles-reviews-contacts
@@ -153,29 +174,12 @@ html(lang="ru")
           .container
 
             //- reviews-section
-            #reviews
+            #reviews-root
 
             //- contacts section
-            section.contacts#contacts
-              .contacts__content
-                h2.title.title--contacts.contacts__title Связаться со мной
-                form.contacts__form
-                  .contacts__form-row
-                    .contacts__form-col
-                      label.contacts__form-block(for="name")
-                        span.contacts__form-label Введите ваше имя
-                        input.contacts__form-input.contacts__form-input--name#name(type="text" name="name" placeholder="Иванов Иван")
-                    .contacts__form-col
-                      label.contacts__form-block(for="email")
-                        span.contacts__form-label Введите ваш email
-                        input.contacts__form-input.contacts__form-input--email#email(type="text" name="email" placeholder="ivanov@mail.com")
-                  .contacts__form-row.contacts__form-row--last
-                    .contacts__form-col
-                      label.contacts__form-block(for="message")
-                        span.contacts__form-label.contacts__form-label--textarea Сообщение к письму
-                        textarea.contacts__form-textarea#message(name="message" rows="1" placeholder="Хочу красивый и современный сайт. Плачу много!")
-                  .contacts__form-row.contacts__form-row--submit
-                    button(type="submit").contacts__form-sumbit-btn Отправить
+
+            #contacts-root
+            
 
       //- footer
       footer.footer
