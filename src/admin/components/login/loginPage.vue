@@ -1,7 +1,7 @@
 <template lang="pug">
   .login
     .login__content
-      a(href="#").btn.btn--close-login-window
+      a(href="https://yasevplaton.github.io/portfolio/").btn.btn--close-login-window
       h1.login__title Авторизация
       form.login__form(@submit.prevent="login")
         .login__form-row
@@ -51,8 +51,8 @@ export default {
     return {
       disableSubmit: false,
       user: {
-        name: "",
-        password: ""
+        name: "yasevplaton11032019",
+        password: "lsadvanced161094"
       }
     };
   },
