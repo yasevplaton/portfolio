@@ -1,7 +1,7 @@
 script(type="text/x-template")#contacts-component
   section.contacts#contacts
     .contacts__content
-      h2.title.title--contacts.contacts__title Связаться со мной
+      h2.title.title--contacts.contacts__title Contact me
       form.contacts__form(@submit.prevent="sendMessage")
         .contacts__form-row
           .contacts__form-col
@@ -9,7 +9,7 @@ script(type="text/x-template")#contacts-component
               for="name"
               :class="{'error' : validation.firstError('user.name')}"
             )
-              span.contacts__form-label Введите ваше имя
+              span.contacts__form-label your name
               input.contacts__form-input.contacts__form-input--name#name(type="text" name="name" placeholder="Иванов Иван" v-model="user.name")
               .contacts__form-error
                 error-tooltip(
@@ -20,7 +20,7 @@ script(type="text/x-template")#contacts-component
               for="email"
               :class="{'error' : validation.firstError('user.email')}"
             )
-              span.contacts__form-label Введите ваш email
+              span.contacts__form-label your email
               input.contacts__form-input.contacts__form-input--email#email(type="text" name="email" placeholder="ivanov@mail.com" v-model="user.email")
               .contacts__form-error
                 error-tooltip(
@@ -32,11 +32,11 @@ script(type="text/x-template")#contacts-component
               for="message"
               :class="{'error' : validation.firstError('user.message')}"
             )
-              span.contacts__form-label.contacts__form-label--textarea Сообщение к письму
+              span.contacts__form-label.contacts__form-label--textarea your message
               textarea.contacts__form-textarea#message(name="message" rows="1" placeholder="Хочу красивый и современный сайт. Плачу много!" v-model="user.message")
               .contacts__form-error
                 error-tooltip(
                   :errorText="validation.firstError('user.message')"
                 )
         .contacts__form-row.contacts__form-row--submit
-          button(type="submit").contacts__form-submit-btn Отправить
+          button(type="submit").contacts__form-submit-btn Submit

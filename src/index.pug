@@ -44,7 +44,7 @@ html(lang="ru")
 
                 .header__col.header__col--center
 
-                  - var navItems = ["Главная", "Обо мне", "Навыки", "Работы", "Отзывы", "Связаться"];
+                  - var navItems = ["Home", "About me", "Skills", "Projects", "Reviews", "Contacts"];
                   - var navAnchors = ["#hero", "#personal-info", "#skills", "#works", "#reviews", "#contacts"];
 
                   nav.nav
@@ -57,7 +57,7 @@ html(lang="ru")
                   .header__col.header__col--right
 
                     - var socialItems = ['insta', 'vk', 'github'];
-                    - var socialAriaLabels = ['Перейти в Instagram', 'Перейти на ВКонтакте', "Перейти на GitHub"];
+                    - var socialAriaLabels = ['Go to Instagram', 'Go to VK', "Go to GitHub"];
                     - var socialLinks = ['https://www.instagram.com/yasevplaton/', 'https://vk.com/yasevplaton', "https://github.com/yasevplaton"];
 
                     .socials
@@ -97,18 +97,18 @@ html(lang="ru")
               .hero__greeting-block-wrapper
                 h1.hero__greeting-block
                   .hero__greeting-desc
-                    span.hero__greeting-text Личный сайт
-                    span.hero__greeting-text веб-разработчика
+                    span.hero__greeting-text web-developer
+                    //- span.hero__greeting-text personal site
                   .hero__greeting-name
-                    span.title.title--hero.title--hero-name Платон 
-                    span.title.title--hero.title--hero-surname Ясев
+                    span.title.title--hero.title--hero-name Platon 
+                    span.title.title--hero.title--hero-surname Yasev
 
               .hero__btns-block
                 a(href="#personal-info").scroll
-                  span.scroll__text Скролл
+                  span.scroll__text Scroll
 
           //- personal-info section
-          - var personalInfoTableRows = { "Проживаю:": "Москва", "Возраст:": "24 года", "Родился:": "16 октября 1994" }
+          - var personalInfoTableRows = { "Home:": "Moscow", "Age:": "25" }
           section.personal-info#personal-info
             .container.personal-info__container
               .personal-info__content-wrapper
@@ -116,7 +116,7 @@ html(lang="ru")
                   .personal-info__image-table-block
                     .personal-info__image-block
                       .personal-info__image-wrapper
-                        +image("content/avatar.jpg", "personal-info__image", "Фотография разработчика")
+                        +image("content/avatar.jpg", "personal-info__image", "Developer Photo")
                     .personal-info__table-block
                       table.personal-info__table
                         each value, key in personalInfoTableRows
@@ -125,12 +125,10 @@ html(lang="ru")
                             td.personal-info__col.personal-info__col--content #{value}
                   .personal-info__text-block
                     .personal-info__greeting-block
-                      span.personal-info__greeting-title Привет, меня зовут
-                      h2.title.title--personal-info.personal-info__title Платон Ясев
+                      span.personal-info__greeting-title Hello, my name is
+                      h2.title.title--personal-info.personal-info__title Platon Yasev
                     .personal-info__info-text
-                      p Я занимаюсь разработкой современных сайтов и приложений. Мне нравится делать интересные и современные проекты.
-                    .personal-info__info-text--italic
-                      p Этот сайт я сделал в рамках обучения в Школе онлайн образования LoftSchool. Чуть позже я освежу в нём свой контент. А пока посмотрите, как тут всё классно и красиво!
+                      p I am a web developer with strong GIS skills. Love to make beautiful and functional web applications, especially related to data visualization and mapping. Rational perfectionist.
 
         //- triangles
         .triangles-greeting
@@ -186,11 +184,11 @@ html(lang="ru")
         .container.footer__container
           .footer__copyright
             .copyright
-              .copyright__year &copy; 2019
+              .copyright__year &copy; 2020
               .copyright__person-info
-                span.copyright__name Платон Ясев
-                span.copyright__desc Личный сайт 
-                span.copyright__desc веб-разработчика
+                span.copyright__name Platon Yasev
+                span.copyright__desc web-developer 
+                span.copyright__desc personal site
           .footer__content
             .footer__nav
               .nav
@@ -200,7 +198,7 @@ html(lang="ru")
                       a(href=`${navAnchors[index]}`).nav__link #{item}
             .footer__content-data
               .footer__about-me
-                article.footer__text Этот сайт я сделал в рамках обучения в Школе онлайн образования Loftschool
+                //- article.footer__text Этот сайт я сделал в рамках обучения в Школе онлайн образования Loftschool
                 .footer__socials
                   .socials
                     ul.socials__list
@@ -211,7 +209,7 @@ html(lang="ru")
               .footer__quote
                 blockquote.quote
                   .quote__text
-                    p Всегда пишите код так, будто сопровождать его будет склонный к насилию психопат, который знает, где вы живете
+                    p Always code as if the guy who ends up maintaining your code will be a violent psychopath who knows where you live.
                   cite.quote__author Martin Golding  
 
     include ./templates/entry.pug
