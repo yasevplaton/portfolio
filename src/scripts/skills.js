@@ -1,6 +1,17 @@
 import Vue from "vue";
 import axios from "axios";
 
+Vue.directive('scroll', {
+  inserted: function (el, binding) {
+    let f = function (evt) {
+      if (binding.value(evt, el)) {
+        window.removeEventListener('scroll', f)
+      }
+    }
+    window.addEventListener('scroll', f)
+  }
+});
+
 const skill = {
   template: "#skill-template",
 
@@ -17,11 +28,8 @@ const skill = {
       const percent = (dashArray / 100) * (100 - this.skill.percent);
 
       circle.style.strokeDashoffset = percent;
-    }
-  },
 
-  mounted() {
-    this.drawColoredCircle();
+    },
   }
 };
 
@@ -32,8 +40,37 @@ const stackRow = {
   },
   props: {
     category: Object,
-    skills: Array
-  }
+    skills: Array,
+    windowHeight: Number,
+  },
+  computed: {
+    pageYOffset() {
+      return this.getElemPageYOffset();
+    }
+  },
+  methods: {
+    getElemPageYOffset() {
+      const row = this.$refs["stack-row"];
+      return row.getBoundingClientRect().top;
+    },
+
+    handleScroll() {
+      if ((window.scrollY + this.windowHeight) > this.pageYOffset) {
+        this.$children.forEach(child => {
+          child.drawColoredCircle();
+        });
+      } else {
+        console.log("scroll to animation");
+      }
+    }
+  },
+  mounted() {
+    if ((window.scrollY + this.windowHeight) > this.pageYOffset) {
+      this.$children.forEach(child => {
+        child.drawColoredCircle();
+      });
+    }
+  },
 };
 
 new Vue({
@@ -45,13 +82,14 @@ new Vue({
   data() {
     return {
       categories: [],
-      skills: []
+      skills: [],
+      windowHeight: 0
     }
   },
   methods: {
     filterSkillsByCategory(categoryId) {
       return this.skills.filter(skill => skill.category === categoryId);
-    }
+    },
   },
   created() {
     axios.get("https://webdev-api.loftschool.com/categories/111")
@@ -65,5 +103,8 @@ new Vue({
       this.skills = response.data;
     })
     .catch(error => console.error(error));
+  },
+  mounted() {
+    this.windowHeight = document.documentElement.clientHeight;
   }
 });

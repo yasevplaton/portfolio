@@ -12,10 +12,11 @@ script(type="text/x-template")#skills-template
                 stackRow(
                   :category="category"
                   :skills="filterSkillsByCategory(category.id)"
+                  :windowHeight="windowHeight"
                 )
 
 script(type="text/x-template")#stack-row-template
-  .stack-row
+  .stack-row(ref="stack-row" v-scroll="handleScroll")
     h3.stack-row__title {{category.category}}
     ul.stack-row__list
       li.stack-row__item(v-for="skill in skills" :key="skill.id")
@@ -24,7 +25,7 @@ script(type="text/x-template")#stack-row-template
         )
 
 script(type="text/x-template")#skill-template
-  .skill
+  .skill(ref="circle-container")
     .skill__wrapper
       svg.skill__chart(viewBox="0 0 100 100" preserveAspectRatio="none")
         defs
