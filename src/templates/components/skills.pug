@@ -7,21 +7,24 @@ script(type="text/x-template")#skills-template
           .skills__content-charts
             //- .skills__desc-block
             //-   span.skills__desc my stack 
-            ul.skills__stack-list
+            ul.skills__stack-list(
+              v-observe-visibility="{callback: visibilityChanged, throttle: 200, once: true}"
+            )
               li.skills__stack-item(v-for="category in categories" :key="category.id")
                 stackRow(
                   :category="category"
                   :skills="filterSkillsByCategory(category.id)"
-                  :windowHeight="windowHeight"
+                  :showAnimation="showAnimation"
                 )
 
 script(type="text/x-template")#stack-row-template
-  .stack-row(ref="stack-row" v-scroll="handleScroll")
+  .stack-row
     h3.stack-row__title {{category.category}}
     ul.stack-row__list
       li.stack-row__item(v-for="skill in skills" :key="skill.id")
         skill(
           :skill="skill"
+          :showAnimation="showAnimation"
         )
 
 script(type="text/x-template")#skill-template
@@ -38,5 +41,6 @@ script(type="text/x-template")#skill-template
             ref="color-circle"
             stroke="url(#circle-gradient)"
             transform='rotate(180 50 50)'
+            :stroke-dashoffset="offset"
           )
       span.skill__title {{skill.title}}

@@ -1,35 +1,42 @@
 import Vue from "vue";
 import axios from "axios";
-
-Vue.directive('scroll', {
-  inserted: function (el, binding) {
-    let f = function (evt) {
-      if (binding.value(evt, el)) {
-        window.removeEventListener('scroll', f)
-      }
-    }
-    window.addEventListener('scroll', f)
-  }
-});
+import VueObserveVisibility from 'vue-observe-visibility';
+Vue.use(VueObserveVisibility);
 
 const skill = {
   template: "#skill-template",
 
   props: {
-    skill: Object
+    skill: Object,
+    showAnimation: Boolean
+  },
+
+  data() {
+    return {
+      strokeDashOffset: 251
+    }
+  },
+
+  computed: {
+    offset() {
+      return this.showAnimation ? this.strokeDashOffset : 251
+    }
   },
 
   methods: {
-    drawColoredCircle() {
+    getStrokeDashOffset() {
       const circle = this.$refs["color-circle"];
       const dashArray = parseInt(
         getComputedStyle(circle).getPropertyValue("stroke-dasharray")
       );
       const percent = (dashArray / 100) * (100 - this.skill.percent);
 
-      circle.style.strokeDashoffset = percent;
+      return percent;
+    }
+  },
 
-    },
+  mounted() {
+    this.strokeDashOffset = this.getStrokeDashOffset();
   }
 };
 
@@ -41,36 +48,8 @@ const stackRow = {
   props: {
     category: Object,
     skills: Array,
-    windowHeight: Number,
-  },
-  computed: {
-    pageYOffset() {
-      return this.getElemPageYOffset();
-    }
-  },
-  methods: {
-    getElemPageYOffset() {
-      const row = this.$refs["stack-row"];
-      return row.getBoundingClientRect().top;
-    },
-
-    handleScroll() {
-      if ((window.scrollY + this.windowHeight) > this.pageYOffset) {
-        this.$children.forEach(child => {
-          child.drawColoredCircle();
-        });
-      } else {
-        console.log("scroll to animation");
-      }
-    }
-  },
-  mounted() {
-    if ((window.scrollY + this.windowHeight) > this.pageYOffset) {
-      this.$children.forEach(child => {
-        child.drawColoredCircle();
-      });
-    }
-  },
+    showAnimation: Boolean
+  }
 };
 
 new Vue({
@@ -83,28 +62,32 @@ new Vue({
     return {
       categories: [],
       skills: [],
-      windowHeight: 0
-    }
+      showAnimation: false
+    };
   },
   methods: {
     filterSkillsByCategory(categoryId) {
       return this.skills.filter(skill => skill.category === categoryId);
     },
+    
+    visibilityChanged(isVisible, entry) {
+      this.showAnimation = isVisible;
+      console.log(this.showAnimation);
+    }
   },
   created() {
-    axios.get("https://webdev-api.loftschool.com/categories/111")
-    .then(response => {
-      this.categories = response.data;
-    })
-    .catch(error => console.error(error));
+    axios
+      .get("https://webdev-api.loftschool.com/categories/111")
+      .then(response => {
+        this.categories = response.data;
+      })
+      .catch(error => console.error(error));
 
-    axios.get("https://webdev-api.loftschool.com/skills/111")
-    .then(response => {
-      this.skills = response.data;
-    })
-    .catch(error => console.error(error));
-  },
-  mounted() {
-    this.windowHeight = document.documentElement.clientHeight;
+    axios
+      .get("https://webdev-api.loftschool.com/skills/111")
+      .then(response => {
+        this.skills = response.data;
+      })
+      .catch(error => console.error(error));
   }
 });
