@@ -9,7 +9,7 @@ script(type="text/x-template")#contacts-component
             each item, index in socialItems
               li(class=`socials__item socials__item--${item}`)
                 a(href=`${socialLinks[index]}` aria-label=`${socialAriaLabels[index]}` target="_blank").socials__link
-                  +icon(item, `socials__icon socials__icon--${item}`)
+                  +icon(item, `socials__icon socials__icon--${item} socials__icon--contact`)
       //- form.contacts__form(@submit.prevent="sendMessage")
         .contacts__form-row
           .contacts__form-col
