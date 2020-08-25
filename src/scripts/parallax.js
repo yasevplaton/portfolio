@@ -1,53 +1,57 @@
-const greetParallax = document.querySelector(".greeting-parallax");
-const greetLayers = greetParallax.children;
+// const greetParallax = document.querySelector(".greeting-parallax");
+// const greetLayers = greetParallax.children;
 
-const revContParallax = document.querySelector(".rev-cont-parallax");
-const revContLayers = revContParallax.children;
-let revContTop, delta;
+// // const expContParallax = document.querySelector(".exp-cont-parallax");
+// // const expContLayers = expContParallax.children;
+// // let expContTop, delta;
 
-function moveLayers(wScroll, layers) {
-  Array.from(layers).forEach(layer => {
-    const speedCoeff = layer.dataset.speed;
-    const layerOffset = (wScroll * speedCoeff) / 30;
+// function moveLayers(wScroll, layers) {
+//   Array.from(layers).forEach(layer => {
+//     const speedCoeff = layer.dataset.speed;
+//     const layerOffset = (wScroll * speedCoeff) / 30;
 
-    layer.style.transform = `translateY(-${layerOffset}%)`;
-  });
-}
+//     layer.style.transform = `translateY(-${layerOffset}%)`;
+//   });
+// }
 
-window.addEventListener("scroll", e => {
+// window.addEventListener("scroll", e => {
 
-  if (window.innerWidth >= 768) {
+//   if (window.innerWidth >= 768) {
 
-    if (!revContTop) {
-      revContTop = getCoords(revContParallax).top;
-      delta = revContTop - window.innerHeight;
-    }
+//     // if (!expContTop) {
+//     //   expContTop = getCoords(expContParallax).top;
+//     //   delta = expContTop - window.innerHeight;
+//     // }
 
 
-    const wScroll = window.pageYOffset;
-    moveLayers(wScroll, greetLayers);
+//     const wScroll = window.pageYOffset;
+//     moveLayers(wScroll, greetLayers);
 
-    if (wScroll > delta) {
-      const newScroll = wScroll - delta;
-      moveLayers(newScroll, revContLayers);
-    }
-  }
-});
+//     // if (wScroll > delta) {
+//     //   const newScroll = wScroll - delta;
+//     //   moveLayers(newScroll, expContLayers);
+//     // }
+//   }
+// });
 
-function getCoords(elem) {
-  var box = elem.getBoundingClientRect();
+// /*
 
-  var body = document.body;
-  var docEl = document.documentElement;
+// function getCoords(elem) {
+//   var box = elem.getBoundingClientRect();
 
-  var scrollTop = window.pageYOffset || docEl.scrollTop || body.scrollTop;
-  var scrollLeft = window.pageXOffset || docEl.scrollLeft || body.scrollLeft;
+//   var body = document.body;
+//   var docEl = document.documentElement;
 
-  var clientTop = docEl.clientTop || body.clientTop || 0;
-  var clientLeft = docEl.clientLeft || body.clientLeft || 0;
+//   var scrollTop = window.pageYOffset || docEl.scrollTop || body.scrollTop;
+//   var scrollLeft = window.pageXOffset || docEl.scrollLeft || body.scrollLeft;
 
-  var top  = box.top +  scrollTop - clientTop;
-  var left = box.left + scrollLeft - clientLeft;
+//   var clientTop = docEl.clientTop || body.clientTop || 0;
+//   var clientLeft = docEl.clientLeft || body.clientLeft || 0;
 
-  return { top: Math.round(top), left: Math.round(left) };
-}
+//   var top  = box.top +  scrollTop - clientTop;
+//   var left = box.left + scrollLeft - clientLeft;
+
+//   return { top: Math.round(top), left: Math.round(left) };
+// }
+
+// */

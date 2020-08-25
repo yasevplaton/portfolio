@@ -2,11 +2,9 @@ script(type="text/x-template")#skills-template
   section.skills#skills
     .container.skills__container
       .skills__content-wrapper
-        h2.title.title--skills.skills__title My stack
+        h2.title.title--skills.skills__title stack
         .skills__content
           .skills__content-charts
-            //- .skills__desc-block
-            //-   span.skills__desc my stack 
             ul.skills__stack-list(
               v-observe-visibility="{callback: visibilityChanged, throttle: 200, once: true}"
             )

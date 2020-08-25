@@ -1,8 +1,16 @@
 script(type="text/x-template")#contacts-component
   section.contacts#contacts
     .contacts__content
-      h2.title.title--contacts.contacts__title Contact me
-      form.contacts__form(@submit.prevent="sendMessage")
+      h2.title.title--contacts.contacts__title contact me
+      .contacts__links
+
+        .socials
+          ul.socials__list
+            each item, index in socialItems
+              li(class=`socials__item socials__item--${item}`)
+                a(href=`${socialLinks[index]}` aria-label=`${socialAriaLabels[index]}` target="_blank").socials__link
+                  +icon(item, `socials__icon socials__icon--${item}`)
+      //- form.contacts__form(@submit.prevent="sendMessage")
         .contacts__form-row
           .contacts__form-col
             label.contacts__form-block(

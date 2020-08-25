@@ -18,34 +18,34 @@ html(lang="ru")
         .greeting
 
           //- parallax for greeting sections
-          .greeting-parallax
-            .greeting-parallax__layer(data-speed="0.1")
-              +image("parallax/mountain-baloon/layer-0.jpg", "greeting-parallax__image", "Слой для параллакса")
-            .greeting-parallax__layer(data-speed="0.2")
-              +image("parallax/mountain-baloon/layer-1.png", "greeting-parallax__image", "Слой для параллакса")
-            .greeting-parallax__layer(data-speed="0.3")
-              +image("parallax/mountain-baloon/layer-2.png", "greeting-parallax__image", "Слой для параллакса")
-            .greeting-parallax__layer(data-speed="0.4")
-              +image("parallax/mountain-baloon/layer-3.png", "greeting-parallax__image", "Слой для параллакса")
-            .greeting-parallax__layer(data-speed="0.5")
-              +image("parallax/mountain-baloon/layer-4.png", "greeting-parallax__image", "Слой для параллакса")
-            .greeting-parallax__layer(data-speed="0.6")
-              +image("parallax/mountain-baloon/layer-5.png", "greeting-parallax__image", "Слой для параллакса")
-            .greeting-parallax__layer(data-speed="0.7")
-              +image("parallax/mountain-baloon/layer-6.png", "greeting-parallax__image", "Слой для параллакса")
+          //- .greeting-parallax
+          //-   .greeting-parallax__layer(data-speed="0.1")
+          //-     +image("parallax/mountain-baloon/layer-0.jpg", "greeting-parallax__image", "Слой для параллакса")
+          //-   .greeting-parallax__layer(data-speed="0.2")
+          //-     +image("parallax/mountain-baloon/layer-1.png", "greeting-parallax__image", "Слой для параллакса")
+          //-   .greeting-parallax__layer(data-speed="0.3")
+          //-     +image("parallax/mountain-baloon/layer-2.png", "greeting-parallax__image", "Слой для параллакса")
+          //-   .greeting-parallax__layer(data-speed="0.4")
+          //-     +image("parallax/mountain-baloon/layer-3.png", "greeting-parallax__image", "Слой для параллакса")
+          //-   .greeting-parallax__layer(data-speed="0.5")
+          //-     +image("parallax/mountain-baloon/layer-4.png", "greeting-parallax__image", "Слой для параллакса")
+          //-   .greeting-parallax__layer(data-speed="0.6")
+          //-     +image("parallax/mountain-baloon/layer-5.png", "greeting-parallax__image", "Слой для параллакса")
+          //-   .greeting-parallax__layer(data-speed="0.7")
+          //-     +image("parallax/mountain-baloon/layer-6.png", "greeting-parallax__image", "Слой для параллакса")
 
           //- hero section
           section.hero.fullscreen-section#hero
             .container.hero__container
 
               header.header
-                .header__col.header__col--left
-                  span.logo PY
+                //- .header__col.header__col--left
+                //-   span.logo PY
 
                 .header__col.header__col--center
 
-                  - var navItems = ["Home", "About me", "Skills", "Projects", "Reviews", "Contacts"];
-                  - var navAnchors = ["#hero", "#personal-info", "#skills", "#works", "#reviews", "#contacts"];
+                  - var navItems = ["home", "about me", "skills", "projects", "experience", "contacts"];
+                  - var navAnchors = ["#hero", "#personal-info", "#skills", "#works", "#experience", "#contacts"];
 
                   nav.nav
                     ul.nav__list
@@ -56,9 +56,9 @@ html(lang="ru")
 
                   .header__col.header__col--right
 
-                    - var socialItems = ['insta', 'vk', 'github'];
-                    - var socialAriaLabels = ['Go to Instagram', 'Go to VK', "Go to GitHub"];
-                    - var socialLinks = ['https://www.instagram.com/yasevplaton/', 'https://vk.com/yasevplaton', "https://github.com/yasevplaton"];
+                    - var socialItems = ['github', 'insta', 'vk'];
+                    - var socialAriaLabels = ["Go to GitHub", 'Go to Instagram', 'Go to VK'];
+                    - var socialLinks = ["https://github.com/yasevplaton", 'https://www.instagram.com/yasevplaton/', 'https://vk.com/yasevplaton'];
 
                     .socials
                       ul.socials__list
@@ -108,7 +108,7 @@ html(lang="ru")
                   //- span.scroll__text Scroll
 
           //- personal-info section
-          - var personalInfoTableRows = { "Home:": "Moscow", "Age:": "25" }
+          - var personalInfoTableRows = { "home:": "Moscow", "age:": "25" }
           section.personal-info#personal-info
             .container.personal-info__container
               .personal-info__content-wrapper
@@ -128,14 +128,14 @@ html(lang="ru")
                       span.personal-info__greeting-title Hello, my name is
                       h2.title.title--personal-info.personal-info__title Platon Yasev
                     .personal-info__info-text
-                      p I am a web developer with strong GIS skills. Love to make beautiful and functional web applications, especially related to data visualization and mapping. Rational perfectionist.
+                      p I am a web developer with strong GIS skills. Love to make useful and beautiful web applications, especially related to data visualization and mapping. Rational perfectionist.
 
         //- triangles
-        .triangles-greeting
-          svg.triangles-greeting__item.triangles-greeting__item--left(viewBox="0 0 1000 100" preserveAspectRatio="none")
-            polygon(points="0,0 0,100 1000,100")
-          svg.triangles-greeting__item.triangles-greeting__item--right(viewBox="0 0 1000 100" preserveAspectRatio="none")
-            polygon(points="0,100 1000,100 1000,0")
+        //- .triangles-greeting
+        //-   svg.triangles-greeting__item.triangles-greeting__item--left(viewBox="0 0 1000 100" preserveAspectRatio="none")
+        //-     polygon(points="0,0 0,100 1000,100")
+        //-   svg.triangles-greeting__item.triangles-greeting__item--right(viewBox="0 0 1000 100" preserveAspectRatio="none")
+        //-     polygon(points="0,100 1000,100 1000,0")
 
 
 
@@ -146,33 +146,33 @@ html(lang="ru")
 
         #works-root
 
-        //- triangle for reviews-contacts block
-        .triangles-reviews-contacts
-          svg.triangles-reviews-contacts__item(viewBox="0 0 1000 100" preserveAspectRatio="none")
-            polygon(points="0,0 500,100 1000,0")
+        //- triangle for experience-contacts block
+        //- .triangles-reviews-contacts
+        //-   svg.triangles-reviews-contacts__item(viewBox="0 0 1000 100" preserveAspectRatio="none")
+        //-     polygon(points="0,0 500,100 1000,0")
 
 
-        .reviews-contacts-block
+        .experience-contacts-block
 
-          .rev-cont-parallax
-            .rev-cont-parallax__layer(data-speed="0.1")
-              +image("parallax/budda/layer-1.jpg", "rev-cont-parallax__image", "Слой для параллакса")
-            .rev-cont-parallax__layer(data-speed="0.3")
-              +image("parallax/budda/layer-2.png", "rev-cont-parallax__image", "Слой для параллакса")
-            .rev-cont-parallax__layer(data-speed="0.4")
-              +image("parallax/budda/layer-3.png", "rev-cont-parallax__image", "Слой для параллакса")
-            .rev-cont-parallax__layer(data-speed="0.7")
-              +image("parallax/budda/layer-4.png", "rev-cont-parallax__image", "Слой для параллакса")
-            .rev-cont-parallax__layer(data-speed="0.7")
-              +image("parallax/budda/layer-5.png", "rev-cont-parallax__image", "Слой для параллакса")
-            .rev-cont-parallax__layer(data-speed="0.7")
-              +image("parallax/budda/layer-6.png", "rev-cont-parallax__image", "Слой для параллакса")
+          //- .exp-cont-parallax
+          //-   .exp-cont-parallax__layer(data-speed="0.1")
+          //-     +image("parallax/budda/layer-1.jpg", "exp-cont-parallax__image", "Слой для параллакса")
+          //-   .exp-cont-parallax__layer(data-speed="0.3")
+          //-     +image("parallax/budda/layer-2.png", "exp-cont-parallax__image", "Слой для параллакса")
+          //-   .exp-cont-parallax__layer(data-speed="0.4")
+          //-     +image("parallax/budda/layer-3.png", "exp-cont-parallax__image", "Слой для параллакса")
+          //-   .exp-cont-parallax__layer(data-speed="0.7")
+          //-     +image("parallax/budda/layer-4.png", "exp-cont-parallax__image", "Слой для параллакса")
+          //-   .exp-cont-parallax__layer(data-speed="0.7")
+          //-     +image("parallax/budda/layer-5.png", "exp-cont-parallax__image", "Слой для параллакса")
+          //-   .exp-cont-parallax__layer(data-speed="0.7")
+          //-     +image("parallax/budda/layer-6.png", "exp-cont-parallax__image", "Слой для параллакса")
 
 
           .container
 
-            //- reviews-section
-            #reviews-root
+            //- experience-section
+            #experience-root
 
             //- contacts section
 

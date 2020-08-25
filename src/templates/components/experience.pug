@@ -1,0 +1,26 @@
+script(type="text/x-template")#experience-list
+  section.experience#experience
+    .experience__slider
+      .experience__heading-row
+        h2.title.title--experience experience
+      //-   .experience__arrows
+      //-     button(type="button" @click="previous()").experience__btn.experience__btn--left
+      //-       +icon('arrow-down', 'arrow arrow--left')
+      //-     button(type="button" @click="next()").experience__btn.experience__btn--right
+      //-       +icon('arrow-down', 'arrow arrow--right')
+      //- flickity.experience__list(ref="flickity" :options="flickityOptions" v-if="experience.length > 0")
+      //-   .review.experience__item.carousel-cell(v-for="exp in experience" :key="exp.id")
+      //-     exp(
+      //-       :exp="exp"
+      //-     )
+
+//- script(type="text/x-template")#exp
+//-   blockquote.exp__content-block
+//-     .exp__content
+//-       p {{exp.text}}
+//-     footer.exp__person-info
+//-       .exp__img-wrapper
+//-         img(:src="exp.photo" alt="Фотография оставившего отзыв").exp__img
+//-       .exp__person-desc
+//-         cite.exp__name {{exp.author}}
+//-         span.exp__position {{exp.occ}}
